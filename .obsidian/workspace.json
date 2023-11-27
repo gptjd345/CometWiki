@@ -146,8 +146,10 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "f30addaaba2313a7",
+  "active": "4d34f674f28af088",
   "lastOpenFiles": [
+    "DB",
+    "CS",
     "옵시디언 플러그인/git.md",
     "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
     "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md",
