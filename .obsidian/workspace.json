@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
+                "file": "CS/OS/Linux.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
+                "file": "CS/OS/Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
+                "file": "CS/OS/Linux.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md"
+                "file": "CS/OS/Linux.md"
               }
             }
           }
@@ -146,12 +146,18 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "4d34f674f28af088",
+  "active": "f30addaaba2313a7",
   "lastOpenFiles": [
+    "CS/OS/UNIX.md",
+    "DB/Oracle/Query/LAG() 함수.md",
+    "CS/OS/Linux.md",
+    "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
+    "DB/Oracle/Query",
+    "DB/Oracle",
+    "CS/OS",
     "DB",
     "CS",
     "옵시디언 플러그인/git.md",
-    "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
     "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md",
     "옵시디언 플러그인",
     "엑셀"
