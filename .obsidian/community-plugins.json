@@ -1,3 +1,11 @@
 [
-  "obsidian-git"
+  "obsidian-git",
+  "highlightr-plugin",
+  "cm-editor-syntax-highlight-obsidian",
+  "table-editor-obsidian",
+  "calendar",
+  "obsidian-tasks-plugin",
+  "file-explorer-note-count",
+  "better-word-count",
+  "obsidian-emoji-toolbar"
 ]
