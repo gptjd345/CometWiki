@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "옵시디언 플러그인/git.md",
+                "file": "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "옵시디언 플러그인/git.md",
+                "file": "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "옵시디언 플러그인/git.md",
+                "file": "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "옵시디언 플러그인/git.md"
+                "file": "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md"
               }
             }
           }
@@ -148,10 +148,10 @@
   },
   "active": "f30addaaba2313a7",
   "lastOpenFiles": [
-    "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md",
     "옵시디언 플러그인/git.md",
-    "옵시디언 플러그인",
     "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
+    "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md",
+    "옵시디언 플러그인",
     "엑셀"
   ]
 }
