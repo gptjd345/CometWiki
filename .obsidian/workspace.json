@@ -1,0 +1,157 @@
+{
+  "main": {
+    "id": "6c28d5959aaf6e55",
+    "type": "split",
+    "children": [
+      {
+        "id": "ebd085bd285f9ec6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f30addaaba2313a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "옵시디언 플러그인/git.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "284c14f2e1381c4d",
+    "type": "split",
+    "children": [
+      {
+        "id": "9d954c48a07ff474",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4d34f674f28af088",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fb03e336534186dd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9871fbd3fbccf5d1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a84b64acc4327393",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f2a6db13a92c06e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cc1207309e4dd8d9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "옵시디언 플러그인/git.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2f41e9e511e18714",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "옵시디언 플러그인/git.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f2845abdb4637974",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "6984ea4e66bbc13a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "옵시디언 플러그인/git.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:퀵 스위처 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 데일리 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false
+    }
+  },
+  "active": "f30addaaba2313a7",
+  "lastOpenFiles": [
+    "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md",
+    "옵시디언 플러그인/git.md",
+    "옵시디언 플러그인",
+    "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
+    "엑셀"
+  ]
+}
