@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS/OS/Linux.md",
+                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CS/OS/Linux.md",
+                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CS/OS/Linux.md",
+                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,8 +125,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CS/OS/Linux.md"
+                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md"
               }
+            }
+          },
+          {
+            "id": "19a6db48e4aa0283",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
             }
           }
         ]
@@ -143,13 +151,27 @@
       "canvas:새 캔버스 만들기": false,
       "daily-notes:오늘의 데일리 노트 열기": false,
       "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false
+      "command-palette:명령어 팔레트 열기": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
   "active": "f30addaaba2313a7",
   "lastOpenFiles": [
-    "CS/OS/UNIX.md",
+    "Java/입출력스트림.md",
+    "Java/Blocking Method & Non Blocking Method.md",
+    "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+    "문제상황해결/무제 파일 1.md",
+    "문제상황해결/무제 파일.md",
+    "Temp/공부.md",
+    "Temp/임시.md",
+    "Temp/문제상황해결.md",
+    "Java",
+    "Temp",
+    "단축키/Window 단축키.md",
+    "단축키/아이패드 단축키.md",
     "CS/OS/Linux.md",
+    "문제상황해결",
+    "CS/OS/UNIX.md",
     "DB/Oracle/Query/LAG() 함수.md",
     "스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
     "DB/Oracle/Query",
