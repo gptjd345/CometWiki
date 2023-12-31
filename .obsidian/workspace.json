@@ -11,9 +11,11 @@
             "id": "f30addaaba2313a7",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Pasted image 20231231150643.png"
+                "file": "네트워크/소켓의 의미.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pasted image 20231231150643.png",
+                "file": "네트워크/소켓의 의미.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pasted image 20231231150643.png",
+                "file": "네트워크/소켓의 의미.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pasted image 20231231150643.png"
+                "file": "네트워크/소켓의 의미.md"
               }
             }
           },
@@ -153,10 +155,11 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4d34f674f28af088",
+  "active": "f30addaaba2313a7",
   "lastOpenFiles": [
+    "그림1. 소켓의 의미_소켓_개념.png.png",
     "네트워크/소켓의 의미.md",
-    "Pasted image 20231231150643.png",
+    "그림1. 소켓의 의미_소켓_개념.png",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
     "screenshot.png",
     "2023-12-31.md",
