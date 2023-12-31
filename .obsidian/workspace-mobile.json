@@ -11,8 +11,12 @@
             "id": "925701d0cbe645ec",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,7 +113,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md"
+          }
         }
       },
       {
@@ -134,12 +142,20 @@
   },
   "active": "925701d0cbe645ec",
   "lastOpenFiles": [
+    "단축키/아이패드 단축키.md",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+    "Java/Blocking Method & Non Blocking Method.md",
+    "Java/입출력스트림.md",
+    "Java",
+    "단축키/Window 단축키.md",
+    "Temp/공부.md",
+    "Temp/문제상황해결.md",
+    "Temp/임시.md",
+    "Temp",
+    "CS/OS/UNIX.md",
     "CS/OS/Linux.md",
     "문제상황해결",
-    "단축키/아이패드 단축키.md",
     "단축키",
-    "CS/OS/UNIX.md",
     "Project/스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
     "screenshot.png",
     "Project",
@@ -150,8 +166,6 @@
     "DB/Oracle",
     "DB",
     "옵시디언 플러그인/git.md",
-    "옵시디언 플러그인",
-    "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md",
-    "엑셀"
+    "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md"
   ]
 }
