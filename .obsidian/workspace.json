@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+                "file": "네트워크/소켓의 의미.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+                "file": "네트워크/소켓의 의미.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+                "file": "네트워크/소켓의 의미.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md"
+                "file": "네트워크/소켓의 의미.md"
               }
             }
           },
@@ -157,9 +157,14 @@
   },
   "active": "f30addaaba2313a7",
   "lastOpenFiles": [
+    "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+    "네트워크/소켓의 의미.md",
+    "screenshot.png",
+    "2023-12-31.md",
+    "무제 파일.canvas",
+    "네트워크",
     "Java/입출력스트림.md",
     "Java/Blocking Method & Non Blocking Method.md",
-    "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
     "문제상황해결/무제 파일 1.md",
     "문제상황해결/무제 파일.md",
     "Temp/공부.md",
@@ -181,7 +186,6 @@
     "CS",
     "옵시디언 플러그인/git.md",
     "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md",
-    "옵시디언 플러그인",
-    "엑셀"
+    "옵시디언 플러그인"
   ]
 }
