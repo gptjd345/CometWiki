@@ -63,8 +63,7 @@ public class CommonServiceImpl {
 ~~~
 
 
-바꾼 이유
-차이점 서술할것 
+>[!question]
 
 
 
