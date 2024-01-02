@@ -23,7 +23,7 @@ public class IOTaskExecutorCOnfig {
 ~~~java
 @Service
 public class CommonServiceImpl {
-	private final TastExecutor taskExcutor;
+	private final TaskExecutor taskExcutor;
 
 	public CommonServiceImpl(@Qualifier(“iOTaskExecutor”) ThreadPoolTaskExecutor taskExecutor) {
 		this.taskExecutor = taskExecutor;
@@ -47,11 +47,15 @@ public class CommonServiceImpl {
 	try{
 		String result = completableFuture.get(60, TimeUnit.SECONDS);
 		return result;
-	}catch{
-	  // 이하 로직 동일 
-	}
-	
-	}
+	} catch (InterruptedException e) {
+		Thread.currentThread().interrpt();
+	} catch (ExcutionException e) {
+		LOGGER.info(“######### ExecutionException : {} #######”,e.getCause());
+	} catch (TimeoutException e) {
+		completableFuture.cancel(true);
+		LOGGER.info(“######### Timeout 으로 쓰레드 종료 #########“);
+	} 
+	return result;
 
 }
 
