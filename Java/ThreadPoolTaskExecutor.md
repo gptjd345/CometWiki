@@ -55,12 +55,14 @@ public class CommonServiceImpl {
 		completableFuture.cancel(true);
 		LOGGER.info(“######### Timeout 으로 쓰레드 종료 #########“);
 	} 
-	return result;
+	return null;
 
 }
 
 
 ~~~
+
+
 바꾼 이유
 차이점 서술할것 
 
