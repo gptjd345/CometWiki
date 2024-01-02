@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+                "file": "Java/ThreadPoolTaskExecutor.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+            "file": "Java/ThreadPoolTaskExecutor.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+            "file": "Java/ThreadPoolTaskExecutor.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md"
+            "file": "Java/ThreadPoolTaskExecutor.md"
           }
         }
       },
@@ -142,10 +142,14 @@
   },
   "active": "925701d0cbe645ec",
   "lastOpenFiles": [
-    "단축키/아이패드 단축키.md",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
-    "Java/Blocking Method & Non Blocking Method.md",
+    "Java/ThreadPoolTaskExecutor.md",
     "Java/입출력스트림.md",
+    "네트워크_소켓의 의미.png",
+    "네트워크/소켓의 의미.md",
+    "네트워크",
+    "단축키/아이패드 단축키.md",
+    "Java/Blocking Method & Non Blocking Method.md",
     "Java",
     "단축키/Window 단축키.md",
     "Temp/공부.md",
@@ -164,7 +168,6 @@
     "DB/Oracle/Query/LAG() 함수.md",
     "DB/Oracle/Query",
     "DB/Oracle",
-    "DB",
     "옵시디언 플러그인/git.md",
     "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md"
   ]
