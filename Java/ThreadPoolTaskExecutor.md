@@ -63,10 +63,23 @@ public class CommonServiceImpl {
 ~~~
 
 
->[!question] Executor vs TaskExecutor 
->
->
+#### Executor vs TaskExecutor 
+java.util.concurrent.Executor 를 스프링 프레임워크에서 동일하게 따서 만든 인터페이스가 org.springframework.core.task.TaskExecutor 이다. 실제로 구현 내용을 보면 다음과 같다.
 
+```java
+package org.springframework.core.task;  
+  
+import java.util.concurrent.Executor;  
+  
+@FunctionalInterface  
+public interface TaskExecutor extends Executor {  
+    void execute(Runnable var1);  
+}
+
+```
+
+스프링 프레임워크에서 기존에 존재하는 Executor를 그대로 따서 TaskExecutor를 만든 이
+유는 스프링에서 쓰레드 풀을 사용해야하는 경우 java 라이브러리의  필요성을 추상화하기 위해서 
 
 
 ### 주제
