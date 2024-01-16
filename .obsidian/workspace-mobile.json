@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/ThreadPoolTaskExecutor.md",
+                "file": "JavaScript/웹페이지 렌더링 순서.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Java/ThreadPoolTaskExecutor.md",
+            "file": "JavaScript/웹페이지 렌더링 순서.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Java/ThreadPoolTaskExecutor.md",
+            "file": "JavaScript/웹페이지 렌더링 순서.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Java/ThreadPoolTaskExecutor.md"
+            "file": "JavaScript/웹페이지 렌더링 순서.md"
           }
         }
       },
@@ -125,9 +125,25 @@
           "type": "calendar",
           "state": {}
         }
+      },
+      {
+        "id": "85ec68dd3cf77954",
+        "type": "leaf",
+        "state": {
+          "type": "mermaid-toolbar-view",
+          "state": {}
+        }
+      },
+      {
+        "id": "0fd9e008717c1fe6",
+        "type": "leaf",
+        "state": {
+          "type": "advanced-tables-toolbar",
+          "state": {}
+        }
       }
     ],
-    "currentTab": 0
+    "currentTab": 5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -137,13 +153,27 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
   "active": "925701d0cbe645ec",
   "lastOpenFiles": [
+    "아키텍처/Spring 의 구동원리.md",
+    "JavaScript/웹페이지 렌더링 순서.md",
+    "문제상황해결/컨트롤러 요청 처리시 현재 처리상태 확인 하고 진행하도록 수정.md",
+    "JavaScript",
+    "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md",
+    "옵시디언 플러그인/git.md",
+    "CS/OS/Linux.md",
+    "screenshot.png",
+    "Java/Enum 에 대한 이해.md",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+    "아키텍처/키움페이 구조.md",
+    "단위테스트/Untitled.md",
+    "아키텍처",
     "Java/ThreadPoolTaskExecutor.md",
+    "단위테스트",
     "Java/입출력스트림.md",
     "네트워크_소켓의 의미.png",
     "네트워크/소켓의 의미.md",
@@ -157,18 +187,11 @@
     "Temp/임시.md",
     "Temp",
     "CS/OS/UNIX.md",
-    "CS/OS/Linux.md",
     "문제상황해결",
     "단축키",
     "Project/스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
-    "screenshot.png",
     "Project",
     "CS/OS",
-    "CS",
-    "DB/Oracle/Query/LAG() 함수.md",
-    "DB/Oracle/Query",
-    "DB/Oracle",
-    "옵시디언 플러그인/git.md",
-    "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md"
+    "DB/Oracle/Query/LAG() 함수.md"
   ]
 }
