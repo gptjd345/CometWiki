@@ -63,26 +63,27 @@ classDiagram
 title: Airport 
 ---
 classDiagram
-    class Animal
-    Animal : + String name
-    Animal : + sex
-    Animal : + age
-    Animal : + weight
-    Animal : - color 
-    Animal : + breath()
-    Animal : + eat(food)
-    Animal : + run(destination)
-    Animal : + sleep(hours)
+    class Airport
+    Airport : ...
+    Airport : + accept(vehicle: FlyingTransport)
+    
+	interface FlyingTransport
+	FlyingTransport : + fly(origin,destination,passengers) 
 
-	class Cat
-	Cat : - bool isNasty 
-	Cat : + meow()
+	class Helicopter
+    Airport : ...
+    Airport : + fly(origin,destination,passengers)
+    
+    class Airplane
+    Airport : ...
+    Airport : + fly(origin,destination,passengers)
+    
+    class DomesticatedGryphon
+    Airport : ...
+    Airport : + fly(origin,destination,passengers)
 
-	class Dog
-	Dog : - Human bestFriend 
-	Dog : + bark()
-
-	Animal <|-- Cat
-	Animal <|-- Dog
+    FlyingTransport <|.. Helicopter
+	FlyingTransport <|.. Airplane
+	FlyingTransport <|.. DomesticatedGryphon
     
 ```
