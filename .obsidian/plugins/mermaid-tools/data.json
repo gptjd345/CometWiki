@@ -579,8 +579,8 @@
     {
       "id": "d8c14d1d-73d4-44b5-a4d3-fd4f8f21132f",
       "category": "ClassDiagram",
-      "description": "sample class",
-      "content": "class Duck{\n            +String beakColor\n            +swim()\n            +quack()\n        }",
+      "description": "Bank class_by_hyeseong",
+      "content": "```mermaid\n---\ntitle: Bank example\n---\nclassDiagram\n    class BankAccount\n    BankAccount : +String owner\n    BankAccount : +Bigdecimal balance\n    BankAccount : +deposit(amount)\n    BankAccount : +withdrawal(amount)\n```",
       "sortingOrder": 1,
       "isPinned": false
     },
@@ -686,6 +686,14 @@
       "description": "sample class diagram",
       "content": "classDiagram\n        Animal <|-- Duck\n        Animal <|-- Fish\n        Animal <|-- Zebra\n        Animal : +int age\n        Animal : +String gender\n        Animal: +isMammal()\n        Animal: +mate()\n        class Duck{\n            +String beakColor\n            +swim()\n            +quack()\n        }\n        class Fish{\n            -int sizeInFeet\n            -canEat()\n        }\n        class Zebra{\n            +bool is_wild\n            +run()\n        }",
       "sortingOrder": 83,
+      "isPinned": false
+    },
+    {
+      "id": "936a383a-f6f5-4246-aa6e-a46d6e5471e2",
+      "category": "ClassDiagram",
+      "description": "example_by_hyeseong (copy)",
+      "content": "```mermaid\n---\ntitle: Bank example\n---\nclassDiagram\n    class BankAccount\n    BankAccount : +String owner\n    BankAccount : +Bigdecimal balance\n    BankAccount : +deposit(amount)\n    BankAccount : +withdrawal(amount)\n```",
+      "sortingOrder": 84,
       "isPinned": false
     }
   ],

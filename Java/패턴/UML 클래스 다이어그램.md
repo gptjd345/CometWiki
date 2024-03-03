@@ -1,27 +1,21 @@
 
 ```mermaid
 ---
-title: Bank example
+title: Cat 객체 
 ---
 classDiagram
-    class BankAccount
-    BankAccount : +String owner
-    BankAccount : +Bigdecimal balance
-    BankAccount : +deposit(amount)
-    BankAccount : +withdrawal(amount)
+    class Cat
+    Cat : + String name
+    Cat : + gender
+    Cat : + age
+    Cat : + weight
+    Cat : - color 
+    Cat : + breath()
+    Cat : + eat(food)
+    Cat : + run(destination)
+    Cat : + sleep(hours)
+    Cat : - meow()
 ```
-
-
-
-
-```mermaid
-class BankAccount
-    BankAccount : +String owner
-    BankAccount : +Bigdecimal balance
-    BankAccount : +deposit(amount)
-    BankAccount : +withdrawal(amount)
-```
-
 
 
 

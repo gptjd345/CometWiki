@@ -146,7 +146,7 @@
             }
           },
           {
-            "id": "9b0318e51ed132ba",
+            "id": "29da90876229e9fa",
             "type": "leaf",
             "state": {
               "type": "mermaid-toolbar-view",
@@ -154,11 +154,11 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 369.5
+    "width": 284.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -172,7 +172,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "2f41e9e511e18714",
+  "active": "29da90876229e9fa",
   "lastOpenFiles": [
     "Java/입출력스트림.md",
     "Java/패턴/UML 클래스 다이어그램.md",
