@@ -26,4 +26,31 @@ classDiagram
 >'-'  : 비공개
 
 
+```mermaid
+---
+title: Animal 
+---
+classDiagram
+    class Animal
+    Animal : + String name
+    Animal : + sex
+    Animal : + age
+    Animal : + weight
+    Animal : - color 
+    Animal : + breath()
+    Animal : + eat(food)
+    Animal : + run(destination)
+    Animal : + sleep(hours)
 
+	class Cat
+	Cat : - bool isNasty 
+	Cat : + meow()
+
+	class Dog
+	Dog : - Human bestFriend 
+	Dog : + bark()
+
+	Animal <|-- Car
+	Animal <|-- Dog
+    
+```
