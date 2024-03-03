@@ -65,25 +65,30 @@ title: Airport
 classDiagram
     class Airport
     Airport : ...
-    Airport : + accept(vehicle: FlyingTransport)
+    Airport : + accept(FlyingTransport)
     
 	interface FlyingTransport
 	FlyingTransport : + fly(origin,destination,passengers) 
 
 	class Helicopter
-    Airport : ...
-    Airport : + fly(origin,destination,passengers)
+    Helicopter : ...
+    Helicopter : + fly(origin,destination,passengers)
     
     class Airplane
-    Airport : ...
-    Airport : + fly(origin,destination,passengers)
+    Airplane : ...
+    Airplane : + fly(origin,destination,passengers)
     
     class DomesticatedGryphon
-    Airport : ...
-    Airport : + fly(origin,destination,passengers)
+    DomesticatedGryphon : ...
+    DomesticatedGryphon : + fly(origin,destination,passengers)
 
+	Airport --> FlyingTransport
     FlyingTransport <|.. Helicopter
 	FlyingTransport <|.. Airplane
 	FlyingTransport <|.. DomesticatedGryphon
     
 ```
+
+
+* 빈 삼각형 머리와 점선이 있는 화살표는 클래스들이 인터페이스를 구현함을 나타낸다.
+* 삼각형이 없는 실선화살표(간단한 화살표)는 한 클래스가 다른 클래스에 의존함을 나타낸다.
