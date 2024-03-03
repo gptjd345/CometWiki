@@ -145,110 +145,6 @@
       "isPinned": false
     },
     {
-      "id": "d8c14d1d-73d4-44b5-a4d3-fd4f8f21132f",
-      "category": "ClassDiagram",
-      "description": "sample class",
-      "content": "class Duck{\n            +String beakColor\n            +swim()\n            +quack()\n        }",
-      "sortingOrder": 0,
-      "isPinned": false
-    },
-    {
-      "id": "06cb8e3a-3542-440e-8abc-e8407a7fa168",
-      "category": "ClassDiagram",
-      "description": "sample class",
-      "content": "class BankAccount\n        BankAccount : +String owner\n        BankAccount : +Bigdecimal balance\n        BankAccount : +deposit(amount)\n        BankAccount : +withdrawal(amount)",
-      "sortingOrder": 1,
-      "isPinned": false
-    },
-    {
-      "id": "bc85369c-4c1b-449f-8e39-612d415ede14",
-      "category": "ClassDiagram",
-      "description": "generic class",
-      "content": "class Square~Shape~{\n            int id\n            List~int~ position\n            setPoints(List~int~ points)\n            getPoints() List~int~\n        }\n        \n        Square : -List~string~ messages\n        Square : +setMessages(List~string~ messages)\n        Square : +getMessages() List~string~",
-      "sortingOrder": 2,
-      "isPinned": false
-    },
-    {
-      "id": "d9b79b4f-1a8d-450f-b94b-cccd3e248295",
-      "category": "ClassDiagram",
-      "description": "inheritance",
-      "content": "classA <|-- classB",
-      "sortingOrder": 3,
-      "isPinned": false
-    },
-    {
-      "id": "f87e847e-2af6-43c4-ab62-56f1d20f52ea",
-      "category": "ClassDiagram",
-      "description": "composition",
-      "content": "classC *-- classD",
-      "sortingOrder": 4,
-      "isPinned": false
-    },
-    {
-      "id": "3e762619-35f9-4253-ba71-414ee47bbe44",
-      "category": "ClassDiagram",
-      "description": "aggregation",
-      "content": "classE o-- classF",
-      "sortingOrder": 5,
-      "isPinned": false
-    },
-    {
-      "id": "178d2815-e3bf-4f75-90b4-8a8638bf3137",
-      "category": "ClassDiagram",
-      "description": "association",
-      "content": "classG <-- classH",
-      "sortingOrder": 6,
-      "isPinned": false
-    },
-    {
-      "id": "ddfa9aba-9ada-4a9f-9fa1-ee0675b5beb0",
-      "category": "ClassDiagram",
-      "description": "solid link",
-      "content": "classI -- classJ",
-      "sortingOrder": 7,
-      "isPinned": false
-    },
-    {
-      "id": "26f6ead6-e0cb-44c2-97e8-fa38463aa9d6",
-      "category": "ClassDiagram",
-      "description": "dependency",
-      "content": "classK <.. classL",
-      "sortingOrder": 8,
-      "isPinned": false
-    },
-    {
-      "id": "3d740b36-113c-4649-a420-b0f1a925642e",
-      "category": "ClassDiagram",
-      "description": "realization",
-      "content": "classM <|.. classN",
-      "sortingOrder": 9,
-      "isPinned": false
-    },
-    {
-      "id": "9092f404-de37-4e22-9ac8-ee260f93f53f",
-      "category": "ClassDiagram",
-      "description": "dashed link",
-      "content": "classO .. classP",
-      "sortingOrder": 10,
-      "isPinned": false
-    },
-    {
-      "id": "48b29911-09d7-49cc-95e0-7f7959db3c92",
-      "category": "ClassDiagram",
-      "description": "two-way relation",
-      "content": "Animal <|--|> Zebra",
-      "sortingOrder": 11,
-      "isPinned": false
-    },
-    {
-      "id": "a458d135-1a53-4ee4-ba44-7039679615a0",
-      "category": "ClassDiagram",
-      "description": "sample class diagram",
-      "content": "classDiagram\n        Animal <|-- Duck\n        Animal <|-- Fish\n        Animal <|-- Zebra\n        Animal : +int age\n        Animal : +String gender\n        Animal: +isMammal()\n        Animal: +mate()\n        class Duck{\n            +String beakColor\n            +swim()\n            +quack()\n        }\n        class Fish{\n            -int sizeInFeet\n            -canEat()\n        }\n        class Zebra{\n            +bool is_wild\n            +run()\n        }",
-      "sortingOrder": 12,
-      "isPinned": false
-    },
-    {
       "id": "0fc2d0d1-da33-468d-8c46-1dd03652c98f",
       "category": "StateDiagram",
       "description": "a sample state diagram",
@@ -678,6 +574,118 @@
       "description": "sample C4 diagram (compatible with PlantUML)",
       "content": "C4Context\n\t\ttitle System Context diagram for Internet Banking System\n\t\tEnterprise_Boundary(b0, \"BankBoundary0\") {\n\t\t  Person(customerA, \"Banking Customer A\", \"A customer of the bank, with personal bank accounts.\")\n\t\t  Person(customerB, \"Banking Customer B\")\n\t\t  Person_Ext(customerC, \"Banking Customer C\", \"desc\")\n  \n\t\t  Person(customerD, \"Banking Customer D\", \"A customer of the bank, <br/> with personal bank accounts.\")\n  \n\t\t  System(SystemAA, \"Internet Banking System\", \"Allows customers to view information about their bank accounts, and make payments.\")\n  \n\t\t  Enterprise_Boundary(b1, \"BankBoundary\") {\n  \n\t\t\tSystemDb_Ext(SystemE, \"Mainframe Banking System\", \"Stores all of the core banking information about customers, accounts, transactions, etc.\")\n  \n\t\t\tSystem_Boundary(b2, \"BankBoundary2\") {\n\t\t\t  System(SystemA, \"Banking System A\")\n\t\t\t  System(SystemB, \"Banking System B\", \"A system of the bank, with personal bank accounts. next line.\")\n\t\t\t}\n  \n\t\t\tSystem_Ext(SystemC, \"E-mail system\", \"The internal Microsoft Exchange e-mail system.\")\n\t\t\tSystemDb(SystemD, \"Banking System D Database\", \"A system of the bank, with personal bank accounts.\")\n  \n\t\t\tBoundary(b3, \"BankBoundary3\", \"boundary\") {\n\t\t\t  SystemQueue(SystemF, \"Banking System F Queue\", \"A system of the bank.\")\n\t\t\t  SystemQueue_Ext(SystemG, \"Banking System G Queue\", \"A system of the bank, with personal bank accounts.\")\n\t\t\t}\n\t\t  }\n\t\t}\n  \n\t\tBiRel(customerA, SystemAA, \"Uses\")\n\t\tBiRel(SystemAA, SystemE, \"Uses\")\n\t\tRel(SystemAA, SystemC, \"Sends e-mails\", \"SMTP\")\n\t\tRel(SystemC, customerA, \"Sends e-mails to\")\n  \n\t\tUpdateElementStyle(customerA, $fontColor=\"red\", $bgColor=\"grey\", $borderColor=\"red\")\n\t\tUpdateRelStyle(customerA, SystemAA, $textColor=\"blue\", $lineColor=\"blue\", $offsetX=\"5\")\n\t\tUpdateRelStyle(SystemAA, SystemE, $textColor=\"blue\", $lineColor=\"blue\", $offsetY=\"-10\")\n\t\tUpdateRelStyle(SystemAA, SystemC, $textColor=\"blue\", $lineColor=\"blue\", $offsetY=\"-40\", $offsetX=\"-50\")\n\t\tUpdateRelStyle(SystemC, customerA, $textColor=\"red\", $lineColor=\"red\", $offsetX=\"-50\", $offsetY=\"20\")\n  \n\t\tUpdateLayoutConfig($c4ShapeInRow=\"3\", $c4BoundaryInRow=\"1\")",
       "sortingOrder": 1,
+      "isPinned": false
+    },
+    {
+      "id": "d8c14d1d-73d4-44b5-a4d3-fd4f8f21132f",
+      "category": "ClassDiagram",
+      "description": "sample class",
+      "content": "class Duck{\n            +String beakColor\n            +swim()\n            +quack()\n        }",
+      "sortingOrder": 1,
+      "isPinned": false
+    },
+    {
+      "id": "2f6ffe04-10b7-4948-bca4-cc62b28844a1",
+      "description": "example_by_hyeseong",
+      "content": "```mermaid\n---\ntitle: Bank example\n---\nclassDiagram\n    class BankAccount\n    BankAccount : +String owner\n    BankAccount : +Bigdecimal balance\n    BankAccount : +deposit(amount)\n    BankAccount : +withdrawal(amount)\n```",
+      "category": "ClassDiagram",
+      "sortingOrder": 0,
+      "isPinned": false
+    },
+    {
+      "id": "06cb8e3a-3542-440e-8abc-e8407a7fa168",
+      "category": "ClassDiagram",
+      "description": "sample class",
+      "content": "class BankAccount\n        BankAccount : +String owner\n        BankAccount : +Bigdecimal balance\n        BankAccount : +deposit(amount)\n        BankAccount : +withdrawal(amount)",
+      "sortingOrder": 2,
+      "isPinned": false
+    },
+    {
+      "id": "bc85369c-4c1b-449f-8e39-612d415ede14",
+      "category": "ClassDiagram",
+      "description": "generic class",
+      "content": "class Square~Shape~{\n            int id\n            List~int~ position\n            setPoints(List~int~ points)\n            getPoints() List~int~\n        }\n        \n        Square : -List~string~ messages\n        Square : +setMessages(List~string~ messages)\n        Square : +getMessages() List~string~",
+      "sortingOrder": 3,
+      "isPinned": false
+    },
+    {
+      "id": "d9b79b4f-1a8d-450f-b94b-cccd3e248295",
+      "category": "ClassDiagram",
+      "description": "inheritance",
+      "content": "classA <|-- classB",
+      "sortingOrder": 4,
+      "isPinned": false
+    },
+    {
+      "id": "f87e847e-2af6-43c4-ab62-56f1d20f52ea",
+      "category": "ClassDiagram",
+      "description": "composition",
+      "content": "classC *-- classD",
+      "sortingOrder": 5,
+      "isPinned": false
+    },
+    {
+      "id": "3e762619-35f9-4253-ba71-414ee47bbe44",
+      "category": "ClassDiagram",
+      "description": "aggregation",
+      "content": "classE o-- classF",
+      "sortingOrder": 6,
+      "isPinned": false
+    },
+    {
+      "id": "178d2815-e3bf-4f75-90b4-8a8638bf3137",
+      "category": "ClassDiagram",
+      "description": "association",
+      "content": "classG <-- classH",
+      "sortingOrder": 7,
+      "isPinned": false
+    },
+    {
+      "id": "ddfa9aba-9ada-4a9f-9fa1-ee0675b5beb0",
+      "category": "ClassDiagram",
+      "description": "solid link",
+      "content": "classI -- classJ",
+      "sortingOrder": 8,
+      "isPinned": false
+    },
+    {
+      "id": "26f6ead6-e0cb-44c2-97e8-fa38463aa9d6",
+      "category": "ClassDiagram",
+      "description": "dependency",
+      "content": "classK <.. classL",
+      "sortingOrder": 9,
+      "isPinned": false
+    },
+    {
+      "id": "3d740b36-113c-4649-a420-b0f1a925642e",
+      "category": "ClassDiagram",
+      "description": "realization",
+      "content": "classM <|.. classN",
+      "sortingOrder": 10,
+      "isPinned": false
+    },
+    {
+      "id": "9092f404-de37-4e22-9ac8-ee260f93f53f",
+      "category": "ClassDiagram",
+      "description": "dashed link",
+      "content": "classO .. classP",
+      "sortingOrder": 11,
+      "isPinned": false
+    },
+    {
+      "id": "48b29911-09d7-49cc-95e0-7f7959db3c92",
+      "category": "ClassDiagram",
+      "description": "two-way relation",
+      "content": "Animal <|--|> Zebra",
+      "sortingOrder": 12,
+      "isPinned": false
+    },
+    {
+      "id": "a458d135-1a53-4ee4-ba44-7039679615a0",
+      "category": "ClassDiagram",
+      "description": "sample class diagram",
+      "content": "classDiagram\n        Animal <|-- Duck\n        Animal <|-- Fish\n        Animal <|-- Zebra\n        Animal : +int age\n        Animal : +String gender\n        Animal: +isMammal()\n        Animal: +mate()\n        class Duck{\n            +String beakColor\n            +swim()\n            +quack()\n        }\n        class Fish{\n            -int sizeInFeet\n            -canEat()\n        }\n        class Zebra{\n            +bool is_wild\n            +run()\n        }",
+      "sortingOrder": 83,
       "isPinned": false
     }
   ],
