@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/패턴/UML 클래스 다이어그램.md",
+                "file": "단축키/인텔리제이 단축키.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "단축",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Java/패턴/UML 클래스 다이어그램.md",
+                "file": "단축키/인텔리제이 단축키.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Java/패턴/UML 클래스 다이어그램.md",
+                "file": "단축키/인텔리제이 단축키.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Java/패턴/UML 클래스 다이어그램.md"
+                "file": "단축키/인텔리제이 단축키.md"
               }
             }
           },
@@ -174,12 +174,15 @@
   },
   "active": "f30addaaba2313a7",
   "lastOpenFiles": [
+    "단축키/Window 단축키.md",
+    "단축키/인텔리제이 단축키.md",
+    "단축키/아이패드 단축키.md",
+    "Java/패턴/UML 클래스 다이어그램.md",
     "네트워크/소켓의 의미.md",
     "Java/ThreadPoolTaskExecutor.md",
     "Java/Enum 에 대한 이해.md",
     "Java/Blocking Method & Non Blocking Method.md",
     "Java/입출력스트림.md",
-    "Java/패턴/UML 클래스 다이어그램.md",
     "Java/패턴",
     "Java/무제 파일.md",
     "Java/Clean Code/무제 파일.md",
@@ -209,11 +212,8 @@
     "문제상황해결/무제 파일.md",
     "Temp/공부.md",
     "Temp/임시.md",
-    "Temp/문제상황해결.md",
     "Java",
     "Temp",
-    "단축키/Window 단축키.md",
-    "단축키/아이패드 단축키.md",
     "문제상황해결"
   ]
 }
