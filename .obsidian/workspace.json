@@ -35,8 +35,12 @@
             "id": "38b34c12e4750090",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Java/알고리즘/알고리즘.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ],
@@ -69,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "단축",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,8 +90,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -107,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Java/알고리즘/알고리즘.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,6 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Java/알고리즘/알고리즘.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -144,7 +149,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Java/알고리즘/알고리즘.md"
+              }
             }
           },
           {
@@ -164,7 +171,7 @@
             }
           },
           {
-            "id": "29da90876229e9fa",
+            "id": "8a6e5e11f084bc15",
             "type": "leaf",
             "state": {
               "type": "mermaid-toolbar-view",
@@ -192,6 +199,8 @@
   },
   "active": "38b34c12e4750090",
   "lastOpenFiles": [
+    "Java/알고리즘/알고리즘.md",
+    "Java/알고리즘",
     "단축키/인텔리제이 단축키.md",
     "단축키/Window 단축키.md",
     "단축키/아이패드 단축키.md",
@@ -229,9 +238,7 @@
     "문제상황해결/무제 파일 1.md",
     "문제상황해결/무제 파일.md",
     "Temp/공부.md",
-    "Temp/임시.md",
     "Java",
-    "Temp",
-    "문제상황해결"
+    "Temp"
   ]
 }
