@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/알고리즘/알고리즘.md",
+                "file": "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Java/알고리즘/알고리즘.md",
+                "file": "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Java/알고리즘/알고리즘.md",
+                "file": "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Java/알고리즘/알고리즘.md"
+                "file": "AWS/AWS Certified Cloud Practitioner/무제 파일.md"
               }
             }
           },
@@ -200,6 +200,9 @@
   "active": "38b34c12e4750090",
   "lastOpenFiles": [
     "Java/알고리즘/알고리즘.md",
+    "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
+    "AWS/AWS Certified Cloud Practitioner",
+    "AWS",
     "Java/알고리즘",
     "단축키/인텔리제이 단축키.md",
     "단축키/Window 단축키.md",
@@ -236,9 +239,6 @@
     "무제 파일.canvas",
     "네트워크",
     "문제상황해결/무제 파일 1.md",
-    "문제상황해결/무제 파일.md",
-    "Temp/공부.md",
-    "Java",
-    "Temp"
+    "문제상황해결/무제 파일.md"
   ]
 }
