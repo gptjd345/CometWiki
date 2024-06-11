@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/AWS Certified Cloud Practitioner/1. IAM.md",
+                "file": "AWS/AWS Certified Cloud Practitioner/1. IAM(Identity and Access ManageMent).md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/AWS Certified Cloud Practitioner/1. IAM.md",
+                "file": "AWS/AWS Certified Cloud Practitioner/1. IAM(Identity and Access ManageMent).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/AWS Certified Cloud Practitioner/1. IAM.md",
+                "file": "AWS/AWS Certified Cloud Practitioner/1. IAM(Identity and Access ManageMent).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/AWS Certified Cloud Practitioner/1. IAM.md"
+                "file": "AWS/AWS Certified Cloud Practitioner/1. IAM(Identity and Access ManageMent).md"
               }
             }
           },
@@ -201,7 +201,7 @@
   "lastOpenFiles": [
     "AWS/Ultimate AWS Certified Solutions Architect Professional",
     "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
-    "AWS/AWS Certified Cloud Practitioner/1. IAM.md",
+    "AWS/AWS Certified Cloud Practitioner/1. IAM(Identity and Access ManageMent).md",
     "Java/알고리즘/알고리즘.md",
     "AWS/AWS Certified Cloud Practitioner",
     "AWS",
