@@ -37,13 +37,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -94,7 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "a84b64acc4327393",
@@ -197,12 +198,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "fb03e336534186dd",
+  "active": "38b34c12e4750090",
   "lastOpenFiles": [
-    "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
+    "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
     "단축키/인텔리제이 단축키.md",
-    "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+    "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
     "Java/패턴/UML 클래스 다이어그램.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional",
     "Java/알고리즘/알고리즘.md",
