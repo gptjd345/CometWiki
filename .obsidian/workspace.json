@@ -61,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Jeong",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -78,7 +78,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -186,10 +187,10 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "38b34c12e4750090",
+  "active": "fb03e336534186dd",
   "lastOpenFiles": [
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/5. Compute & Load Balancing.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/5. Compute & Load Balancing.md",
     "Pasted image 20240614004752.png",
     "문제상황해결/컨트롤러 요청 처리시 현재 처리상태 확인 하고 진행하도록 수정.md",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
