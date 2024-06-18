@@ -213,39 +213,76 @@ Graviton 프로세서는 앱 서버, 마이크로서비스, 고성능 컴퓨팅,
 <font color="#92d050">* RISC (Reduced Instruction Set Computer): 복잡한 명령어를 제거하여 사용빈도가 높은 명령어 위주로 처리속도를 향상한 프로세서, 컴퓨터의 실행 속도를 높이기 위해 복잡한 처리는 소프트웨어에게 맡기는 방법을 채택</font>
 
 
-## EC2 메트릭
+# VI. EC2 included metrics
+p 183
+
+[https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/US_SingleMetricPerInstance.html](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/US_SingleMetricPerInstance.html)
+
 AWS EC2 인스턴스는 다양한 메트릭을 모니터링하여 인스턴스의 상태와 성능을 파악할 수 있다. 여기에는 CPU, 네트워크, 상태 확인, 디스크 관련 메트릭이 포함된다. 다만, RAM 사용량은 기본 제공 메트릭에 포함되지 않는다.
 
-### EC2 메트릭
+## 1. CPU
 
-#### CPU 메트릭
-* **CPU 사용률 + 신용 사용률/잔액**
-- **CPU 사용률 (CPU Utilization)**: 인스턴스의 CPU 사용률을 측정한다.
-- **CPU 신용 사용률/잔액 (CPU Credit Usage/Balance)**: T2, T3 인스턴스와 같은 버스트 가능한 인스턴스 유형에서 사용된다. 신용 사용률은 사용한 CPU 크레딧을, 신용 잔액은 남아 있는 CPU 크레딧을 나타낸다.
+```
+💡 AWS Burst(버스트) 
+- EC2 인스턴스 유형 중 Burstable Instance (성능 순간 확장 가능 인스턴스)에서 사용할 수 있는 기능 
+- 일정 기간 동안 인스턴스의 CPU 용량을 잠재적으로 초과하는 능력을 제공하여 예기치 않은 작업 부하에 대한 대처 가능 
+- 기준 CPU와 추가 버스트 CPU 사용량에 대해서만 비용을 지불하면 되므로 컴퓨팅 비용이 절감 
+	- 인스턴스가 기본 CPU 크기보다 높은 CPU 사용량을 일시적으로 처리 한다는 것 
+	- CPU를 더 큰 인스턴스로 업그레이드 할 필요 없어 효율적임 
+	- CPU 크레딧 사용함 
+```
+[https://chance-story.tistory.com/66](https://chance-story.tistory.com/66)
 
-#### Network 메트릭
-* **네트워크 입력/출력**
-- **네트워크 입력 (Network In)**: 인스턴스로 들어오는 네트워크 트래픽을 측정한다.
-- **네트워크 출력 (Network Out)**: 인스턴스에서 나가는 네트워크 트래픽을 측정한다.
 
-#### Status Check(상태 확인) 메트릭
+```
+💡 CPU Credit(CPU 크레딧)
+- 시간당 CPU 용량, vCPU 시간의 단위 
+- 인스턴스가 활성화 되어 있을 때 CPU 크레딧이 충분하지 않으면 인스턴스의 CPU 사용량이 기본 CPU 크기로 제한 됨 
+- 트래픽이 적을 때는 CPU 크레딧을 충전하고, 높아지면 CPU 크레딧을 사용하여 인스턴스를 버스트 모드로 전환할 수 있음 
+	- CPU 크레딧은 일정 비율로 충전됨 
+	- 사용자가 CPU 사용량을 얼마나 조절하는지에 따라 충전되는 속도가 결정됨 
+- 주의할 점 : 인스턴스가 활성화 되어 있는 동안만 CPU 크레딧이 충전됨
+```
+[https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) [https://itwiki.kr/w/AWS_CPU_버스트](https://itwiki.kr/w/AWS_CPU_%EB%B2%84%EC%8A%A4%ED%8A%B8)
 
-- **인스턴스 상태 (Instance Status)**: EC2 VM의 상태를 확인한다. 이는 인스턴스 자체의 소프트웨어와 네트워크 설정을 검사한다.
-- **시스템 상태 (System Status)**: 기본 하드웨어의 상태를 확인한다. 이는 인스턴스가 실행되는 물리적 호스트의 상태를 검사한다.
+- - **CPU: CPU Utilization + Credit Usage / Balance**
+- **CPU Utilization(CPU 사용률)**: 인스턴스당 CPU 사용량
+- **CPU Credit Usage(CPU 크레딧 사용률)**: 사용한 CPU 크레딧
+- **CPU Credit Balance(CPU 크레딧 밸런스)**: 사용 가능한 CPU 크레딧 잔여량
 
-#### Disk 메트릭
+## 2. Network
 
-- **읽기/쓰기 (Read/Write Ops/Bytes)**: 인스턴스 스토어의 경우에만 해당된다. 디스크의 읽기 및 쓰기 작업 수와 바이트 수를 측정한다.
+- **Network: Network In / Out(네트워크 입력/출력)**
+- **Network In(네트워크 입력)**: 인스턴스로 들어오는 네트워크 트래픽 측정
+- **Network Out(네트워크 출력)**: 인스턴스에서 나가는 네트워크 트래픽 측정
 
-### 제외된 메트릭
+## 3. Status Check(상태 확인)
+
+[https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html)
+
+- **Instance Status(인스턴스 상태)**
+    - EC2 VM의 상태 확인.
+    - 인스턴스 자체의 소프트웨어와 네트워크 설정 검사
+- **System Status(시스템 상태)**
+    - 기본 하드웨어의 상태 확인.
+    - 인스턴스가 실행되는 물리적 호스트의 상태 검사
+
+## 4. Disk
+
+- **Read/Write Ops/Bytes(읽기/쓰기)**
+    - 인스턴스 스토어의 경우에만 해당
+    - 디스크의 읽기 및 쓰기 작업 수와 바이트 수를 측정한다.
+
+## 5. 제외된 메트릭
 
 - **RAM 사용률**: RAM 사용량과 관련된 메트릭은 기본 제공되지 않는다. RAM 사용량을 모니터링하려면 별도의 에이전트를 설치하거나 CloudWatch 커스텀 메트릭을 설정해야 한다.
 
-### 요약
-
 AWS EC2 인스턴스는 CPU 사용률, 네트워크 입력/출력, 상태 확인(인스턴스 상태 및 시스템 상태), 디스크 읽기/쓰기 메트릭을 제공한다. RAM 사용률은 기본 제공 메트릭에 포함되지 않으며, 이를 모니터링하려면 추가 설정이 필요하다. 이러한 메트릭을 통해 인스턴스의 성능과 상태를 효과적으로 모니터링할 수 있다.
 
-## EC2 Instance Recovery
+
+# VII. EC2 Instance Recovery
+p 184
+
 AWS EC2 인스턴스의 복구 절차는 인스턴스 상태와 시스템 상태를 확인하고, 문제가 발생했을 때 인스턴스를 복구하는 과정을 포함한다. 복구 시 인스턴스의 네트워크 설정 및 메타데이터 등이 유지된다.
 
 ### EC2 인스턴스 복구 절차
@@ -273,12 +310,3 @@ AWS EC2 인스턴스의 복구 절차는 인스턴스 상태와 시스템 상태
 
 ### Amazon CloudWatch
 AWS 리소스와 애플리케이션을 모니터링하고, 다양한 메트릭스와 로그를 수집하여 알람을 생성할 수 있는 서비스이다. CloudWatch Alarm을 사용하여 특정 조건이 충족될 때 자동으로 복구 작업을 수행하도록 설정할 수 있다.
-
-### 요약
-
-EC2 인스턴스의 상태 확인은 두 가지로 나뉩니다:
-
-- **인스턴스 상태**: 인스턴스 자체의 소프트웨어 및 네트워크 설정을 검사한다.
-- **시스템 상태**: 인스턴스가 실행되는 물리적 호스트의 상태를 검사한다.
-
-인스턴스 복구 시 동일한 개인 IP, 공용 IP, 탄력적 IP, 메타데이터, 및 배치 그룹이 유지된다. 이를 통해 인스턴스가 원활하게 복구되고, 네트워크 설정 및 기타 중요한 정보가 손실되지 않도록 보장한다.
