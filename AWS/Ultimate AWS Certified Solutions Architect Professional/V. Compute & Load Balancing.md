@@ -545,6 +545,24 @@ App Runner Multi-Region Architecture
 5. App Runner를 복제해서 멀티 리전 구성할 수 있다. 
 6. Route 53를 이용해 각 리전의 App Runner Service에 요청을 분배하도록 한다. 
 
+#### Amazon ECS Anywhere &  EKS Anywhere
+
+이거 왜쓰는지 이해안됨 
+온프레미스에서 로드밸런싱 다되어서 구성되어있는 환경에서
+굳이 이걸 쓰는 이유를 납득 못하겠음. 알면 정리좀 
+
+#### AWS Lambda - Part 1
+
+Lambda의 한계
+* 10GB RAM
+* CPU는 RAM과 붙어있음
+* Timeout 은 15분(15분 이상 걸리는 작업 비적합)
+* /tmp Storage(임시저장소) 10GB
+* 계정당 동시 실행수 1000건 (약간 늘릴수는 있음)
+* 람다의 배포 패키지 크깅
+
+#### AWS Lambda - Part 2
+
 
 
 
