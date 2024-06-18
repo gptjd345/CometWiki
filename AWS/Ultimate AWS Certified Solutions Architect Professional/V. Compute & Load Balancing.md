@@ -49,58 +49,6 @@ p 175
 
 
 
-
-# V-IV. Auto Scaling Update Strategies #ComputeAndLoadBalancingJeongAh
-
-Auto Scaling 그룹에서 응용 프로그램을 업데이트하는 방법의 예시는 다음과 같다.
-
-1. **자동 배율 그룹 유지 및 업데이트**
-    
-    - <u>기존 자동 배율 그룹을 유지</u>하면서 <u>같은 타겟 그룹</u>에 새 런치 템플릿을 만든다.
-    - 새 템플릿으로 EC2 인스턴스를 생성하고, 이를 위해 자동 스케일링 그룹 용량을 일시적으로 늘린니다.
-    - 애플리케이션 부하 분산기를 통해 두 가지 버전의 애플리케이션에 트래픽을 분산한다.
-    - 새 버전이 안정적이라면 기존 인스턴스를 종료한다.
-
-2. **새 자동 배율 그룹 생성**
-    
-    - <u>새로운 자동 배율 그룹을 생성</u>하고, <u>새 타깃 그룹</u>도 만든다.
-    - 두 번째 타깃 그룹에 소량의 트래픽을 보내 새 애플리케이션을 테스트한다.
-    - 테스트가 성공적이라면 트래픽을 점진적으로 새 그룹으로 전환하고, 기존 그룹을 제거한다.
-    
-3. **이중 ALB 설정**
-    
-    - <u>기존 ALB와 새로운 ALB를 각각 다른 자동 배율 그룹과 연결</u>한다.
-    - Route 53을 사용해 클라이언트 트래픽을 두 ALB로 분산한다.
-    - 새로운 ALB를 독립적으로 테스트하고 점진적으로 트래픽을 전환한다.
-    
-### Auto Scaling - Solution Architecture 
-
-1.  Same target group
-	 기존 운영 EC2 instance를 똑같이 하나 더 만들어서 동일한 ASG 안에 두는 것
-	 동일 ASG에 있으므로 ALB에 의해 모두에게 트레픽이 분산된다.  
-2. Target group 1,2, ... ,N
-	: ASG 그룹을 여러개 만들고 ELB는 하나로 구성. 새롭게 만든 두번째 ASG에 트래픽을 테스트하듯이 ALB를 이용해서 조금씩 보내는 게 가능함.
-```mermaid
-flowchart TD
-ALB[ALB] <-->|Target Group1| ASG1[ASG1]
-ALB[ALB] <-->|Target Group2| ASG2[ASG2]
-
-```
-3. ALB단 부터 새롭게 만듬 Route 53 구성방식
-```mermaid
-flowchart TD
-
-c[Client] -->|DNS Query| R53[Route 53]
-c[Client] -->|Client based LB| ALB1[ALB1] & ALB2[ALB2]
-ALB1[ALB1] <--> ASG1[ASG1]
-ALB2[ALB2] <--> ASG2[ASG2]
-T[Test Client] -..->|Separate manual testing Load testing| ALB2
-
-```
-   3-1. Client 가 요청한 DNS Query를 Route 53 에 의해서 처리할때 어떤 ALB에 대한 주소를 클라이언트에게 알려줄지를 정한다 = Client Based LB 
-   새롭게 만든 ALB2에 네트워크 트래픽을 점차 늘려나가는 방식으로 테스트 가능함 
-   3-2. 53 레벨에서 서비스하기 전에 <font color="#de7802">독립적으로 부하 테스트를 할 수 있음. </font>
-
 # V. Spot Instances & Spot Fleet
 ## EC2 Spot Instances
 
