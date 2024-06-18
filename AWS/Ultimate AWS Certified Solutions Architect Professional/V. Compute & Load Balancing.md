@@ -525,8 +525,12 @@ EKS에서 사용가능한 스토리지 유형
 * Amazon FSx for Lustre
 * Amazon FSx for NetApp ONTAP
 
->[!attention] 
->
+
+#### AWS App Runner
+
+완전 관리형 서비스로 
+
+
 
 
 
