@@ -49,39 +49,84 @@ p 175
 
 
 
-# VI. Auto Scaling Groups
 
-## Dynamic Scaling Policies
+# V-III. Auto Scaling
+
+애플리케이션 로드를 처리하는 데 사용할 수 있는 Amazon EC2 인스턴스의 정확한 수를 확보하는 데 도움이 된다. 조정 정책을 지정하면 Amazon EC2 Auto Scaling은 애플리케이션 수요가 증가하거나 감소함에 따라 인스턴스를 시작하거나 종료할 수 있다.
+
+예를 들어 다음 Auto Scaling 그룹의 최소 크기는 인스턴스 4개, 원하는 용량은 인스턴스 6개, 최대 크기는 인스턴스 12개인 경우는 다음과 같이 나타낼 수 있다.
+
+![[auto-scaling-group.png]]
+
+# I. Auto Scaling Groups(ASG)
+p 191
+
+[https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
+
+Amazon EC2 Auto Scaling을 사용하면 EC2 인스턴스가 Auto Scaling 그룹으로 구성되어 확장 및 관리 목적으로 하나의 논리 단위로 처리될 수 있다. Auto Scaling 그룹은 시작 템플릿(또는 시작 구성)을 EC2 인스턴스의 구성 템플릿으로 사용한다.
+
+## 1. Dynamic Scaling Policies(동적 조정)
+[https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/as-scale-based-on-demand.html](https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/as-scale-based-on-demand.html)
+
 자동 스케일링 그룹(ASG)에서 동적 스케일링 정책은 다음과 같이 구성할 수 있다.
 
-### Target Tracking Scaling (대상 추적 스케일링)
+- **Target Tracking Scaling (대상 추적 조정 정책)**
+    
+    - **가장 간단하고 쉽게 설정 가능**:
+        - 특정 지표를 목표로 설정하여 스케일링을 자동으로 관리
+        - ex) 평균 ASG CPU 사용률이 40%를 유지하도록 설정
+    
+- **Simple / Step Scaling (단순/단계별 조정 정책)**
+    - **CloudWatch 경보를 기반으로 스케일링**
+    - **작동 방식(공통)**
+        1. Auto Scaling 그룹의 지표를 모니터링하는 CloudWatch 경보를 생성
+        2. 경보 위반을 결정하는 지표, 임계값, 평가 기간 수를 정의
+        3. 경보 임계값 위반 시 그룹을 조정하는 방법을 정의하는 단계별 조정 정책을 생성
+        4. 정책에 단계 조정을 추가(경보의 위반 규모에 따라 다양한 단계 조정을 정의 가능)
+            1. ex) CPU 사용률이 70%를 초과하면 인스턴스 2개 추가
+            2. ex) CPU 사용률이 30% 미만이면 인스턴스 1개 제거
+    - **차이점**
+        - **단계별 조정 정책**
+            - 지정한 단계 조정에 따라 그룹 크기를 더 크게 또는 더 작게 변경 가능
+            - 조정 활동 또는 상태 점검 교체가 진행 중인 동안에도 정책이 추가 경보에 계속 응답함
+            - 즉, Amazon EC2 Auto Scaling은 경보 메시지를 수신할 때 모든 경보 위반을 평가함
+            - 따라서 조정 조정이 한 번뿐이더라도 단계 조정 정책을 대신 사용하는 것이 좋음
+        - **단순 조정 정책**
+            - 진행 중인 조정 활동 또는 상태 점검 교체가 완료되고 휴지 기간이 종료될 때까지 기다려야 함
+            - 추가 경보에 응답하기 전에 휴지 기간이 종료되어야 함
+    
+- **Scheduled Actions (예약된 작업)**
+    - [https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html](https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html)
+    - **알려진 사용 패턴을 기반으로 스케일링**
+        - 특정 시간에 맞춰 자동으로 용량을 조절함
+        - ex) 금요일 오후 5시에 최소 용량을 10으로 증가
 
-- **가장 간단하고 쉽게 설정 가능**:
-    - 특정 지표를 목표로 설정하여 스케일링을 자동으로 관리한다.
-    - 예: 평균 ASG CPU 사용률이 40%를 유지하도록 설정.
+## 2. Predictive Policies(예측 조정)
 
-### Simple / Step Scaling (단순/단계 확장)
+[https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html](https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html)
 
-- **CloudWatch 경보를 기반으로 스케일링**:
-    - 특정 조건이 충족되면 인스턴스를 추가하거나 제거한다.
-    - 예: CPU 사용률이 70%를 초과하면 인스턴스 2개 추가.
-    - 예: CPU 사용률이 30% 미만이면 인스턴스 1개 제거.
-
-### Scheduled Actions (예약된 작업)
-
-- **알려진 사용 패턴을 기반으로 스케일링**:
-    - 특정 시간에 맞춰 자동으로 용량을 조절한다.
-    - 예: 금요일 오후 5시에 최소 용량을 10으로 증가.
-
-##  Predictive Policies
 자동 스케일링 그룹(ASG)에서 예측 정책은 다음과 같이 구성할 수 있다.
-### Predictive scaling (예측 스케일링)
 
-- **지속적인 부하 예측 및 스케줄 스케일링 시간**:
-    - 과거 데이터를 기반으로 향후 부하를 예측하여 스케일링 계획을 세운다.
-    - 예: 특정 시간대에 예상되는 트래픽 증가에 대비해 미리 확장.
-
-이러한 정책을 통해 AWS 환경에서 애플리케이션의 성능과 비용을 최적화할 수 있다. 필요에 따라 다양한 스케일링 정책을 조합하여 사용하면, 트래픽 변화에 유연하게 대응할 수 있다.
+- **Predictive scaling (예측 조정 정책)**
+	- **사용하기 적합한 상황**
+	    - 주기적 트래픽
+	        - ex) 정규 업무 시간 동안 리소스 사용량이 많고 저녁 및 주말에는 리소스가 적게 사용되는 경우)
+	    - 반복되는 on-and-off 워크로드 패턴
+	        - ex) 일괄 처리, 테스트 또는 주기적 데이터 분석)
+	    - 초기화하는 데 시간이 오래 걸려 스케일 아웃 이벤트 중에 애플리케이션 성능에 눈에 띄는 지연 영향을 받는 애플리케이션
+	    
+    - **작동 방식**
+        1. 모니터링 및 분석할 CloudWatch 지표를 지정하는 예측 규모 조정 정책 생성
+            a. 예측 척도를 통해 미래 값을 예측하려면 지표에 최소 24시간 분량의 데이터 필요
+        2. 패턴을 식별하기 위해 최대 지난 14일까지의 지표 데이터 분석 시작
+            a. 향후 48시간 동안의 용량 요구 사항에 대한 시간별 예측 생성
+            b. 최신 CloudWatch 데이터를 사용하여 6시간마다 업데이트
+            c. 새로운 데이터가 들어오면 미래 예측의 정확도를 지속적으로 개선
+        3. 처음 활성화 시 예측 전용 모드로 실행됨
+            a. 예측의 정확성과 적합성 평가 → Auto Scaling 그룹을 실제로 확장하지는 않음
+        4. 조정 정책을 예측 및 규모 조정 모드로 전환
+            a. 부하가 증가 예상 시: 규모를 확장하여 용량 늘림
+            2. 부하 감소가 예상 시: 용량을 줄일 수 있을 정도로 규모를 축소하지는 않음 → 더 이상 필요하지 않은 용량을 제거하려면 동적 조정 정책을 생성해야 함
 
 
 ## Auto Scaling Groups(ASG)에서 확장하기에 적합한 주요 메트릭
