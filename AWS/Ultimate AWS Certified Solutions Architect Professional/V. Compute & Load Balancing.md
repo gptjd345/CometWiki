@@ -526,9 +526,14 @@ EKS에서 사용가능한 스토리지 유형
 * Amazon FSx for NetApp ONTAP
 
 
-#### AWS App Runner
+#### AWS App Runner VS AWS Fargate
 
-완전 관리형 서비스로 
+
+	| 칼럼1 | 
+			|
+
+
+
 
 
 
