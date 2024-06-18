@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
                 "mode": "source",
                 "source": false
               }
@@ -31,7 +31,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -185,11 +186,11 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "f30addaaba2313a7",
+  "active": "38b34c12e4750090",
   "lastOpenFiles": [
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/무제 파일.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/무제 파일.md",
     "EC2-Instance-Recovery.png",
     "EC2-Placement-Strategies_partition.png",
     "EC2-Placement-Strategies_spread.png",
