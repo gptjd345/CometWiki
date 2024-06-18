@@ -1,5 +1,4 @@
 # I. EC2 Instance Types (EC2 인스턴스 유형)
-
 p 176
 
 - **R(RAM)**
@@ -23,7 +22,6 @@ p 176
 
 
 # II. EC2 Placement Groups (EC2 배치 그룹)
-
 p 177
 
 [https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/placement-groups.html](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/placement-groups.html)
@@ -47,14 +45,12 @@ p 177
 
 
 # III. EC2 Placement Strategies (EC2 배치 전략)
-
 p 178 - 180
-
-배치 전략에 따라 AZ 또는 랙 내에서 인스턴스가 배치되는 방법이 달라진다.
 
 [https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/placement-strategies.html](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/placement-strategies.html)
 [https://merrily-code.tistory.com/233](https://merrily-code.tistory.com/233)
 
+배치 전략에 따라 AZ 또는 랙 내에서 인스턴스가 배치되는 방법이 달라진다.
 ## **1. Cluster (클러스터)**
 
 동일한 AZ, 동일한 랙(rack) 안에 인스턴스를 배치하는 전략
@@ -183,28 +179,25 @@ p 181
 온 디맨드 인스턴스는 유연성과 신뢰성이 높지만 비용이 비쌀 수 있고, 스팟 인스턴스는 매우 저렴하지만 신뢰성이 낮다. 예약 인스턴스와 Convertible Reserved 인스턴스는 장기 워크로드에 적합하며, 전용 인스턴스와 전용 호스트는 보안 및 규제 요구 사항을 충족한다. 
 
 
+# V. EC2 Graviton
 
-## EC2 Graviton
+p 182
+
 AWS Graviton 프로세서는 AWS에서 자체 설계한 ARM 기반 프로세서로, 뛰어난 가격 대비 성능을 제공하는 것이 특징이다. Graviton, Graviton2, Graviton3 세대가 있으며, 각 세대는 이전 세대보다 성능과 효율성이 크게 향상되었다.
 
-### AWS Graviton 특징
+## 1. AWS Graviton 특징
 
-#### Graviton 프로세서
+- **Graviton 프로세서**
+    - **최고의 가격 성능**: AWS Graviton 프로세서는 뛰어난 가격 대비 성능을 제공한다.
+    - **지원 OS**: 다양한 리눅스 운영 체제 (Amazon Linux 2, RedHat, SUSE, Ubuntu)를 지원한다. 다만, 윈도우즈 인스턴스에서는 사용할 수 없다.
+- **Graviton2**
+    - **가격 성능**: 동급 x86 기반 인스턴스보다 40% 향상된 가격 성능을 제공한다.
+    - **사용 사례**: 앱 서버, 마이크로서비스, 고성능 컴퓨팅(HPC), CPU 기반 머신러닝, 비디오 인코딩, 게임, 인메모리 캐시 등.
+- **Graviton3**
+    - **성능**: Graviton2 대비 최대 3배 향상된 성능을 제공한다.
+    - **사용 사례**: Graviton2와 유사한 사용 사례에 더 높은 성능 요구 사항이 있는 작업에 적합하다.
 
-- **최고의 가격 성능**: AWS Graviton 프로세서는 뛰어난 가격 대비 성능을 제공한다.
-- **지원 OS**: 다양한 리눅스 운영 체제 (Amazon Linux 2, RedHat, SUSE, Ubuntu)를 지원한다. 다만, 윈도우즈 인스턴스에서는 사용할 수 없다.
-
-#### Graviton2
-
-- **가격 성능**: 동급 x86 기반 인스턴스보다 40% 향상된 가격 성능을 제공한다.
-- **사용 사례**: 앱 서버, 마이크로서비스, 고성능 컴퓨팅(HPC), CPU 기반 머신러닝, 비디오 인코딩, 게임, 인메모리 캐시 등.
-
-#### Graviton3
-
-- **성능**: Graviton2 대비 최대 3배 향상된 성능을 제공한다.
-- **사용 사례**: Graviton2와 유사한 사용 사례에 더 높은 성능 요구 사항이 있는 작업에 적합하다.
-
-### 사용 사례
+## 2. 사용 사례
 
 - **앱 서버**: 웹 애플리케이션을 호스팅하는 서버.
 - **마이크로서비스**: 작은 독립적 서비스로 구성된 애플리케이션.
@@ -214,9 +207,14 @@ AWS Graviton 프로세서는 AWS에서 자체 설계한 ARM 기반 프로세서�
 - **게임**: 온라인 게임 서버.
 - **인메모리 캐시**: 빠른 데이터 접근을 위해 메모리에 데이터를 저장하는 시스템.
 
-### 요약
+AWS Graviton 프로세서는 ARM 기반의 고성능, 저비용 프로세서로, 다양한 리눅스 운영 체제와 호환된다. Graviton2는 동급 x86 인스턴스 대비 40% 향상된 가격 성능을 제공하며, Graviton3는 Graviton2 대비 최대 3배 향상된 성능을 제공한다.
+Graviton 프로세서는 앱 서버, 마이크로서비스, 고성능 컴퓨팅, CPU 기반 머신러닝, 비디오 인코딩, 게임, 인메모리 캐시 등 다양한 사용 사례에 적합하다.
+<font color="#92d050">* ARM(Adavanced RISC Machine): RISC 아키텍처 기반의 중앙 처리 장치(CPU) 제품군</font>
+<font color="#92d050">* RISC (Reduced Instruction Set Computer): 적은 수의 명령어를 수행하도록 설계된 마이크로프로세서. 복잡한 명령어를 제거하여 사용빈도가 높은 명령어 위주로 처리속도를 향상한 프로세서이다. 컴퓨터의 실행 속도를 높이기 위해 복잡한 처리는 소프트웨어에게 맡기는 방법을 채택하였다.</font>
 
-AWS Graviton 프로세서는 ARM 기반의 고성능, 저비용 프로세서로, 다양한 리눅스 운영 체제와 호환된다. Graviton2는 동급 x86 인스턴스 대비 40% 향상된 가격 성능을 제공하며, Graviton3는 Graviton2 대비 최대 3배 향상된 성능을 제공한다. Graviton 프로세서는 앱 서버, 마이크로서비스, 고성능 컴퓨팅, CPU 기반 머신러닝, 비디오 인코딩, 게임, 인메모리 캐시 등 다양한 사용 사례에 적합하다.
+## EC2 Graviton
+AWS Graviton 프로세서는 AWS에서 자체 설계한 ARM 기반 프로세서로, 뛰어난 가격 대비 성능을 제공하는 것이 특징이다. Graviton, Graviton2, Graviton3 세대가 있으며, 각 세대는 이전 세대보다 성능과 효율성이 크게 향상되었다.
+
 
 ## EC2 메트릭
 AWS EC2 인스턴스는 다양한 메트릭을 모니터링하여 인스턴스의 상태와 성능을 파악할 수 있다. 여기에는 CPU, 네트워크, 상태 확인, 디스크 관련 메트릭이 포함된다. 다만, RAM 사용량은 기본 제공 메트릭에 포함되지 않는다.
