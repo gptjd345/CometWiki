@@ -589,6 +589,12 @@ Lambda가 private subnet의 RDS 에 접근하려면 같은 Private Subnet 에 �
 DynamoDB가 public 한 공간에 존재하지만 모든 트레픽을 private 하게 관리하고싶다면 람다가 접근하려는 대상에 EndPoint를 두면 됨.
 
 ##### Lambda - Fixed Public IP for external comms
-VPC 설정없이 AWS의 Public Cloud에 람다함수를 배포하면 공용 IP로부터 임의의 공용 IP를
+VPC 설정없이 AWS의 Public Cloud에 람다함수를 배포하면 람다함수는 Random Public IP를 받게 된다. 
 
+![[Pasted image 20240618225821.png]]
 
+그러나 아래처럼 람다함수를 private subnet에 둬야한다면(위에서 처럼 private RDS 에 연결해야하거나 해서) NAT gateway를 사용하고 NAT gateway를 사용할때 고정 IP를 부착한다. 
+
+##### Lambda - Synchronous Invocations
+CLI, SDK, API Gateway 를 통해 람다 함수에 대해 동기호출이 이루어진다.
+SDK의 경우 비동기 와 동기 방식 모두 호출이 가능하다(invoke()함수는 )
