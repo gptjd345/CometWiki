@@ -528,10 +528,12 @@ EKS에서 사용가능한 스토리지 유형
 
 #### AWS App Runner VS AWS Fargate
 
-
-	| 칼럼1 | 
-			|
-
+1. **비용 측면**
+    - App Runner는 일반적으로 작은 워크로드와 긴 유휴 기간에 더 비용 효율적입니다.
+    - Fargate는 더 복잡한 워크로드와 높은 활용도에 더 적합할 수 있습니다.
+2. **기능 및 유연성 측면**
+    - Fargate는 더 많은 기능과 유연성을 제공합니다. 예를 들어 사용자 지정 네트워킹, 스케일링 정책 등을 설정할 수 있습니다.
+    - App Runner는 더 간단한 인터페이스를 제공하지만, Fargate만큼 많은 기능을 제공하지 않습니다. ex) Fargate는 여러 CloudWatch metric (CPU, network I/O, requests ...) 에 대한 스케일링 정책 설정가능 . 
 
 
 
