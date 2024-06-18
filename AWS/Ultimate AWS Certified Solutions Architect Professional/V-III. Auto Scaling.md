@@ -156,17 +156,13 @@ p 195
         5. 설정을 저장하고 새로 고침을 시작한다.
     - **AWS CLI**
         - bash
-            ```bash
-aws autoscaling start-instance-refresh --auto-scaling-group-name <AutoScalingGroupName> --preferences '{"MinHealthyPercentage":<Percentage>,"InstanceWarmup":<TimeInSeconds>}'
-            ```
+            `aws autoscaling start-instance-refresh --auto-scaling-group-name <AutoScalingGroupName> --preferences '{"MinHealthyPercentage":<Percentage>,"InstanceWarmup":<TimeInSeconds>}'`
             - `<AutoScalingGroupName>`: Auto Scaling 그룹의 이름
             - `<Percentage>`: 최소 건강 비율 (예: 80)
             - `<TimeInSeconds>`: 워밍업 시간 (예: 300초)
     - **예시 설정**
         - bash
-            ```bash
-aws autoscaling start-instance-refresh --auto-scaling-group-name MyAutoScalingGroup --preferences '{"MinHealthyPercentage":80,"InstanceWarmup":300}'
-            ```
+            `aws autoscaling start-instance-refresh --auto-scaling-group-name MyAutoScalingGroup --preferences '{"MinHealthyPercentage":80,"InstanceWarmup":300}'`
 
 ## 2. Scaling Processes
 p 196
@@ -193,26 +189,18 @@ p 196
         3. "Suspend" 또는 "Resume" 버튼을 클릭하여 특정 프로세스를 일시 중지 또는 재개한다.
     - **AWS CLI**
         - bash
-            ```bash
-aws autoscaling suspend-processes --auto-scaling-group-name <AutoScalingGroupName> --scaling-processes <ProcessName>
-            ```
+            `aws autoscaling suspend-processes --auto-scaling-group-name <AutoScalingGroupName> --scaling-processes <ProcessName>`
             - `<AutoScalingGroupName>`: Auto Scaling 그룹의 이름
             - `<ProcessName>`: 일시 중지할 프로세스 이름 (예: Launch, Terminate 등)
         - bash
-            ```bash
-aws autoscaling resume-processes --auto-scaling-group-name <AutoScalingGroupName> --scaling-processes <ProcessName>
-            ```
+            `aws autoscaling resume-processes --auto-scaling-group-name <AutoScalingGroupName> --scaling-processes <ProcessName>`
             - `<ProcessName>`: 재개할 프로세스 이름
     - **예시 설정**
         - bash
-            ```bash
-aws autoscaling suspend-processes --auto-scaling-group-name MyAutoScalingGroup --scaling-processes Terminate
-            ```
+            `aws autoscaling suspend-processes --auto-scaling-group-name MyAutoScalingGroup --scaling-processes Terminate`
             - `Terminate` 프로세스를 일시 중지하여 인스턴스가 그룹에서 제거되지 않도록 함
         - bash
-            ```bash
-aws autoscaling resume-processes --auto-scaling-group-name MyAutoScalingGroup --scaling-processes Terminate
-            ```
+            `aws autoscaling resume-processes --auto-scaling-group-name MyAutoScalingGroup --scaling-processes Terminate`
             - `Terminate` 프로세스를 다시 활성화하여 정상 작동하도록 함
 
 ## 3. Health Checks
@@ -251,15 +239,69 @@ p 197
         1. 사용자 정의 스크립트를 통해 인스턴스 상태를 점검한다.
         2. 인스턴스 상태를 설정한다.
         - bash
-            ```bash
-aws autoscaling set-instance-health --instance-id <InstanceId> --health-status <HealthStatus>
-            ```
+	        `aws autoscaling set-instance-health --instance-id <InstanceId> --health-status <HealthStatus>`
             - `<InstanceId>`: 인스턴스 ID
             - `<HealthStatus>`: `Healthy` 또는 `Unhealthy`
     - **예시 설정**
         - bash
-            ```bash
-aws autoscaling set-instance-health --instance-id i-0123456789abcdef0 --health-status Unhealthy
-            ```
+            `aws autoscaling set-instance-health --instance-id i-0123456789abcdef0 --health-status Unhealthy`
             - 지정된 인스턴스를 불량 상태로 설정.
             - Auto Scaling 그룹은 이 인스턴스를 종료하고 새 인스턴스를 시작
+
+
+# V. Auto Scaling Update Strategies
+
+Auto Scaling 그룹에서 응용 프로그램을 업데이트하는 방법의 예시는 다음과 같다.
+
+- **Same target group**
+    
+    - 기존 운영 EC2 instance를 똑같이 하나 더 만들어서 동일한 ASG 안에 두는 것
+    - 동일 ASG에 있으므로 ALB에 의해 모두에게 트레픽이 분산된다.
+    - **자동 배율 그룹 유지 및 업데이트**
+    
+    1. 기존 자동 배율 그룹을 유지하면서 같은 타겟 그룹에 새 런치 템플릿을 만든다.
+    2. 새 템플릿으로 EC2 인스턴스를 생성하고, 이를 위해 자동 스케일링 그룹 용량을 일시적으로 늘린니다.
+    3. 애플리케이션 부하 분산기를 통해 두 가지 버전의 애플리케이션에 트래픽을 분산한다.
+    4. 새 버전이 안정적이라면 기존 인스턴스를 종료한다.
+    
+    
+- **Target group 1,2, ... ,N**
+    
+    - ASG 그룹을 여러개 만들고 ELB는 하나로 구성.
+    - 새로 만든 두 번째 ASG에 트래픽을 테스트하듯이 ALB를 이용해서 조금씩 보내는 게 가능함.
+    
+    ```mermaid
+    flowchart TD
+    ALB[ALB] <-->|Target Group1| ASG1[ASG1]
+    ALB[ALB] <-->|Target Group2| ASG2[ASG2]
+    
+    ```
+    
+    - **새 자동 배율 그룹 생성**
+        
+        1. 새로운 자동 배율 그룹을 생성하고, 새 타깃 그룹도 만든다.
+        2. 두 번째 타깃 그룹에 소량의 트래픽을 보내 새 애플리케이션을 테스트한다.
+        3. 테스트가 성공적이라면 트래픽을 점진적으로 새 그룹으로 전환하고, 기존 그룹을 제거한다.
+        
+        ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/4341363e-eac1-4235-88a8-386c497ca237/d88d4c1f-3ba0-4d7f-891b-9d009654cf45/Untitled.png)
+        
+- **Route 53 구성방식**
+    
+    - ALB단 부터 새롭게 만듦.
+    - 3-1. Client 가 요청한 DNS Query를 Route 53 에 의해서 처리할때 어떤 ALB에 대한 주소를 클라이언트에게 알려줄지를 정한다 = Client Based LB 새롭게 만든 ALB2에 네트워크 트래픽을 점차 늘려나가는 방식으로 테스트 가능함 3-2. 53 레벨에서 서비스하기 전에 독립적으로 부하 테스트를 할 수 있음.
+    
+    ```mermaid
+    flowchart TD
+    
+    c[Client] -->|DNS Query| R53[Route 53]
+    c[Client] -->|Client based LB| ALB1[ALB1] & ALB2[ALB2]
+    ALB1[ALB1] <--> ASG1[ASG1]
+    ALB2[ALB2] <--> ASG2[ASG2]
+    T[Test Client] -..->|Separate manual testing Load testing| ALB2
+    
+    ```
+    
+    - **이중 ALB 설정**
+        1. 기존 ALB와 새로운 ALB를 각각 다른 자동 배율 그룹과 연결한다.
+        2. Route 53을 사용해 클라이언트 트래픽을 두 ALB로 분산한다.
+        3. 새로운 ALB를 독립적으로 테스트하고 점진적으로 트래픽을 전환한다.
