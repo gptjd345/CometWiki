@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/5. Compute & Load Balancing.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/5. Compute & Load Balancing.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/5. Compute & Load Balancing.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/5. Compute & Load Balancing.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/5. Compute & Load Balancing.md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md"
               }
             }
           },
@@ -186,9 +186,11 @@
   },
   "active": "f30addaaba2313a7",
   "lastOpenFiles": [
+    "Solution-Architecture-on-AWS.png",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/무제 파일.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
     "아키텍처/키움페이 구조.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/5. Compute & Load Balancing.md",
     "Pasted image 20240617213658.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
     "Pasted image 20240614004752.png",
@@ -222,7 +224,6 @@
     "단위테스트",
     "JavaScript",
     "CS/OS/Linux.md",
-    "CS/OS/UNIX.md",
     "네트워크_소켓의 의미.png",
     "그림1. 소켓의 의미_소켓_개념.png.png",
     "그림1. 소켓의 의미_소켓_개념.png",
