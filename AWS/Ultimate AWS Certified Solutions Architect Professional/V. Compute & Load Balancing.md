@@ -597,4 +597,15 @@ VPC 설정없이 AWS의 Public Cloud에 람다함수를 배포하면 람다함�
 
 ##### Lambda - Synchronous Invocations
 CLI, SDK, API Gateway 를 통해 람다 함수에 대해 동기호출이 이루어진다.
-SDK의 경우 비동기 와 동기 방식 모두 호출이 가능하다(invoke()함수는 )
+SDK의 경우 비동기 와 동기 방식 모두 호출이 가능하다(invoke()함수는 동기식, invokeAsync()함수는 비동기식으로 동작)
+
+![[Pasted image 20240618230809.png]]
+
+##### Lambda - Asynchronous Invocations
+S3, SNS, Amazon EventBridge 등에 의해 비동기 호출이 이루어진다.
+* AWS Lambda는 함수 호출 실패 시 자동으로 최대 3번까지 재시도한다.
+* 3번의 재시도 후에도 실패하면 Lambda는 이벤트를 포기하고 다음 이벤트를 처리한다.
+
+Dead Letter Queue (DLQ)
+DLQ는 Lambda 함수 실행에 실패한 이벤트를 저장하는 Amazon SQS 대기열이다. 
+3번 재
