@@ -128,6 +128,34 @@ Amazon EC2 Auto Scaling을 사용하면 EC2 인스턴스가 Auto Scaling 그룹�
             1. 부하가 증가 예상 시: 규모를 확장하여 용량 늘림
             2. 부하 감소가 예상 시: 용량을 줄일 수 있을 정도로 규모를 축소하지는 않음 → 더 이상 필요하지 않은 용량을 제거하려면 동적 조정 정책을 생성해야 함
 
+# II. **스케일링의 기반이 되는 좋은 지표(metrics)**
+p 193
+
+[https://choiblog.tistory.com/175](https://choiblog.tistory.com/175)
+[https://velog.io/@combi_jihoon/Auto-Scaling-Group-Scaling-Policies](https://velog.io/@combi_jihoon/Auto-Scaling-Group-Scaling-Policies)
+
+자동 스케일링 그룹(ASG)에서 확장하기에 적합한 메트릭은 애플리케이션의 성능과 안정성을 보장하기 위해 중요하다.
+
+- **CPUUtilization(CPU 사용률)**
+    - 인스턴스 전체의 평균 CPU 사용률 모니터링
+    - ex) 평균 CPU 사용률이 70%를 초과하면 인스턴스를 추가하여 부하 분산
+    
+- **RequestCountPerTarget(대상별 요청수)**
+    - EC2 인스턴스당 요청 수가 안정적인지 확인
+    - 인스턴스가 안정적으로 작동하는 경우 유용
+    - ex) 특정 인스턴스당 요청 수가 일정 임계값을 초과하면 인스턴스를 추가하여 요청 처리
+    - 아래의 경우 인스턴스 당 RequestCountPerTarget는 3
+	    ![[RequestCountPerTarget.png]]
+    
+- **Average Network In / Out(평균 네트워크 입력/출력)**
+    - 네트워크 바인딩된 응용 프로그램의 경우 네트워크 트래픽 모니터링
+    - ex) 평균 네트워크 입력/출력 값이 특정 임계값을 초과하면 인스턴스 추가
+    
+- **Any custom metric (사용자 지정 메트릭)**
+    - CloudWatch를 사용해 애플리케이션에 특화된 메트릭 모니터링
+    - 이러한 사용자 정의 메트릭을 기반으로 스케일링 정책 설정 가능
+    - ex) 특정 애플리케이션 로그의 에러 발생 횟수, 메모리 사용량, 디스크 I/O 등.
+
 
 ## Auto Scaling Groups(ASG)에서 확장하기에 적합한 주요 메트릭
 자동 스케일링 그룹(ASG)에서 확장하기에 적합한 메트릭은 애플리케이션의 성능과 안정성을 보장하기 위해 중요하다. 
