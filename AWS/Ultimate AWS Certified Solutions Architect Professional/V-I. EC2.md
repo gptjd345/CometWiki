@@ -210,10 +210,7 @@ AWS Graviton 프로세서는 AWS에서 자체 설계한 ARM 기반 프로세서�
 AWS Graviton 프로세서는 ARM 기반의 고성능, 저비용 프로세서로, 다양한 리눅스 운영 체제와 호환된다. Graviton2는 동급 x86 인스턴스 대비 40% 향상된 가격 성능을 제공하며, Graviton3는 Graviton2 대비 최대 3배 향상된 성능을 제공한다.
 Graviton 프로세서는 앱 서버, 마이크로서비스, 고성능 컴퓨팅, CPU 기반 머신러닝, 비디오 인코딩, 게임, 인메모리 캐시 등 다양한 사용 사례에 적합하다.
 <font color="#92d050">* ARM(Adavanced RISC Machine): RISC 아키텍처 기반의 중앙 처리 장치(CPU) 제품군</font>
-<font color="#92d050">* RISC (Reduced Instruction Set Computer): 적은 수의 명령어를 수행하도록 설계된 마이크로프로세서. 복잡한 명령어를 제거하여 사용빈도가 높은 명령어 위주로 처리속도를 향상한 프로세서이다. 컴퓨터의 실행 속도를 높이기 위해 복잡한 처리는 소프트웨어에게 맡기는 방법을 채택하였다.</font>
-
-## EC2 Graviton
-AWS Graviton 프로세서는 AWS에서 자체 설계한 ARM 기반 프로세서로, 뛰어난 가격 대비 성능을 제공하는 것이 특징이다. Graviton, Graviton2, Graviton3 세대가 있으며, 각 세대는 이전 세대보다 성능과 효율성이 크게 향상되었다.
+<font color="#92d050">* RISC (Reduced Instruction Set Computer): 복잡한 명령어를 제거하여 사용빈도가 높은 명령어 위주로 처리속도를 향상한 프로세서, 컴퓨터의 실행 속도를 높이기 위해 복잡한 처리는 소프트웨어에게 맡기는 방법을 채택</font>
 
 
 ## EC2 메트릭
