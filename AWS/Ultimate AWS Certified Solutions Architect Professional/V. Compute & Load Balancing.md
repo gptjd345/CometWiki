@@ -174,193 +174,150 @@ p 193
         - 또는 EC2 Instance Refresh 기능을 사용하여 자동으로 인스턴스 새로 고침 사용
 
 
-## Auto Scaling 주요 기능
+# IV. Auto Scaling 주요 기능
 
-### Instance Refresh
-EC2 Auto Scaling의 Instance Refresh 기능을 사용하면 인스턴스를 자동 새로고침으로, 최신 런치 템플릿을 적용할 수 있다. 이를 통해 시스템의 가용성과 안정성을 유지하면서 인스턴스를 업데이트할 수 있다. 다음은 Instance Refresh 기능을 설정하고 사용하는 방법에 대해 설명이다.
+## 1. Instance Refresh(**인스턴스 새로고침)**
+p 195
 
-#### 목표
-- 런치 템플릿을 업데이트한 후 모든 EC2 인스턴스를 재생성하는 것.
+[https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/asg-instance-refresh.html](https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/asg-instance-refresh.html)
 
-#### Instance Refresh 기능 사용
-Instance Refresh 기능을 사용하면 수동으로 인스턴스를 종료하고 다시 시작할 필요 없이, 자동으로 인스턴스를 새로 고칠 수 있다.
-
-#### 설정 방법
-
-1. **최소 건강 비율(Minimum Healthy Percentage) 설정**:
+- **목표**
+    - 런치 템플릿을 업데이트한 후 모든 EC2 인스턴스를 재생성하는 것.
     
-    - 새로 고침 중에도 일정 비율의 인스턴스가 건강한 상태로 유지되도록 설정할 수 있다.
-    - 예: 최소 건강 비율을 80%로 설정하면, 전체 인스턴스 중 80%는 항상 가용 상태로 유지된다.
-2. **워밍업 시간(Warm-up Time) 지정**:
+- **Instance Refresh 기능 사용의 이점**
+    - Instance Refresh 기능을 사용하면 수동으로 인스턴스를 종료하고 다시 시작할 필요 없이, 자동으로 인스턴스 새로 고침 가능
     
-    - 새 인스턴스가 시작되고 실제로 사용 가능해질 때까지의 시간을 설정한다.
-    - 예: 워밍업 시간을 300초(5분)로 설정하면, 새 인스턴스가 시작된 후 5분 동안은 트래픽을 받지 않고 준비 상태에 있게 된다.
-
-#### 설정 예시
-
-AWS Management Console 또는 AWS CLI를 통해 Instance Refresh를 설정할 수 있습니다.
-
-##### AWS Management Console
-
-1. Auto Scaling 그룹을 선택합니다.
-2. "Instance Refresh" 탭으로 이동합니다.
-3. "Start Instance Refresh" 버튼을 클릭합니다.
-4. 최소 건강 비율과 워밍업 시간을 설정합니다.
-5. 설정을 저장하고 새로 고침을 시작합니다.
-
-##### AWS CLI
-
-bash
-
-```bash
+- **설정 방법**
+    1. **최소 건전 백분율(Minimum Healthy Percentage) 설정**
+        - 새로 고침 중에도 일정 비율의 인스턴스가 건강한 상태로 유지되도록 설정 가능
+        - ex) 최소 건강 비율을 80%로 설정하면, 전체 인스턴스 중 80%는 항상 가용 상태로 유지
+    2. **최대 건전 백분율(Maximum Healthy Percentage) 설정**
+        - 인스턴스를 교체할 때 Auto Scaling 그룹이 늘릴 수 있는 원하는 용량의 백분율
+        - 최소값과 최대값의 차이가 100을 초과할 수 없음
+    3. **워밍업 시간(Warm-up Time) 지정**
+        - 새 인스턴스가 시작되고 실제로 사용 가능해질 때까지(InService)의 시간 설정
+        - ex) 워밍업 시간을 300초(5분)로 설정하면, 새 인스턴스가 시작된 후 5분 동안은 트래픽을 받지 않고 준비 상태에 있게 됨
+	 ![[Instance-Refresh.png]]
+    
+- **설정 예시**
+    AWS Management Console 또는 AWS CLI를 통해 Instance Refresh를 설정할 수 있습니다.
+    
+    - **AWS Management Console**
+        1. Auto Scaling 그룹을 선택한다.
+        2. "Instance Refresh" 탭으로 이동한다.
+        3. "Start Instance Refresh" 버튼을 클릭한다.
+        4. 최소 건강 비율과 워밍업 시간을 설정한다.
+        5. 설정을 저장하고 새로 고침을 시작한다.
+    - **AWS CLI**
+        - bash
+            ```bash
 aws autoscaling start-instance-refresh --auto-scaling-group-name <AutoScalingGroupName> --preferences '{"MinHealthyPercentage":<Percentage>,"InstanceWarmup":<TimeInSeconds>}'
-```
-
-- `<AutoScalingGroupName>`: Auto Scaling 그룹의 이름
-- `<Percentage>`: 최소 건강 비율 (예: 80)
-- `<TimeInSeconds>`: 워밍업 시간 (예: 300초)
-
-##### 예시 설정
-
-bash
-
-```bash
+            ```
+            - `<AutoScalingGroupName>`: Auto Scaling 그룹의 이름
+            - `<Percentage>`: 최소 건강 비율 (예: 80)
+            - `<TimeInSeconds>`: 워밍업 시간 (예: 300초)
+    - **예시 설정**
+        - bash
+            ```bash
 aws autoscaling start-instance-refresh --auto-scaling-group-name MyAutoScalingGroup --preferences '{"MinHealthyPercentage":80,"InstanceWarmup":300}'
-```
+            ```
 
-이 설정을 통해 런치 템플릿을 업데이트하고, 모든 인스턴스를 자동으로 새로 고칠 수 있다. 이를 통해 시스템의 가용성을 유지하면서, 최신 설정을 적용할 수 있다.
+## 2. Scaling Processes
+p 196
 
-### Scaling Processes
-Auto Scaling 그룹에서 다양한 스케일링 프로세스를 관리할 수 있다. 이 프로세스들을 이해하고 적절히 사용하면, 애플리케이션의 가용성과 안정성을 높일 수 있다. 다음은 주요 스케일링 프로세스와 그 기능에 대한 설명이다.
+- **주요 스케일링 프로세스**
+    1. **Launch**: 새로운 EC2 인스턴스를 그룹에 추가하여 용량 증가
+    2. **Terminate**: 그룹에서 EC2 인스턴스를 제거하여 용량 감소
+    3. **HealthCheck**: 인스턴스의 상태 점검. 상태가 불량한 인스턴스 탐지
+    4. **ReplaceUnhealthy**: 상태가 불량한 인스턴스를 종료하고, 새로 생성하여 교체
+    5. **AZRebalance**: 가용 영역(AZ) 간에 EC2 인스턴스 수를 균형 있게 조정
+    6. **AlarmNotification**: CloudWatch 경보를 수신하여 스케일링 작업을 트리거
+    7. **ScheduledActions**: 사용자가 생성한 예약된 작업을 수행
+    8. **AddToLoadBalancer**: 인스턴스를 로드 밸런서 또는 타겟 그룹에 추가
+    9. **InstanceRefresh**: 인스턴스 새로 고침. 새로운 런치 템플릿을 적용하여 인스턴스 업데이트
 
-#### 주요 스케일링 프로세스
+- **프로세스 일시 중지**
+    - 필요에 따라 특정 스케일링 프로세스를 일시 중지 가능
+    - ex) 특정 작업을 수행하는 동안 스케일링을 일시 중지하여 예기치 않은 인스턴스 추가/제거 방지
 
-1. **Launch**: 새로운 EC2 인스턴스를 그룹에 추가하여 용량을 증가시킨다.
-2. **Terminate**: 그룹에서 EC2 인스턴스를 제거하여 용량을 감소시킨다.
-3. **HealthCheck**: 인스턴스의 상태를 점검한다. 상태가 불량한 인스턴스를 탐지한다.
-4. **ReplaceUnhealthy**: 상태가 불량한 인스턴스를 종료하고, 새로 생성하여 교체한다.
-5. **AZRebalance**: 가용 영역(AZ) 간에 EC2 인스턴스 수를 균형 있게 조정한다.
-6. **AlarmNotification**: CloudWatch 경보를 수신하여 스케일링 작업을 트리거한다.
-7. **ScheduledActions**: 사용자가 생성한 예약된 작업을 수행한다. 예를 들어, 특정 시간에 스케일링 작업을 실행할 수 있다.
-8. **AddToLoadBalancer**: 인스턴스를 로드 밸런서 또는 타겟 그룹에 추가한다.
-9. **InstanceRefresh**: 인스턴스를 새로 고친다. 새로운 런치 템플릿을 적용하여 인스턴스를 업데이트한다.
-
-#### 프로세스 일시 중지
-
-- 필요에 따라 특정 스케일링 프로세스를 일시 중지할 수 있습니다. 예를 들어, 특정 작업을 수행하는 동안 스케일링을 일시 중지하여 예기치 않은 인스턴스 추가/제거를 방지할 수 있습니다.
-
-#### 일시 중지 방법
-
-##### AWS Management Console
-
-1. Auto Scaling 그룹을 선택합니다.
-2. "Activity" 탭으로 이동합니다.
-3. "Suspend" 또는 "Resume" 버튼을 클릭하여 특정 프로세스를 일시 중지 또는 재개한다.
-
-##### AWS CLI
-
-bash
-
-```bash
+- **일시 중지 방법**
+    - **AWS Management Console**
+        1. Auto Scaling 그룹을 선택한다.
+        2. "Activity" 탭으로 이동한다.
+        3. "Suspend" 또는 "Resume" 버튼을 클릭하여 특정 프로세스를 일시 중지 또는 재개한다.
+    - **AWS CLI**
+        - bash
+            ```bash
 aws autoscaling suspend-processes --auto-scaling-group-name <AutoScalingGroupName> --scaling-processes <ProcessName>
-```
-
-- `<AutoScalingGroupName>`: Auto Scaling 그룹의 이름
-- `<ProcessName>`: 일시 중지할 프로세스 이름 (예: Launch, Terminate 등)
-
-bash
-
-```bash
+            ```
+            - `<AutoScalingGroupName>`: Auto Scaling 그룹의 이름
+            - `<ProcessName>`: 일시 중지할 프로세스 이름 (예: Launch, Terminate 등)
+        - bash
+            ```bash
 aws autoscaling resume-processes --auto-scaling-group-name <AutoScalingGroupName> --scaling-processes <ProcessName>
-```
-
-- `<ProcessName>`: 재개할 프로세스 이름
-
-##### 예시 설정
-
-bash
-
-```bash
+            ```
+            - `<ProcessName>`: 재개할 프로세스 이름
+    - **예시 설정**
+        - bash
+            ```bash
 aws autoscaling suspend-processes --auto-scaling-group-name MyAutoScalingGroup --scaling-processes Terminate
-```
-
-- 이 명령어는 `Terminate` 프로세스를 일시 중지하여 인스턴스가 그룹에서 제거되지 않도록 한다.
-
-bash
-
-```bash
+            ```
+            - `Terminate` 프로세스를 일시 중지하여 인스턴스가 그룹에서 제거되지 않도록 함
+        - bash
+            ```bash
 aws autoscaling resume-processes --auto-scaling-group-name MyAutoScalingGroup --scaling-processes Terminate
-```
+            ```
+            - `Terminate` 프로세스를 다시 활성화하여 정상 작동하도록 함
 
-- 이 명령어는 `Terminate` 프로세스를 다시 활성화하여 정상 작동하도록 한다.
+## 3. Health Checks
+p 197
 
-이와 같은 스케일링 프로세스를 적절히 관리하여, Auto Scaling 그룹의 동작을 세밀하게 제어할 수 있다.
+- **헬스 체크 옵션**
+    1. **EC2 Status Checks**:
+        - EC2 인스턴스의 하드웨어 및 소프트웨어 상태 점검
+        - EC2 인스턴스 자체에서 수행되는 기본적인 상태 점검
+    2. **ELB Health Checks (HTTP)**:
+        - ELB(Elastic Load Balancer)가 인스턴스의 상태 점검
+        - HTTP 요청을 통해 인스턴스의 응답 상태 확인
+        - 로드 밸런서를 사용하는 경우, ELB 헬스 체크를 통해 인스턴스의 가용성 보장
+    3. **Custom Health Checks**:
+        - 사용자 정의 헬스 체크를 통해 인스턴스의 상태를 Auto Scaling 그룹에 전달 가능
+        - AWS CLI 또는 AWS SDK를 사용하여 `set-instance-health` 명령을 통해 인스턴스의 상태설정
+        - ex) 특정 애플리케이션의 상태를 점검하여 헬스 체크 결과를 Auto Scaling 그룹에 반영
 
-### Health Checks
-Auto Scaling 그룹에서 인스턴스의 건강 상태를 확인하는 것은 매우 중요하다. 이를 위해 다양한 헬스 체크 옵션을 제공하며, 이를 통해 시스템의 안정성을 유지할 수 있다. 다음은 Auto Scaling 그룹에서 사용 가능한 헬스 체크 옵션과 그 기능에 대한 설명이다.
-
-#### 헬스 체크 옵션
-
-1. **EC2 Status Checks**:
+- **헬스 체크 동작 방식**
+    - Auto Scaling 그룹은 불량한 상태로 판정된 인스턴스를 종료, 새로운 인스턴스를 시작하여 교체
+    - 이를 통해 건강하지 않은 인스턴스가 지속적으로 운영되는 것을 방지, 시스템의 가용성을 유지
+	 ![[Health-Checks.png]]
     
-    - EC2 인스턴스의 하드웨어 및 소프트웨어 상태를 점검한다.
-    - EC2 인스턴스 자체에서 수행되는 기본적인 상태 점검이다.
-2. **ELB Health Checks (HTTP)**:
+- **헬스 체크 설정 시 주의사항**
+    - 단순하고 정확한 헬스 체크를 구성하는 것이 중요하다.
+    - 너무 복잡하거나 지나치게 엄격하면, 정상적인 인스턴스가 불량으로 판정될 수 있다.
+    - 너무 느슨하면, 실제로 불량한 인스턴스가 탐지되지 않을 수 있다.
     
-    - ELB(Elastic Load Balancer)가 인스턴스의 상태를 점검한다.
-    - HTTP 요청을 통해 인스턴스의 응답 상태를 확인한다.
-    - 로드 밸런서를 사용하는 경우, ELB 헬스 체크를 통해 인스턴스의 가용성을 보장할 수 있다.
-3. **Custom Health Checks**:
-    
-    - 사용자 정의 헬스 체크를 통해 인스턴스의 상태를 Auto Scaling 그룹에 전달할 수 있다.
-    - AWS CLI 또는 AWS SDK를 사용하여 `set-instance-health` 명령을 통해 인스턴스의 상태를 설정한다.
-    - 예를 들어, 특정 애플리케이션의 상태를 점검하여 헬스 체크 결과를 Auto Scaling 그룹에 반영할 수 있다.
-
-#### 헬스 체크 동작 방식
-
-- Auto Scaling 그룹은 불량한 상태로 판정된 인스턴스를 종료하고, 새로운 인스턴스를 시작하여 교체한다.
-- 이를 통해 건강하지 않은 인스턴스가 지속적으로 운영되는 것을 방지하고, 시스템의 가용성을 유지한다.
-
-#### 헬스 체크 설정 시 주의사항
-
-- 단순하고 정확한 헬스 체크를 구성하는 것이 중요하다.
-- 헬스 체크가 너무 복잡하거나 지나치게 엄격하면, 정상적인 인스턴스가 불량으로 판정될 수 있다.
-- 반대로 헬스 체크가 너무 느슨하면, 실제로 불량한 인스턴스가 탐지되지 않을 수 있다.
-
-#### 헬스 체크 설정 예시
-
-###### EC2 Status Checks 및 ELB Health Checks 설정 (AWS Management Console)
-
-1. Auto Scaling 그룹을 선택합니다.
-2. "Details" 탭에서 "Health Check Type"을 선택한다.
-3. EC2, ELB, 또는 둘 다 선택할 수 있다.
-4. "Health Check Grace Period"를 설정하여 헬스 체크가 시작되기 전에 대기할 시간을 지정한다.
-
-##### Custom Health Checks 설정 (AWS CLI)
-
-1. 사용자 정의 스크립트를 통해 인스턴스 상태를 점검한다.
-2. 인스턴스 상태를 설정합니다.
-
-bash
-
-```bash
+- **헬스 체크 설정 예시**
+    - **EC2 Status Checks 및 ELB Health Checks 설정 (AWS Management Console)**
+        1. Auto Scaling 그룹을 선택한다.
+        2. "Details" 탭에서 "Health Check Type"을 선택한다.
+        3. EC2, ELB, 또는 둘 다 선택할 수 있다.
+        4. "Health Check Grace Period"를 설정하여 헬스 체크가 시작되기 전에 대기할 시간을 지정한다.
+    - **Custom Health Checks 설정 (AWS CLI)**
+        1. 사용자 정의 스크립트를 통해 인스턴스 상태를 점검한다.
+        2. 인스턴스 상태를 설정한다.
+        - bash
+            ```bash
 aws autoscaling set-instance-health --instance-id <InstanceId> --health-status <HealthStatus>
-```
-
-- `<InstanceId>`: 인스턴스 ID
-- `<HealthStatus>`: `Healthy` 또는 `Unhealthy`
-
-##### 예시 설정
-
-bash
-
-```bash
+            ```
+            - `<InstanceId>`: 인스턴스 ID
+            - `<HealthStatus>`: `Healthy` 또는 `Unhealthy`
+    - **예시 설정**
+        - bash
+            ```bash
 aws autoscaling set-instance-health --instance-id i-0123456789abcdef0 --health-status Unhealthy
-```
+            ```
+            - 지정된 인스턴스를 불량 상태로 설정.
+            - Auto Scaling 그룹은 이 인스턴스를 종료하고 새 인스턴스를 시작
 
-- 이 명령어는 지정된 인스턴스를 불량 상태로 설정한다. Auto Scaling 그룹은 이 인스턴스를 종료하고 새 인스턴스를 시작한다.
-
-적절한 헬스 체크 설정을 통해 Auto Scaling 그룹에서 인스턴스의 상태를 지속적으로 모니터링하고, 불량한 인스턴스를 자동으로 교체하여 시스템의 안정성을 유지할 수 있다.
 
 ### Auto Scaling Update Strategies #ComputeAndLoadBalancingJeongAh
 
