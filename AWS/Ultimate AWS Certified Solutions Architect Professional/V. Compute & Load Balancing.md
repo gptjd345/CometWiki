@@ -558,16 +558,22 @@ Lambda의 한계
 * CPU는 RAM과 붙어있음
 * Timeout 은 15분(15분 이상 걸리는 작업 비적합)
 * /tmp Storage(임시저장소) 10GB
-* 계정당 동시 실행수 1000건 (약간 늘릴수는 있음)
+* 계정당 동시 실행 수 1000건 (약간 늘릴수는 있음)
 * 람다의 배포 패키지 크기 50MB(압축시), 250MB(비압축시)
 * 컨테이너 이미지 크기 10GB
 * 호출 페이로드(Invocation Payload) 제한
 	동기호출(Request와 Response 모두)에 대한 Payload 크기는 각각 6MB로 제한됨.
-	비동기호출(Event): AWS 서비스(S3, DynamoDB, Kinesis등)에서 발생한 이벤트 혹은 애플리케이션 코드에서 AWS SDK를 사용하여 호출하는 경우에 대한 Payload 크기는 256KB 
+	비동기호출(Event)에 대한 Payload 크기는 256KB 
+	
  >[!question] 비동기호출이란?
- >kubernetes 노드를 실행하는데 필요한 모든 소프트웨어가 사전 설치 및 구성되어있음. AMI는 다양한 인스턴스 타입과 요구사항에 맞게 최적화된 여러 버전으로 제공되며, 정기적으로 최신보안 패치와 업데이트를 수행하고있음. 이걸 가져다가 직접 node를 생성하면 그나마 편함 
+ >HTTP 를 기반한 요청이 아닌, AWS 서비스(S3, DynamoDB, Kinesis등)에서 발생한 이벤트 혹은 애플리케이션 코드에서 AWS SDK를 사용하여 Lambda 함수를 호출하는 경우를 말함.
  >
 	
+
+##### Lambda Concurrency and Throttling
+1. 1계정당 1000개 Lamda 함수를 동시에실행가능하지만 보통 계정수준의 제한을 하나의 람다함수에서 쓰지는 않음. 
+2. 개별 람다 함수의 Concurrency 한도를 따로 설정하는 편임. 
+3. 개별 람다함수의 Concurrency(동시실행) 한도를 초과하는 경우 초과되는 함수 
 
 #### AWS Lambda - Part 2
 
