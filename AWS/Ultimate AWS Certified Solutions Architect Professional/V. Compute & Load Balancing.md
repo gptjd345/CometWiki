@@ -586,9 +586,9 @@ CodeDeploy를 사용하면 자동적으로 Lambda 함수들에 대한 트래픽 
 ##### Lambda In a VPC
 ![[Pasted image 20240618203140.png]]
 Lambda가 private subnet의 RDS 에 접근하려면 같은 Private Subnet 에 존재해하며 보안그룹을 설정해야함. Lambda가 인터넷과 통신해야한다면 NAT 를 통해 IGW(Internet Gateway)를 거쳐야한다.
-DynamoDB가 public 한 공간에 존재하지만 모든 트레픽을 private 하게 관리하고싶다면 람다가 접근하려는 대상에 EndPoint를 두면됨.
+DynamoDB가 public 한 공간에 존재하지만 모든 트레픽을 private 하게 관리하고싶다면 람다가 접근하려는 대상에 EndPoint를 두면 됨.
 
 ##### Lambda - Fixed Public IP for external comms
-
+VPC 설정없이 AWS의 Public Cloud에 람다함수를 배포하면 공용 IP로부터 임의의 공용 IP를
 
 
