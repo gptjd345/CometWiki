@@ -573,9 +573,17 @@ Lambda의 한계
 ##### Lambda Concurrency and Throttling
 1. 1계정당 1000개 Lamda 함수를 동시에실행가능하지만 보통 계정수준의 제한을 하나의 람다함수에서 쓰지는 않음. 
 2. 개별 람다 함수의 Concurrency 한도를 따로 설정하는 편임. 
-3. 개별 람다함수의 Concurrency(동시실행) 한도를 초과하는 경우 초과되는 함수 
+3. 개별 람다함수의 Concurrency(동시실행) 한도를 초과하는 경우 초과되는 람다함수 처리요청은 무시되고 ThrottlingException을 발생시킨다. 
+ >[!question] Throttling?
+ >Throttling이라는 용어는 원래 물리적인 목 조르기나 질식을 의미하다가, 점차 유량 제어 등의 기계적 의미로 확장되어 사용되어왔음.  현재 컴퓨터 시스템에서 리소스 사용을 제한하는 의미로 사용되고 있음. 
+ >
+
+##### Lambda & CodeDeploy
+CodeDeploy를 사용하면 자동적으로 Lambda 함수들에 대한 트래픽 분배가 가능함
 
 #### AWS Lambda - Part 2
+
+##### Lambda In a VPC
 
 
 
