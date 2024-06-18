@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f30addaaba2313a7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "38b34c12e4750090",
             "type": "leaf",
             "state": {
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -188,10 +175,10 @@
   },
   "active": "38b34c12e4750090",
   "lastOpenFiles": [
-    "storage.png",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-II. High Performance Computing(HPC).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/무제 파일.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
+    "storage.png",
     "EC2-Instance-Recovery.png",
     "EC2-Placement-Strategies_partition.png",
     "EC2-Placement-Strategies_spread.png",
@@ -233,7 +220,6 @@
     "단위테스트",
     "JavaScript",
     "네트워크_소켓의 의미.png",
-    "그림1. 소켓의 의미_소켓_개념.png.png",
     "무제 파일.canvas"
   ]
 }
