@@ -48,7 +48,7 @@ p 175
 
 
 
-# III. High Performance Computing (HPC)
+# III. High Performance Computing(HPC)
 고성능 컴퓨팅(HPC)은 매우 복잡하고 계산 집약적인 작업을 수행하는 데 필요한 기술이다. 클라우드는 이러한 HPC 작업을 수행하기에 최적의 환경을 제공한다. 
 
 ## 클라우드에서 HPC의 이점

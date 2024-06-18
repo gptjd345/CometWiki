@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md"
               }
             }
           },
@@ -187,9 +187,10 @@
   },
   "active": "f30addaaba2313a7",
   "lastOpenFiles": [
-    "EC2-Instance-Recovery.png",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/무제 파일.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
+    "EC2-Instance-Recovery.png",
     "EC2-Placement-Strategies_partition.png",
     "EC2-Placement-Strategies_spread.png",
     "EC2-Placement-Strategies_cluster 1.png",
@@ -232,7 +233,6 @@
     "CS/OS/Linux.md",
     "네트워크_소켓의 의미.png",
     "그림1. 소켓의 의미_소켓_개념.png.png",
-    "그림1. 소켓의 의미_소켓_개념.png",
     "무제 파일.canvas"
   ]
 }
