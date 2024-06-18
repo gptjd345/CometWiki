@@ -283,24 +283,25 @@ AWS EC2 인스턴스는 CPU 사용률, 네트워크 입력/출력, 상태 확인
 # VII. EC2 Instance Recovery
 p 184
 
+https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/ec2-instance-recover.html
+
 AWS EC2 인스턴스의 복구 절차는 인스턴스 상태와 시스템 상태를 확인하고, 문제가 발생했을 때 인스턴스를 복구하는 과정을 포함한다. 복구 시 인스턴스의 네트워크 설정 및 메타데이터 등이 유지된다.
 
-### EC2 인스턴스 복구 절차
+### ❓ EC2 인스턴스 복구 절차
+![[EC2-Instance-Recovery.png]]
 - EC2 Instance <-- monitor / Recovery -- ClouldWhatch Alarm (StatusCheckFailed_System)
+- https://repost.aws/ko/knowledge-center/automatic-recovery-ec2-cloudwatch
+- https://heewon0704.tistory.com/14
 
-#### 상태 확인
-
-1. **인스턴스 상태 (Instance Status)**:
-    
-    - EC2 VM의 상태를 검사합니다. 소프트웨어 및 네트워크 설정과 관련된 문제를 확인한다.
+## 1. 상태 확인
+1. **Instance Status(인스턴스 상태)**:
+    - EC2 VM의 상태를 검사한다. 소프트웨어 및 네트워크 설정과 관련된 문제를 확인한다.
     - 문제 발생 시, 인스턴스 재부팅 또는 다른 조치를 통해 문제 해결을 시도한다.
-2. **시스템 상태 (System Status)**:
-    
+2. **System Status(시스템 상태)**:
     - 기본 하드웨어와 호스트 시스템의 상태를 검사한다.
     - 하드웨어 관련 문제가 발견되면, AWS는 인스턴스를 자동으로 다른 물리적 호스트로 이동시켜 문제를 해결한다.
 
-#### 복구
-
+## 2. 복구
 - **복구 조치**: 인스턴스가 비정상 상태일 때, AWS는 자동으로 인스턴스를 복구할 수 있다. 복구 과정에서는 다음 항목들이 유지된다:
     - **Private IP Address (개인 IP 주소)**: 인스턴스에 할당된 개인 IP 주소가 유지된다.
     - **Public IP Address (공용 IP 주소)**: 탄력적 IP(Elastic IP)를 사용하고 있는 경우, 공용 IP 주소도 유지된다.
@@ -308,5 +309,5 @@ AWS EC2 인스턴스의 복구 절차는 인스턴스 상태와 시스템 상태
     - **Metadata (메타데이터)**: 인스턴스의 메타데이터와 사용자 데이터는 변경되지 않는다.
     - **Placement Group (배치 그룹)**: 인스턴스가 배치 그룹에 속해 있는 경우, 복구 후에도 동일한 배치 그룹에 속하게 된다.
 
-### Amazon CloudWatch
+### ❓ Amazon CloudWatch
 AWS 리소스와 애플리케이션을 모니터링하고, 다양한 메트릭스와 로그를 수집하여 알람을 생성할 수 있는 서비스이다. CloudWatch Alarm을 사용하여 특정 조건이 충족될 때 자동으로 복구 작업을 수행하도록 설정할 수 있다.
