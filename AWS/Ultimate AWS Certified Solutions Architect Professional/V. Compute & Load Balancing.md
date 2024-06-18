@@ -535,7 +535,15 @@ EKS에서 사용가능한 스토리지 유형
     - Fargate는 더 많은 기능과 유연성을 제공합니다. 예를 들어 사용자 지정 네트워킹, 스케일링 정책 등을 설정할 수 있습니다.
     - App Runner는 더 간단한 인터페이스를 제공하지만, Fargate만큼 많은 기능을 제공하지 않습니다. ex) Fargate는 여러 CloudWatch metric (CPU, network I/O, requests ...) 에 대한 스케일링 정책 설정가능 . 
 
+App Runner Multi-Region Architecture
+![[Pasted image 20240618194149.png]]
 
+1. DynamoDB를 사용하는 App Runner Service를 만든다 
+2. App Runner Service에서 만든 image를 ECR Registry 에 등록한다. 
+3. DynamoDB는 Global Table Replication 을 통해 리전간 복제가 가능하다. 
+4. ECR Registry는 Cross-Region Replication을 통해 리전간 복제가 가능하다 
+5. App Runner를 복제해서 멀티 리전 구성할 수 있다. 
+6. Route 53를 이용해 각 리전의 App Runner Service에 요청을 분배하도록 한다. 
 
 
 
