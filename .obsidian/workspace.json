@@ -172,8 +172,10 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4d34f674f28af088",
+  "active": "79fe046b96550a3a",
   "lastOpenFiles": [
+    "AWS-Fargate.png",
+    "ALB-Integration.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-V. Amazon ECS(Elastic Contatiner Service).md",
     "Amazon-ECS_Concepts.png",
@@ -189,7 +191,6 @@
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-I. Amazon EC2(Elastic Compute Cloud).md",
     "Route53.png",
     "Target-group.png",
-    "Same-target-group.png",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
     "아키텍처/키움페이 구조.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
