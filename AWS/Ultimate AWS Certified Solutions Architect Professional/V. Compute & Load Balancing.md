@@ -237,8 +237,11 @@ SSL은 기본적으로 하나만 지원하지만 SAN(Subject Alternative Name) �
     2-2. 모바일/PC 환경 분리 
     2-3. 리디렉션 설정
     http로 요청한 경우 HTTPS로 리디렉션하거나, 잘못요청된 URL을 다른 URL로 리디렉션하는 등 의 규칙세우는거 가능  
+    2-4. 동적으로 DNS 이름을 제공
 
- Network Load Balancer
- * L4에서 동작하고 TCP, UDP 지원
+ Network Load Balancer (NLB)
+ * Transport Layer L4에서 동작하고 TCP, UDP 지원
  * ALB 보다 지연시간이 짧다. 100ms (ALB는 400ms 정도)
- * AZ
+ * NLB는 AZ 마다 하나의 고정 IP 를 가지며 탄력적 IP(Elastic IP)를 지원
+ * AWS free tier에는 포함되어있지않음. 
+ * NLB는 고정IP를 제공하지만 동적 DNS 
