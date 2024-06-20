@@ -232,7 +232,11 @@ SSL은 기본적으로 하나만 지원하지만 SAN(Subject Alternative Name) �
 * HTTP/2와 WebSocket 지원
 * 규칙이나 리디렉션을 정할 수 있음.
 	ex) 1. ALB level 에서 HTTP -> HTTPS로 직접 리디렉션 할 수 있음
-	  2. 라우팅 규칙
+	  2. path, header,query string을 사용해서 라우팅 규칙을 정할수있음 
+    2-1. 개발환경과 운영환경을 분리하여 관리할때 도메인(Host header)에 따라 개발환경 또는 운영환경의 타겟 그룹으로 트레픽을 라우팅 할 수 있음. 
+    2-2. 모바일/PC 환경 분리 
+    2-3. 리디렉션 설정
+    http로 요청한 경우 HTTPS로 리디렉션하거나, 잘못요청된 URL을 다른 URL로 리디렉션하는 등 의 규칙세우는거 가능  
 
  
  
