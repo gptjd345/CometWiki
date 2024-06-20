@@ -149,18 +149,18 @@ p 217
 ![[Pasted image 20240617213658.png]][출처]https://www.devopsschool.com/blog/wp-content/uploads/2021/03/Amazon-Elastic-Kubernetes-Service-EKS-Explained-Diagram-1.png
 
 ## 1. AWS EKS - Node(EC2 instance) Types
-1. Managed Node Groups
+1. **Managed Node Groups**
 * EC2 인스턴스를 자동으로 생성, 업데이트, 패치, 종료 작업 전반을 관리해줌 
 * EC2 인스턴스로는 On-Demand 나 Spot Instances를 지원한다. 
 
-2. Self-Managed Nodes
+2. **Self-Managed Nodes**
 * 사용자가 직업 EC2 인스턴스를 직접 생성하고 관리함
 * Amazon EKS Optimized AMI를 사용하여 좀 편하게 쓸 수 있음. 
  >[!tip] Amazon EKS Optimized Amazon Machine Image(AMI)
  >kubernetes 노드를 실행하는데 필요한 모든 소프트웨어가 사전 설치 및 구성되어있음. AMI는 다양한 인스턴스 타입과 요구사항에 맞게 최적화된 여러 버전으로 제공되며, 정기적으로 최신보안 패치와 업데이트를 수행하고있음. 이걸 가져다가 직접 node를 생성하면 그나마 편함 
  >
 
-3. AWS Fargate
+3. **AWS Fargate**
 * 아무것도 관리하기 싫을 때 편하게 사용가능
 
 ## 2. Amazon EKS - Data Volumes
