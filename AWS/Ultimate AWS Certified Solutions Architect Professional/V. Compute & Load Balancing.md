@@ -92,13 +92,63 @@ p 214
 - 저장소 공간을 절약, 비용 절감
 
 
+# II. Amazon ECR – Cross Region Replication(교차 리전 및 교차 계정 복제)
 p 215
-# VII. Amazon EKS - Elastic Kubernetes Service
 
+[https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/Repositories.html](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/Repositories.html)
+
+ECR private 레지스트리는 지역 간 및 계정 간 복제를 모두 지원한다. ****이를 통해 CodeBuild에서 빌드된 이미지를 다른 지역으로 자동으로 복제할 수 있다.
+
+예를 들어, CodeBuild를 사용해 이미지를 빌드하고 이를 ECR에 푸시하면, 교차 지역 복제 설정 덕분에 이미지는 자동으로 다른 지역의 ECR로 복제된다. 이를 통해 다른 지역의 ECS (Elastic Container Service)에서 즉시 작업을 시작할 수 있어, 글로벌 서비스 제공이 원활해진다.
+
+![[ECR_Cross-Region-Replication.png]]
+
+- **장점**
+    - 자동 복제: 이미지를 다른 지역으로 자동으로 복제할 수 있어, 별도의 수작업 없이 여러 지역에 이미지 배포 가능
+    - 시간 절약: 다른 지역에서 이미지를 다시 빌드할 필요가 없어 시간과 리소스를 절약
+    - 글로벌 배포: 여러 지역에 걸쳐 글로벌 응용 프로그램을 쉽게 제공
+
+# III. Amazon ECR – Image Scanning
+p 216
+
+[https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/image-scanning.html](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/image-scanning.html)
+
+ECR에서는 컨테이너 이미지를 스캔하여 취약점을 식별할 수 있으며, 이는 자동화된 프로세스를 통해 이루어질 수 있다.
+
+![[ECR–Image_Scanning.png]]
+
+- **기본 스캐닝**
+    - CVE(Common Vulnerability and Exposures) 데이터베이스를 사용하는 두 가지 버전의 기본 스캐닝을 제공
+    - 하나는 오픈 소스 Clair 프로젝트를 사용하는 현재 GA 버전, 다른 하나는 AWS 기본 기술
+    - 푸시 시 스캔하도록 리포지토리를 구성하거나 수동 스캔 수행 가능
+    - Amazon ECR은 스캔 결과 목록 제공
+    - 기본 검색 → 검색 결과는 AWS 콘솔 내에서 검색 가능
+        - OS 스캔
+        - 두 가지 스캐닝 주파수: 수동 및 푸시 시 스캔
+- **향상된 스캐닝**
+    - Amazon Inspector와 통합되어 리포지토리에 대한 자동화되고 지속적인 스캐닝을 제공
+    - 컨테이너 이미지에서 운영 체제와 프로그래밍 언어 패키지 취약점을 모두 검사
+    - 새로운 취약점이 나타나면 스캔 결과가 업데이트되고 Amazon Inspector는 EventBridge에 이벤트를 내보내 이를 알려줌
+    - 향상된 검색 → 검색 결과는 AWS 콘솔 내에서 검색 가능
+        - OS 및 프로그래밍 언어 패키지 취약점
+        - 두 가지 스캐닝 주파수: 푸시 시 스캔 및 연속 스캔
+
+# IV. Amazon EKS - Elastic Kubernetes Service
+p 217
+
+• Amazon EKS = Amazon Elastic Kubernetes 서비스  
+• AWS에서 관리형 Kubernetes 클러스터를 시작하는 방법
+• Kubernetes는 컨테이너화된(일반적으로 Docker) 애플리케이션의 자동 배포, 확장 및 관리를 위한 오픈 소스 시스템
+• ECS의 대안으로, 목표는 비슷하지만 API는 다름
+• EKS는 서버리스 컨테이너를 배포하기 위해 작업자 노드 또는 Fargate를 배포하려는 경우 EC2를 지원
+• 사용 사례: 회사에서 이미 Kubernetes를 사내 또는 다른 클라우드에서 사용하고 있으며 Kubernetes를 사용하여 AWS로 마이그레이션하려는 경우  
+• Kubernetes는 클라우드에 구애받지 않음(Azure, GCP 등 모든 클라우드에서 사용 가능)  
+• 여러 지역의 경우 지역당 1개의 EKS 클러스터 구축  
+• CloudWatch Container Insights를 사용하여 로그 및 메트릭 수집
 
 ![[Pasted image 20240617213658.png]][출처]https://www.devopsschool.com/blog/wp-content/uploads/2021/03/Amazon-Elastic-Kubernetes-Service-EKS-Explained-Diagram-1.png
 
-#### AWS EKS - Node(EC2 instance) Types
+## 1. AWS EKS - Node(EC2 instance) Types
 1. Managed Node Groups
 * EC2 인스턴스를 자동으로 생성, 업데이트, 패치, 종료 작업 전반을 관리해줌 
 * EC2 인스턴스로는 On-Demand 나 Spot Instances를 지원한다. 
@@ -111,9 +161,9 @@ p 215
  >
 
 3. AWS Fargate
-아무것도 관리하기 싫을 때 편하게 사용가능
+* 아무것도 관리하기 싫을 때 편하게 사용가능
 
-#### Amazon EKS - Data Volumes
+## 2. Amazon EKS - Data Volumes
 
 EKS에서 사용가능한 스토리지 유형
 * Amazon EBS
