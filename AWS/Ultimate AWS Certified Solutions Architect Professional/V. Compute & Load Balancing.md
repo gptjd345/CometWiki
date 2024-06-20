@@ -50,7 +50,7 @@ p 175
 
 <font color="#92d050">////////////////////////////////////////////////////////////////////////////////////////</font>
 
-# V-VII. Amazon ECR & EKS
+# V-VI. Amazon ECR & EKS
 
 # I. Amazon ECR - Elastic Container Registry
 p 214
@@ -92,8 +92,9 @@ p 214
 - 저장소 공간을 절약, 비용 절감
 
 
-# VIII. Amazon EKS - Elastic Kubernetes Service
 p 215
+# VII. Amazon EKS - Elastic Kubernetes Service
+
 
 ![[Pasted image 20240617213658.png]][출처]https://www.devopsschool.com/blog/wp-content/uploads/2021/03/Amazon-Elastic-Kubernetes-Service-EKS-Explained-Diagram-1.png
 
