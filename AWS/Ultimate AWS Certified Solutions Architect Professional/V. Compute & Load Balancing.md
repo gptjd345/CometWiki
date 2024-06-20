@@ -127,6 +127,7 @@ https://aws.amazon.com/ko/blogs/compute/understanding-aws-lambdas-invoke-throttl
  >
 
 # VI. Lambda & CodeDeploy
+p 232
 CodeDeploy를 사용하면 자동적으로 Lambda 함수들에 대한 트래픽 분배가 가능함
 
 #### AWS Lambda - Part 2
