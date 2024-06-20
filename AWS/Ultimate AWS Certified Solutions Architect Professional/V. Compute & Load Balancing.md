@@ -218,6 +218,21 @@ DLQ는 Lambda 함수 실행에 실패한 이벤트를 저장하는 Amazon SQS or
    ex) 응답에 "OK"라는 문자열이 포함되어 있는지 검사.
 이 외에도 로드 밸런서나 애플리케이션의 특성에 따라 추가적인 지표를 설정하여 Health Check를 수행할 수 있습니다.
  
-##### Classic Load Balancer
+##### Classic Load Balancer (CLB)
 Http 계층(L7)에 있거나 TCP 계층(L4) 에서 동작 
-SSL은 하나만 지원한다. 
+SSL은 기본적으로 하나만 지원하지만 SAN(Subject Alternative Name) 사용가능
+
+ >[!question] SAN(Subject Alternative Name)?
+ >SAN을 사용하면 하나의 인증서로 여러 호스트 이름을 보호할 수 있음. 
+ >그러나 하나의 인증서 교체시 여러 도메인을 사용하는 서비스에 영향이 갈수 있어서
+ >기본적으로 하나의 도메인은 하나의 SSL을 가지도록 하는 것을 기본으로 한다. 
+ 
+##### Application Load Balancer (ALB)
+* Http 계층(L7) 에서 동작한다
+* HTTP/2와 WebSocket 지원
+* 규칙이나 리디렉션을 정할 수 있음.
+	ex) 1. ALB level 에서 HTTP -> HTTPS로 직접 리디렉션 할 수 있음
+	  2. 라우팅 규칙
+
+ 
+ 
