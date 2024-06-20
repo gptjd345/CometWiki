@@ -52,6 +52,7 @@ p 175
 
 # V-VII. AWS Lambda - Part 1
 p 225
+## 다른 AWS 서비스의 이벤트로 Lambda 호출
 
 Lambda의 한계
 * 10GB RAM
