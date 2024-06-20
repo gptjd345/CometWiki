@@ -238,5 +238,7 @@ SSL은 기본적으로 하나만 지원하지만 SAN(Subject Alternative Name) �
     2-3. 리디렉션 설정
     http로 요청한 경우 HTTPS로 리디렉션하거나, 잘못요청된 URL을 다른 URL로 리디렉션하는 등 의 규칙세우는거 가능  
 
- 
- 
+ Network Load Balancer
+ * L4에서 동작하고 TCP, UDP 지원
+ * ALB 보다 지연시간이 짧다. 100ms (ALB는 400ms 정도)
+ * AZ
