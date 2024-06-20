@@ -171,6 +171,8 @@ p 217
 ![[Pasted image 20240617213658.png]][출처]https://www.devopsschool.com/blog/wp-content/uploads/2021/03/Amazon-Elastic-Kubernetes-Service-EKS-Explained-Diagram-1.png
 
 ## 1. AWS EKS - Node(EC2 instance) Types
+p 219
+
 1. **Managed Node Groups**
 * EC2 인스턴스를 자동으로 생성, 업데이트, 패치, 종료 작업 전반을 관리해줌 
 * EC2 인스턴스로는 On-Demand 나 Spot Instances를 지원한다. 
@@ -186,6 +188,8 @@ p 217
 * 아무것도 관리하기 싫을 때 편하게 사용가능
 
 ## 2. Amazon EKS - Data Volumes
+p 220
+
 * **장점**
 	* EKS 클러스터에서 StorageClass 매니페스트를 지정 -> 애플리케이션 요구사항에 맞는 스토리지 클래스 선택 가능
 	* CSI(Container Storage Interface) 호환 드라이버 활용 -> 다양한 스토리지 공급업체에 종속되지 않고 유연성 있게 선택 가능
@@ -201,7 +205,8 @@ p 217
 	* **비용**: 다양한 스토리지 옵션은 각각 다른 가격 정책을 가지고 있어, 최적의 가격 대비 성능을 찾는 데 어려움
 
 
-#### AWS App Runner VS AWS Fargate
+## 3. AWS App Runner VS AWS Fargate
+p 221
 
 1. **비용 측면**
     - App Runner는 일반적으로 작은 워크로드와 긴 유휴 기간에 더 비용 효율적입니다.
@@ -220,7 +225,8 @@ App Runner Multi-Region Architecture
 5. App Runner를 복제해서 멀티 리전 구성할 수 있다. 
 6. Route 53를 이용해 각 리전의 App Runner Service에 요청을 분배하도록 한다. 
 
-#### Amazon ECS Anywhere &  EKS Anywhere
+## 4. Amazon ECS Anywhere &  EKS Anywhere
+p 222 - 223
 
 이거 왜쓰는지 이해안됨 
 온프레미스에서 로드밸런싱 다되어서 구성되어있는 환경에서
