@@ -199,3 +199,25 @@ DLQ는 Lambda 함수 실행에 실패한 이벤트를 저장하는 Amazon SQS or
 - SQS에서 DLQ를 설정해 실패한 건에 대해 재처리하기 용이하다. 
 - 하지만 이벤트 처리 지연이 증가할 수 있습니다.
 
+#### Elastic Load Balancers
+
+##### Types of load balancer 
+1.  Classic Load Balancer
+2.  Application Load Balancer
+3.  Network Load Balancer
+4.  Gateway Load Balancer
+
+ >[!question] Health Check?
+ Load Balancer의 Health Check는 서버나 서비스의 상태를 확인하여 정상적으로 작동하는지 여부를 판단하는 과정입니다. 일반적으로 다음과 같은 지표들을 검사합니다
+ **HTTP 상태 코드**: 서버가 올바른 HTTP 응답 코드를 반환하는지 확인합니다. 보통 200번대 응답 코드는 정상으로 간주됩니다.
+   **응답 시간**: 서버가 요청에 대해 응답하는 데 걸리는 시간을 측정합니다. 일정 시간 내에 응답하지 않으면 서버가 비정상으로 간주됩니다.
+ **TCP 연결**: TCP 연결이 성공적으로 이루어지는지 확인합니다. TCP 핸드셰이크가 실패하면 서버가 비정상으로 간주됩니다.
+**애플리케이션 수준의 검사**: 특정 URL이나 엔드포인트에 대한 요청을 통해 서비스가 정상적으로 작동하는지 확인합니다. 예를 들어, 데이터베이스 연결 상태나 특정 기능이 정상 동작하는지 확인할 수 있습니다.
+*콘텐츠 검사**: 응답 본문에 특정 문자열이나 패턴이 포함되어 있는지 확인합니다. 예를 들어, 응답에 "OK"라는 문자열이 포함되어 있는지 검사할 수 있습니다.
+이 외에도 로드 밸런서나 애플리케이션의 특성에 따라 추가적인 지표를 설정하여 Health Check를 수 행할 수 있습니다.
+ 
+ 
+
+
+##### Classic Load Balancer
+Http 계층(L7)에 있거나 TCP 
