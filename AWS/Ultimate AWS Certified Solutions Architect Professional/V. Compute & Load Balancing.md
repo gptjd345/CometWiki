@@ -128,11 +128,32 @@ https://aws.amazon.com/ko/blogs/compute/understanding-aws-lambdas-invoke-throttl
 
 # VI. Lambda & CodeDeploy
 p 232
+
+[https://docs.aws.amazon.com/ko_kr/codestar/latest/userguide/how-to-modify-serverless-project.html](https://docs.aws.amazon.com/ko_kr/codestar/latest/userguide/how-to-modify-serverless-project.html)
+
 CodeDeploy를 사용하면 자동적으로 Lambda 함수들에 대한 트래픽 분배가 가능함
 
-#### AWS Lambda - Part 2
+- 코드 배포를 통해 Lambda 별칭을 사용한 트래픽 이동 자동화
+- 기능은 SAM framework 내에 통합됨
+- **Linear(리니어)**: 100%까지 N분마다 트래픽 증가
+    - 매 3분마다 선형 10%
+    - 매 10분마다 선형 10%
+- **Canary(카나리아)**: X퍼센트를 시도한 다음 100퍼센트를 시도
+- 카나리아 10퍼센트 5분
+- 카나리아 10 퍼센트 30분
+- **AllAtOnce**: 즉시
+- 사전 및 사후 트래픽 후크를 만들어 람다 기능의 상태를 점검할 수 있다.
 
-##### Lambda In a VPC
+# VII. AWS Lambda Logging, Monitoring and Tracing
+p 233
+
+1. **CloudWatch** • AWS Lambda 실행 로그는 AWS CloudWatch Logs에 저장된다. • AWS Lambda 메트릭은 AWS CloudWatch 메트릭에 표시된다. (성공적인 호출, 오류율, 지연 시간, 시간 초과 등) • AWS Lambda 기능에 CloudWatch Logs에 쓰기를 승인하는 IAM 정책이 포함된 실행 역할이 있는지 확인한다.
+    
+2. **X-Ray** • X-Ray으로 람다를 추적할 수 있다. • Lambda 구성에서 활성화(X-Ray 데몬 실행) • 코드에 AWS SDK 사용 • 람다 기능에 올바른 IAM 실행 역할이 있는지 확인한다.
+
+# VIII. Lambda In a VPC
+p 234
+
 ![[Pasted image 20240618203140.png]]
 Lambda가 private subnet의 RDS 에 접근하려면 같은 Private Subnet 에 존재해하며 보안그룹을 설정해야함. Lambda가 인터넷과 통신해야한다면 NAT 를 통해 IGW(Internet Gateway)를 거쳐야한다.
 DynamoDB가 public 한 공간에 존재하지만 모든 트레픽을 private 하게 관리하고싶다면 람다가 접근하려는 대상에 EndPoint를 두면 됨.
