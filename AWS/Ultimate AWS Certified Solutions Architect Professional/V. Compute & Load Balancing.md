@@ -112,9 +112,13 @@ p 228
 # V. Lambda Concurrency and Throttling
 p 230
 
-1. 1계정당 1000개 Lamda 함수를 동시에 실행 가능하지만 보통 계정 수준의 제한을 하나의 람다함수에서 쓰지는 않음. 
+https://aws.amazon.com/ko/blogs/compute/understanding-aws-lambdas-invoke-throttle-limits/
+
+1. 1계정당 1000개 Lamda 함수를 동시에 실행 가능하지만, 보통 계정 수준의 제한을 하나의 람다함수에서 쓰지는 않음. 
 2. 개별 람다 함수의 Concurrency 한도를 따로 설정하는 편임. 
 3. 개별 람다함수의 Concurrency(동시실행) 한도를 초과하는 경우 초과되는 람다함수 처리요청은 무시되고 ThrottlingException을 발생시킨다. 
+4. 중요한 기능이 필요한 동시성을 확보하도록 동시성 설정을 구성할 수 있다.
+	* 기능에 대해 "reserved concurrency" 설정(=limit)
 
  >[!question] Throttling?
  >Throttling이라는 용어는 원래 물리적인 목 조르기나 질식을 의미하다가, 점차 유량 제어 등의 기계적 의미로 확장되어 사용되어왔음.  현재 컴퓨터 시스템에서 리소스 사용을 제한하는 의미로 사용되고 있음. 
