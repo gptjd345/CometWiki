@@ -244,4 +244,11 @@ SSL은 기본적으로 하나만 지원하지만 SAN(Subject Alternative Name) �
  * ALB 보다 지연시간이 짧다. 100ms (ALB는 400ms 정도)
  * NLB는 AZ 마다 하나의 고정 IP 를 가지며 탄력적 IP(Elastic IP)를 지원
  * AWS free tier에는 포함되어있지않음. 
- * NLB는 고정IP를 제공하지만 동적 DNS 
+ * NLB는 고정IP를 제공하지만 동적 DNS name도 제공한다. DNS name은 AZ마다 구성되므로 하나의 AZ에 문제가 생기면 다른 가용영역으로 전환할수 있음. 
+
+##### Gateway Load Balancer (GWLB)
+* Network Layer (L3) 에서 동작
+* 가상 어플라이언스를 배포, 확장 관리하는데 사용
+ex) 방화벽 , VPC 서브넷 , 타사의 가상어플라이언스 솔루션 등
+![[Pasted image 20240620220057.png]]
+
