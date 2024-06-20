@@ -51,30 +51,71 @@ p 175
 <font color="#92d050">////////////////////////////////////////////////////////////////////////////////////////</font>
 
 # V-VII. AWS Lambda - Part 1
+# I. **Lambda 함수를 호출할 수 있는 서비스**
 p 225
-## 다른 AWS 서비스의 이벤트로 Lambda 호출
 
-Lambda의 한계
-* 10GB RAM
-* CPU는 RAM과 붙어있음
-* Timeout 은 15분(15분 이상 걸리는 작업 비적합)
-* /tmp Storage(임시저장소) 10GB
-* 계정당 동시 실행 수 1000건 (약간 늘릴수는 있음)
-* 람다의 배포 패키지 크기 50MB(압축시), 250MB(비압축시)
-* 컨테이너 이미지 크기 10GB
-* 호출 페이로드(Invocation Payload) 제한
-	동기호출(Request와 Response 모두)에 대한 Payload 크기는 각각 6MB로 제한됨.
-	비동기호출(Event)에 대한 Payload 크기는 256KB 
+[https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html](https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html)
+
+- API Gateway
+- Kinesis
+- DynamoDB
+- AWS S3 - Simple Storage Service
+- AWS IoT Internet of Things Amazon EventBridge
+- CloudWatch Logs
+- AWS SNS
+- AWS Cognito Amazon SQS
+
+# II. 일반적인 Lambda 애플리케이션 유형 및 사용 사례
+p 226 - 227
+
+아래의 링크에서 사용 사례 읽어보기
+[https://docs.aws.amazon.com/lambda/latest/dg/applications-usecases.html](https://docs.aws.amazon.com/lambda/latest/dg/applications-usecases.html)
+
+- Lambda 함수: 이벤트를 처리하는 코드 및 런타임
+- 트리거: 함수를 호출하는 AWS 서비스 또는 애플리케이션
+
+# III. AWS Lambda 언어 지원(런타임)
+p 228
+
+- Node.js (JavaScript)
+- Python
+- Java
+- C# (.NET Core)
+- Golang
+- C# / Powershell
+- Ruby
+- Custom Runtime API (community supported, example Rust)
+- Lambda Container Image
+    - 컨테이너 이미지는 Lambda Runtime API 구현 필요
+    - ECS / Fargate는 임의 도커 영상을 실행할 때 선호
+
+# IV. Lambda의 한계
+
+- 10GB RAM(128MB ~ 10,240MB)
+- CPU는 RAM과 붙어있음(수동 설정 불가)
+    - 2개의 vCPU가 1,769MB의 RAM에 할당
+    - 6개의 vCPU가 10,240MB의 RAM에 할당
+- Timeout은 15분(15분 이상 걸리는 작업 비적합)
+- /tmp Storage(임시저장소) 10GB(10,240 MB)
+- 배포 패키지 – 50MB(지핑), 250MB(지핑 해제)(레이어 포함)
+- 계정당 동시 실행 수 1000건 (약간 늘릴수는 있음)
+- 람다의 배포 패키지 크기 50MB(압축시), 250MB(비압축시)
+- 컨테이너 이미지 크기 10GB
+- 호출 페이로드(Invocation Payload) (요청/응답) 제한
+    - 동기호출(Request와 Response 모두)에 대한 Payload 크기는 각각 6MB로 제한됨.
+    - 비동기호출(Event)에 대한 Payload 크기는 256KB
 	
  >[!question] 비동기호출이란?
  >HTTP 를 기반한 요청이 아닌, AWS 서비스(S3, DynamoDB, Kinesis등)에서 발생한 이벤트 혹은 애플리케이션 코드에서 AWS SDK를 사용하여 Lambda 함수를 호출하는 경우를 말함.
- >
-	
+ >	
 
-##### Lambda Concurrency and Throttling
-1. 1계정당 1000개 Lamda 함수를 동시에실행가능하지만 보통 계정수준의 제한을 하나의 람다함수에서 쓰지는 않음. 
+# V. Lambda Concurrency and Throttling
+p 230
+
+1. 1계정당 1000개 Lamda 함수를 동시에 실행 가능하지만 보통 계정 수준의 제한을 하나의 람다함수에서 쓰지는 않음. 
 2. 개별 람다 함수의 Concurrency 한도를 따로 설정하는 편임. 
 3. 개별 람다함수의 Concurrency(동시실행) 한도를 초과하는 경우 초과되는 람다함수 처리요청은 무시되고 ThrottlingException을 발생시킨다. 
+
  >[!question] Throttling?
  >Throttling이라는 용어는 원래 물리적인 목 조르기나 질식을 의미하다가, 점차 유량 제어 등의 기계적 의미로 확장되어 사용되어왔음.  현재 컴퓨터 시스템에서 리소스 사용을 제한하는 의미로 사용되고 있음. 
  >
