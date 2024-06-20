@@ -186,14 +186,19 @@ p 217
 * 아무것도 관리하기 싫을 때 편하게 사용가능
 
 ## 2. Amazon EKS - Data Volumes
-• EKS 클러스터에서 StorageClass 매니페스트를 지정해야 함  
-• CSI(Container Storage Interface) 호환 드라이버 활용
-
-EKS에서 사용가능한 스토리지 유형
-* Amazon EBS
-* Amazon EFS (works with Fargate)
-* Amazon FSx for Lustre
-* Amazon FSx for NetApp ONTAP
+* **장점**
+	* EKS 클러스터에서 StorageClass 매니페스트를 지정 -> 애플리케이션 요구사항에 맞는 스토리지 클래스 선택 가능
+	* CSI(Container Storage Interface) 호환 드라이버 활용 -> 다양한 스토리지 공급업체에 종속되지 않고 유연성 있게 선택 가능
+	* 다양한 스토리지 유형 선택 가능 -> 워크로드 요구사항에 맞는 최적의 스토리지 선택 가능
+		* **EKS에서 사용가능한 스토리지 유형**
+			* Amazon EBS
+			* Amazon EFS (works with Fargate)
+			* Amazon FSx for Lustre
+			* Amazon FSx for NetApp ONTAP
+* **단점**
+	* **복잡성**: 다양한 스토리지 옵션 활용을 위해, 각 스토리지 유형의 특성과 사용법을 숙지 필요
+	* **관리 오버헤드**: 다양한 스토리지 옵션을 사용 시, 스토리지 관리에 대한 오버헤드가 증가
+	* **비용**: 다양한 스토리지 옵션은 각각 다른 가격 정책을 가지고 있어, 최적의 가격 대비 성능을 찾는 데 어려움
 
 
 #### AWS App Runner VS AWS Fargate
