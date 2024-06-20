@@ -146,6 +146,28 @@ p 217
 • 여러 지역의 경우 지역당 1개의 EKS 클러스터 구축  
 • CloudWatch Container Insights를 사용하여 로그 및 메트릭 수집
 
+![[EKS_Diagram.png]]
+
+이 아키텍처는 3개의 가용성 영역(Availability Zone)으로 구성되어 있으며, 각 영역에는 VPC(Virtual Private Cloud)가 포함되어 있다.
+
+각 VPC에는 Public subnet과 Private subnet이 있다. Public subnet에는 ELB(Elastic Load Balancing)와 NGW(NAT Gateway)가 있으며, Private subnet에는 EKS(Elastic Kubernetes Service) 노드와 EKS Pods가 있다.
+
+이 아키텍처는 고가용성과 내결함성을 위해 여러 가용성 영역에 걸쳐 구성되어 있다. 또한 퍼블릭 서브넷과 프라이빗 서브넷을 분리하여 보안을 강화하고 있다. EKS node와 Pods는 컨테이너 기반 애플리케이션을 실행하기 위한 것이다.
+
+- **주요 보안 요소**
+    - **Public subnet과 Private subnet의 분리 →** 내부 리소스 접근 제한을 통한 보안 강화
+        - Public subnet: 인터넷에 노출되어야 하는 리소스(ELB, NGW)
+        - Private subnet: 내부에서만 접근할 수 있는 리소스(EKS 노드, EKS Pods)
+    - **NGW(NAT Gateway)의 사용 →** 내부 리소스에 대한 직접적인 인터넷 접근을 차단
+        - Private subnet의 리소스들이 인터넷에 직접 접근할 수 없도록 NGW를 통해 트래픽 라우팅
+    - **EKS node와 EKS Pods의 분리** 컴퓨팅 리소스와 애플리케이션 컨테이너를 분리함으로써 보안 강화
+        - EKS node: EC2 인스턴스로 구현
+        - EKS Pods: EKS node 위에서 실행
+    - **자동 스케일링 그룹** → 과도한 리소스 사용을 방지, 보안을 향상
+        - EKS node는 자동 스케일링 그룹으로 관리, 트래픽 변화에 따라 노드 수를 자동 조절
+    - **부하 분산기** → 단일 지점 장애를 방지하고 가용성 높임
+        - 공용 부하 분산기(ELB)와 사설 부하 분산기를 통해 트래픽을 분산
+
 ![[Pasted image 20240617213658.png]][출처]https://www.devopsschool.com/blog/wp-content/uploads/2021/03/Amazon-Elastic-Kubernetes-Service-EKS-Explained-Diagram-1.png
 
 ## 1. AWS EKS - Node(EC2 instance) Types
@@ -164,6 +186,8 @@ p 217
 * 아무것도 관리하기 싫을 때 편하게 사용가능
 
 ## 2. Amazon EKS - Data Volumes
+• EKS 클러스터에서 StorageClass 매니페스트를 지정해야 함  
+• CSI(Container Storage Interface) 호환 드라이버 활용
 
 EKS에서 사용가능한 스토리지 유형
 * Amazon EBS
