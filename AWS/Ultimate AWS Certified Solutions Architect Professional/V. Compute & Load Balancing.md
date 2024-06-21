@@ -124,7 +124,11 @@ https://aws.amazon.com/ko/blogs/compute/understanding-aws-lambdas-invoke-throttl
 
  >[!question] Throttling?
  >Throttling이라는 용어는 원래 물리적인 목 조르기나 질식을 의미하다가, 점차 유량 제어 등의 기계적 의미로 확장되어 사용되어왔음.  현재 컴퓨터 시스템에서 리소스 사용을 제한하는 의미로 사용되고 있음. 
- >
+ 
+  >[!question] 할당량 증가 요청
+ >AWS Service Quotas를 통해 사용자는 AWS 리소스와 서비스에 대한 할당량을 관리하고 필요 시 할당량 증가를 요청할 수 있다. 할당량 증가는 AWS Management Console, AWS CLI 또는 AWS SDK를 통해 요청할 수 있다.
+[https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html)
+
 
 # VI. Lambda & CodeDeploy
 p 232
@@ -147,16 +151,33 @@ CodeDeploy를 사용하면 자동적으로 Lambda 함수들에 대한 트래픽 
 # VII. AWS Lambda Logging, Monitoring and Tracing
 p 233
 
-1. **CloudWatch** • AWS Lambda 실행 로그는 AWS CloudWatch Logs에 저장된다. • AWS Lambda 메트릭은 AWS CloudWatch 메트릭에 표시된다. (성공적인 호출, 오류율, 지연 시간, 시간 초과 등) • AWS Lambda 기능에 CloudWatch Logs에 쓰기를 승인하는 IAM 정책이 포함된 실행 역할이 있는지 확인한다.
-    
-2. **X-Ray** • X-Ray으로 람다를 추적할 수 있다. • Lambda 구성에서 활성화(X-Ray 데몬 실행) • 코드에 AWS SDK 사용 • 람다 기능에 올바른 IAM 실행 역할이 있는지 확인한다.
+## **1. CloudWatch**
 
-# VIII. Lambda In a VPC
+- AWS Lambda 실행 로그는 AWS CloudWatch Logs에 저장된다.
+- AWS Lambda 메트릭은 AWS CloudWatch 메트릭에 표시된다. (성공적인 호출, 오류율, 지연 시간, 시간 초과 등)
+- AWS Lambda 기능에 CloudWatch Logs에 쓰기를 승인하는 IAM 정책이 포함된 실행 역할이 있는지 확인한다.
+
+## **2.X-Ray**
+
+- X-Ray으로 람다를 추적할 수 있다.
+- Lambda 구성에서 활성화(X-Ray 데몬 실행)
+- 코드에 AWS SDK 사용
+- 람다 기능에 올바른 IAM 실행 역할이 있는지 확인한다.
+
+# VIII. Lambda in a VPC
 p 234
 
+다음은 AWS Lambda를 VPC에 배포할 때의 작동 방식과 네트워크 접근에 대한 설명이다.
+
+## 1. 기본적인 람다 배포 시 작동 방식(Public Subnet)
+![[Lambda-In-a-VPC 1.png]]
+
+AWS Lambda 함수는 기본적으로 AWS 클라우드에 배포된다. 공용 인터넷에 접속할 수 있어 DynamoDB와 같은 공용 API에 접근할 수 있다. 그러나 사설 RDS 데이터베이스나 사설 VPC, 사설 서브넷에 접근하려면 추가적인 설정이 필요하다.
+
+## 2. VPC & Private Subnet 에 람다 배포 시 작동 방식
 ![[Pasted image 20240618203140.png]]
-Lambda가 private subnet의 RDS 에 접근하려면 같은 Private Subnet 에 존재해하며 보안그룹을 설정해야함. Lambda가 인터넷과 통신해야한다면 NAT 를 통해 IGW(Internet Gateway)를 거쳐야한다.
-DynamoDB가 public 한 공간에 존재하지만 모든 트레픽을 private 하게 관리하고싶다면 람다가 접근하려는 대상에 EndPoint를 두면 됨.
+Lambda가 private subnet의 RDS 에 접근하려면 같은 Private Subnet 에 존재해야하며 보안그룹을 설정해야한다. Lambda가 인터넷과 통신해야 한다면 NAT를 통해 IGW(Internet Gateway)를 거쳐야 한다.
+DynamoDB가 public 한 공간에 존재하지만 모든 트레픽을 private 하게 관리하고 싶다면 Lambda가 접근하려는 대상에 EndPoint를 두면 된다.
 
 ##### Lambda - Fixed Public IP for external comms
 VPC 설정없이 AWS의 Public Cloud에 람다함수를 배포하면 람다함수는 Random Public IP를 받게 된다. 
