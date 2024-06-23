@@ -321,3 +321,14 @@ AWS 에서 제공하는 완전관리형 <font color="#92d050">GraphQL</font> 서
 - **루트 도메인 지원**: CNAME 레코드는 루트 도메인에서 사용할 수 없지만, Alias 레코드는 루트 도메인에서 사용할 수 있다.
 - **사용 용도**: CNAME은 주로 도메인 이름 간의 매핑에 사용되며, Alias는 AWS 리소스와의 매핑에 최적화되어 있다.
 - **다른 레코드와의 혼합**: CNAME은 다른 레코드와 혼합될 수 없지만, Alias는 A 레코드나 AAAA 레코드와 같이 사용 가능하다.
+
+##### Route 53 - Alias Records Targets
+Elastic Load Balancers
+CloudFront Distributions
+API Gateway
+Elastic Beanstalk environments
+S3
+
+그러나!!
+Route 53의 alias 레코드를 EC2 인스턴스의 DNS이름으로 설정할 수 없다.
+EC2 인스턴스의 DNS이름은 인스턴스 할당시 생기는 동적인 이름으로 인스턴스 사
