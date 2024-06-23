@@ -351,9 +351,20 @@ TTL 값이 높을 수록 DNS 조회 결과가 더 오래 캐시되며, 낮을수
 	* Multiple Value : 클라이언트가 Route53에게 질의하면 답을 여러개주고 클라이언트는 이중 하나를 선택한다. 
 
 2. Weighted
-	* Route53이 요청에 대해 비주 
+	* Route53이 요청에 대해 비중을 둬서 분산할수 있게 한다.
 
+3. Latency-based 
+	* 클라이언트와 지정된 AWS 영역사이의 트래픽에 대한 지연시간이 클라리언트의 요청에 대한 답변이됨(어느 인스턴스의 주소를 줄지)
 
+4. Failover (Active-Passive)
+	* Health Check를 통해 장애가 있는 경우 보조리소스로 트래픽을 전환한다.
+
+5. Geolocation
+	* 사용자 위치기반으로 트래픽을 전환한다.
+
+6. Geoproximity
+
+#### Route 53 - 
 
 
 
