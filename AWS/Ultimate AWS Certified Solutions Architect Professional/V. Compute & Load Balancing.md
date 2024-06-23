@@ -293,7 +293,12 @@ AWS 에서 제공하는 완전관리형 <font color="#92d050">GraphQL</font> 서
 ![[Pasted image 20240623194155.png]]
 출처 : https://www.twilio.com/en-us/blog/what-is-mqtt
 
+##### AppSync - Cognito Integration
 
+![[Pasted image 20240623195220.png]]
+
+사용자가 Cognito로 인증받으면 client는 jwt token을 받아서 AppSync에 요청을 하고
+요청 내용을 리졸버에서 GraphQL 요청을 변환하고 응답을 GraphQL 로 변환하여 전달한다. 
 
  
  
