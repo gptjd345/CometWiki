@@ -275,8 +275,9 @@ ex) 방화벽 , VPC 서브넷 , 타사의 가상어플라이언스 솔루션 등
 
 #### AWS APPSync
 
-AWS 에서 제공하는 완전관리형 GraphQL 서비스 
-실시간 데이터 전송을 위해 WebSocket을 사용하여 클라이언트와 서버간의 양방향 토
+AWS 에서 제공하는 완전관리형 <font color="#92d050">GraphQL</font> 서비스 
+실시간 데이터 전송을 위해 WebSocket을 사용하여 클라이언트와 서버간의 양방향 통신을 지원한다.
+특히, <font color="#ffc000">MQTT</font> 프로토콜을 webSocket을 통해 사용할 수 있다.
 
  >[!question] GraphQL
  >Facebook 에서 개발한 데이터 쿼리언어
@@ -284,6 +285,16 @@ AWS 에서 제공하는 완전관리형 GraphQL 서비스
  >= 1개의 end point만 사용한다
  >[POST] /graphql
  >참고 : REST API는 총 4개의 end point를 사용한다.  - [GET] /api/v1/user , - [POST] /api/v1/user , - [PUT] /api/v1/user/:id, - [DELETE] /api/v1/user/:id
+##### <font color="#ffc000">MQTT(Message Queuing Telemetry Transport)</font>
+경량 메시징 프로토콜로, 주로 네트워크 대역폭이 제한된 환경이나 저전력 장치에서 효율적으로 동작하도록 설계됨. MQTT는 IoT(사물인터넷) 환경에서 널리 사용된다.
+
+**게시/구독 모델**: MQTT는 클라이언트가 특정 주제(topic)에 메시지를 게시(publish)하고, 해당 주제를 구독(subscribe)한 다른 클라이언트가 메시지를 받는 방식으로 동작합니다. 이 모델을 통해 클라이언트 간의 느슨한 결합을 유지할 수 있습니다.
+
+![[Pasted image 20240623194155.png]]
+출처 : https://www.twilio.com/en-us/blog/what-is-mqtt
+
+
+
  
  
 
