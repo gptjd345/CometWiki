@@ -55,6 +55,8 @@ p 175
 # **I. AWS AppSync - Overview**
 p 269
 
+https://docs.aws.amazon.com/ko_kr/appsync/latest/devguide/what-is-appsync.html
+
 * AWS 에서 제공하는 완전관리형 <font color="#92d050">GraphQL</font> 서비스이다
 * GraphQL을 사용하면 애플리케이션이 필요한 데이터를 쉽고 정확하게 얻을 수 있다
 - 여기에는 하나 이상의 소스에서 데이터를 결합하는 것이 포함된다
@@ -63,8 +65,8 @@ p 269
     - AWS Lambda를 사용한 사용자 정의 소스
 - 실시간 데이터 전송을 위해 WebSocket을 사용하여 클라이언트와 서버간의 양방향 통신을 지원한다
 - WebSocket에서 WebSocket 또는<font color="#ffc000">MQTT</font> 프로토콜을 사용하여 실시간으로 데이터 검색
-- 모바일 앱의 경우: 로컬 데이터 액세스 및 데이터 동기화
-- 모든 것은 하나의 GraphQL 스키마를 업로드하는 것에서 시작된다
+- 모바일 앱의 경우 AppSync는 로컬 데이터 액세스 및 데이터 동기화 제공
+- AppSync를 시작하려면 하나의 GraphQL 스키마를 업로드해야 한다
 
  >[!question] GraphQL
  >Facebook 에서 개발한 데이터 쿼리언어
@@ -79,6 +81,10 @@ p 269
 
 ![[Pasted image 20240623194155.png]]
 출처 : https://www.twilio.com/en-us/blog/what-is-mqtt
+
+
+![[AppSync-Diagram.png]]
+
 
 ##### AppSync - Cognito Integration
 
