@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md"
               }
             }
           },
@@ -174,20 +174,20 @@
   },
   "active": "79fe046b96550a3a",
   "lastOpenFiles": [
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VIII. Elastic Load Balancers.md",
+    "Flow-Hash.png",
+    "Round-Robin.png",
+    "LOR.png",
+    "Sticky-Sessions.png",
+    "Cross-Zone-Load-Balancing2.png",
+    "Cross-Zone-Load-Balancing1.png",
+    "Gateway-Load-Balancer.png",
+    "Zonal-DNS-Name.png",
     "Network-Load-Balancer.png",
     "HTTP기반트래픽.png",
-    "Classic-Load-Balancers.png",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VIII. Elastic Load Balancers.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VII. AWS Lambda.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
-    "Lambda-Asynchronous-Invocations.png",
-    "lambda-fixed-Public-Cloud.png",
-    "lambda-Public-Cloud.png",
-    "Pasted image 20240623195220.png",
-    "Pasted image 20240623194155.png",
-    "Lambda-In-a-VPC 1.png",
-    "Lambda-In-a-VPC.png",
-    "Pasted image 20240620220057.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VI. Amazon ECR & EKS.md",
     "Java/알고리즘/알고리즘.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-V. Amazon ECS(Elastic Contatiner Service).md",
