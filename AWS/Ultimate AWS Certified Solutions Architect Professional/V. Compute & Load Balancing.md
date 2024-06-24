@@ -82,8 +82,33 @@ https://docs.aws.amazon.com/ko_kr/appsync/latest/devguide/what-is-appsync.html
 ![[Pasted image 20240623194155.png]]
 출처 : https://www.twilio.com/en-us/blog/what-is-mqtt
 
+## **1. AWS AppSync Diagram**
 
+p 270
+
+### AppSync의 작동 방식
 ![[AppSync-Diagram.png]]
+1. 클라이언트(모바일 앱, 웹 앱, 실시간 대시보드 등)가 AppSync에 액세스한다.
+2. AppSync 내부에는 GraphQL 스키마와 Resolver가 존재한다.
+3. Resolver는 다양한 데이터 소스(DynamoDB, Aurora, Elasticsearch Service, Lambda 등)에서 데이터를 가져오는 방법을 알고 있다.
+4. Resolver는 데이터 소스로부터 데이터를 가져와 GraphQL 스키마에 맞게 응답을 생성한다.
+5. 클라이언트는 GraphQL 쿼리를 통해 필요한 데이터를 AppSync로부터 요청하고 받아온다.
+6. AppSync는 실시간 데이터 액세스, 오프라인 동기화 등의 기능을 제공한다.
+7. AppSync의 모니터링은 CloudWatch Metric과 로그를 통해 이루어진다.
+
+ >[!question] GraphQL 스키마와 Resolver 의 관계
+ >- **GraphQL 스키마**
+ >	- GraphQL 스키마는 API의 데이터 구조를 정의하는 것이다.
+ >	- 스키마에는 Query, Mutation, Subscription 등의 최상위 타입과 각각의 필드들이 정의된다.
+ >	- 스키마는 클라이언트가 API에 요청할 수 있는 데이터의 모양을 결정한다.
+>- **Resolver**
+>	- Resolver는 GraphQL 스키마의 각 필드에 대한 구현 로직을 담당한다.
+>	- 클라이언트의 요청이 들어오면 Resolver가 실행되어 데이터 소스(DB, API 등)로부터 데이터를 가져와 응답을 생성한다.
+    - Resolver는 스키마의 필드와 1:1로 대응된다.
+- **관계**
+    - GraphQL 스키마는 API의 데이터 구조를 정의하고, Resolver는 그 구조에 맞는 데이터를 제공한다.
+    - 스키마에 정의된 필드들은 각각 Resolver 함수에 의해 구현된다.
+    - 클라이언트는 GraphQL 스키마에 따라 쿼리를 작성하고, AppSync는 그 쿼리를 해석하여 적절한 Resolver를 실행한다.
 
 
 ##### AppSync - Cognito Integration
