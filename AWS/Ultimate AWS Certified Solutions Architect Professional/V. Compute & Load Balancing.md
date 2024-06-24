@@ -179,20 +179,52 @@ AWS Lambda 함수는 기본적으로 AWS 클라우드에 배포된다. 공용 �
 Lambda가 private subnet의 RDS 에 접근하려면 같은 Private Subnet 에 존재해야하며 보안그룹을 설정해야한다. Lambda가 인터넷과 통신해야 한다면 NAT를 통해 IGW(Internet Gateway)를 거쳐야 한다.
 DynamoDB가 public 한 공간에 존재하지만 모든 트레픽을 private 하게 관리하고 싶다면 Lambda가 접근하려는 대상에 EndPoint를 두면 된다.
 
-##### Lambda - Fixed Public IP for external comms
-VPC 설정없이 AWS의 Public Cloud에 람다함수를 배포하면 람다함수는 Random Public IP를 받게 된다. 
+# IX. Fixed Public IP for external comms(**외부 통신용 고정 공용 IP)**
 
-![[Pasted image 20240618225821.png]]
+p 235
 
-그러나 아래처럼 람다함수를 private subnet에 둬야한다면(위에서 처럼 private RDS 에 연결해야하거나 해서) NAT gateway를 사용하고 NAT gateway를 사용할때 고정 IP를 부착한다. 
+VPC 설정없이 AWS의 Public Cloud에 람다함수를 배포하면 람다함수는 Random Public IP를 받게 된다.
+![[lambda-Public-Cloud.png]]
+그러나 아래처럼 람다함수를 private subnet에 둬야 한다면(예를 들어, private RDS에 연결하려고), NAT gateway를 사용하고 NAT gateway를 사용할때 고정 IP를 부착한다.
+![[lambda-fixed-Public-Cloud.png]]
 
-##### Lambda - Synchronous Invocations
+>[!question] AWS Lambda 함수에 고정 IP 주소를 할당 방법
+ >1. **1단계: Lambda 함수를 Amazon Virtual Private Cloud(VPC)에 연결하기**
+ >	1. Lambda 함수를 Amazon VPC에 연결로 구성한다.
+ >	2. Lambda 함수에는 개인 IP 주소가 있는 탄력적 네트워크 인터페이스(ENI)가 할당된다.
+ >	- _Lambda 탄력적 네트워크 인터페이스 개인 IP 주소는 탄력적 네트워크 인터페이스 수명 주기 동안 변경되므로 고정 IP 주소로 간주할 수 없다._
+ >	- _함수가 Amazon VPC의 다른 리소스에 액세스해야 하는 경우가 아니라면, Lambda 함수를 Amazon VPC에 배치하지 않는 것이 가장 좋다._
+>1. **2단계: Amazon VPC의 Lambda 함수에 인터넷 액세스 권한 부여하기**
+>	1. 프라이빗 서브넷에서 인터넷에 액세스하려면 Network Address Translation(NAT)이 필요하다.
+>	2. Amazon VPC에 연결된 Lambda 함수에 인터넷 액세스 권한을 부여하려면 해당 아웃바운드 트래픽을 공용 서브넷의 NAT 게이트웨이 또는 NAT 인스턴스로 라우팅하세요.
+>	3. NAT 게이트웨이 또는 NAT 인스턴스에 인터넷 게이트웨이에 대한 경로가 있는지 확인한다.
+>2. **3단계: NAT 게이트웨이 또는 인스턴스를 Elastic IP 주소에 연결하기**
+>	1. Elastic IP 주소를 공용 NAT 게이트웨이 또는 인스턴스와 연결하세요.
+>	2.  NAT 게이트웨이 또는 인스턴스는 인스턴스의 소스 IP 주소를 Elastic IP 주소로 바꾼다. 이 Elastic IP 주소는 Lambda 함수의 고정 IP 주소로 간주할 수 있다.
+>	
+[https://repost.aws/ko/knowledge-center/lambda-static-ip](https://repost.aws/ko/knowledge-center/lambda-static-ip)
+
+# X. Synchronous Invocations
+
+p 236
+
+[https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/invocation-sync.html](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/invocation-sync.html)
+
 CLI, SDK, API Gateway 를 통해 람다 함수에 대해 동기호출이 이루어진다.
-SDK의 경우 비동기 와 동기 방식 모두 호출이 가능하다(invoke()함수는 동기식, invokeAsync()함수는 비동기식으로 동작)
+
+- 결과는 즉시 반환
+- 오류 처리는 클라이언트 측에서 발생해야 함(재시도, 지수 백오프 등)
+- SDK의 경우 비동기와 동기방식 모두 호출 가능
+    - (invoke()함수는 동기식, invokeAsync()함수는 비동기식으로 동작)
 
 ![[Pasted image 20240618230809.png]]
 
-##### Lambda - Asynchronous Invocations
+# XI. Lambda - Asynchronous Invocations
+
+p 237
+
+[https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/invocation-async.html](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/invocation-async.html)
+![[Lambda-Asynchronous-Invocations.png]]
 S3, SNS, Amazon EventBridge 등에 의해 비동기 호출이 이루어진다.
 * AWS Lambda는 함수 호출 실패 시 자동으로 최대 3번까지 재시도한다.
 * 3번의 재시도 후에도 실패하면 Lambda는 이벤트를 포기하고 다음 이벤트를 처리한다.
