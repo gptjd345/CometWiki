@@ -130,6 +130,8 @@ p 280
 ![[Failover.png]]
 
 Health Check를 통해 장애가 있는 경우 보조 리소스로 트래픽을 전환한다.
+Primary 레코드를 생성하고 failover에 사용할 Secondary 레코드를 생성해야 한다. 그런데 이 때 pirmary와 secondary 모두에 health checks를 달아줄 수도 있지만 secondary에는 꼭 health checks를 추가하지 않아도 된다.
+primary, secondary 레코드를 모두 생성하고 나면 primary에 장애가 발생했을 때 secondary로 failover를 하게 되며 만약 primary가 복구 되면 다시 primary로 failover back을 할 수 있다.
 
 ## 5. Geolocation (지리적 위치 라우팅)
 p 281
@@ -143,6 +145,7 @@ p 281
 - 사용 사례: 웹 사이트 현지화, 콘텐츠 배포 제한, 로드 밸런싱 등...
 - Health Check와 연결할 수 있습니다
 - 설정 복잡도가 상대적으로 낮다
+	![[Pasted image 20240625114129.png]]
 
 ## 6. Geoproximity(지리 근접 라우팅)
 p 282
@@ -156,9 +159,9 @@ p 282
 - 트래픽을 리소스로 라우팅하는 지리적 지역의 크기를 선택적으로 변경하려면 바이어스에 해당하는 값을 지정한다
     - 확장 시(1~99) - 리소스에 대한 트래픽 증가
     - 축소 시(-1 ~ -99) - 리소스에 대한 트래픽 감소
-- 리소스는 다음과 같다
-    - AWS 리소스(AWS 영역 지정)
-    - 비 AWS 리소스(위도 및 경도 지정 필요)
+- 사용할 수 있는 리소스는 AWS 리소스와 Non-AWS 리소스 두 가지가 있다.
+    - AWS resources(AWS 영역 지정)
+    - Non-AWS resources(위도 및 경도 지정 필요)
 - 설정 복잡도가 높다
 - 이 기능을 사용하려면 Route 53 Traffic Flow를 사용해야 한다
 
