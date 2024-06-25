@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XI. Route 53.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XI. Route 53.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XI. Route 53.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XI. Route 53.md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md"
               }
             }
           },
@@ -174,19 +174,19 @@
   },
   "active": "79fe046b96550a3a",
   "lastOpenFiles": [
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XI. Route 53.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
+    "ResolverOutboundEndpoints.png",
+    "ResolverInboundEndpoints.png",
     "Hybrid-DNS.png",
     "Pasted image 20240625114129.png",
     "HealthChecksSolutionArchitecture.png",
     "MonitoranCloudWatch.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XI. Route 53.md",
     "MonitoranEndpoint.png",
     "CalculatedHealthChecks.png",
     "Health-Checks 1.png",
     "PrivateHostedZones.png",
-    "PublicHostedZones.png",
-    "Failover.png",
-    "Multiple-Value.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-X. AWS AppSync.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VIII. Elastic Load Balancers.md",

@@ -364,5 +364,51 @@ p 297
     
 
 ## 2. Resolver Inbound Endpoints
-
 p 298
+
+[https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.html#resolver-overview-forward-network-to-vpc](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.html#resolver-overview-forward-network-to-vpc)
+
+![[ResolverInboundEndpoints.png]]
+<font color="#c00000">*중요 : Route 53은 특정한 VPC에 종속되지 않고 AWS 인프라의 일정공간에 생성되는 글로벌 DNS 서비스이다. Route 53이 실제로 어떤 물리적 서버에 존재하는지는 알 필요가 없고 이는 AWS에서 관리한다.</font>
+
+Route 53에 의해 Private Hosted Zone으로 설정된 VPC의 인스턴스는 public 한 도메인을 가지지 않기 때문에 인터넷에서의 직접 접근이 불가능하다. VPC 인스턴스의 IP를 모른다면(<font color="#00b050">_만약 알고있다면 IP로 VPN 또는 AWS Direct Connect(DX)를 사용해 직접 접근이 가능</font>) 외부(온프레미스 데이터센터 등)에서 Resolver Inbound EndPoint 에게 DNS 쿼리를 날린다.
+
+이를 위한 사전 준비는 다음과 같다.
+
+1. (Route 53 사용 중이라면) Resolver Inbound Endpoint 를 생성한다. Endpoint를 생성할때 서브넷별로 ENI(Elastic Network Interface)를 할당하고 이 ENI에 각각 IP를 할당한다 _→ Resolver Inbound Endpoint는 하나 이상의 IP를 가진다 = Resolver Inbound Endpoint는 여러 ENI를 가지며, ENI는 각각 IP를 가진다. (다 똑같은 소리임)_
+2. 1. 에서 만든 Resolver Inbound Endpoint 내의 ENI의 IP 주소를 외부 인프라의 DNS 서버에 제공한다.
+3. 외부 인프라의 DNS 서버는 EndPoint 내의 특정 인스턴스에 접근하고 싶은데 IP를 몰라서 DNS 쿼리를 2.에서 정의한 Endpoint로 날린다. 외부 인프라의 DNS서버는 Resolver Inbound Endpoint 내의 ENI IP와 도메인 주소(DNS 서버에서 관리할)를 매핑한다.
+4. 외부 인프라 서버에서 Private Hosted Zone 내의 인스턴스와 통신하고 싶은데 IP를 몰라서 DNS 쿼리를 날리고 싶다면 외부 인프라서버는 자신의 DNS 서버에 질의를 날리고 이 질의는 Resolver Inbound Endpoint 로 전달된다. 외부인프라서버의 DNS서버와 VPC간의 네트워크 연결은 AWS Direct Connect 또는 AWS Site-to-Site VPN을 주로 사용한다.
+5. ENI로 전달된 질의 내용은 Route 53 Resolver로 전달되고 Resolver는 Private host zone에서 해당 도메인에 대한 DNS 레코드를 조회한다. 조회된결과(IP주소 등)은 ENI를 통해 외부 인프라의 DNS 서버로 반환된다.
+
+## 3. Resolver Outbound Endpoints
+
+p 299
+
+[https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.html#resolver-overview-forward-vpc-to-network](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.html#resolver-overview-forward-vpc-to-network)
+
+![[ResolverOutboundEndpoints.png]]
+
+## 4. Resolver Rules
+p 300
+
+[https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-rules-managing.html](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-rules-managing.html)
+[https://assu10.github.io/dev/2023/01/07/network-4/](https://assu10.github.io/dev/2023/01/07/network-4/)
+
+Resolver가 지정된 도메인 이름의 쿼리를 네트워크로 전달하게 하려면 도메인 이름마다 전달 규칙을 하나씩 생성하고 쿼리를 전달할 도메인의 이름을 지정한다.
+
+- 네트워크의 DNS Resolver에게 전달되는 DNS 쿼리 제어
+- 조건부 포워딩 규칙(Conditional Forwarding Rules)
+    - 지정된 도메인 및 모든 하위 도메인에 대한 DNS 쿼리를 target IP 주소로 전달
+- 시스템 규칙(System Rules)
+    - 전달 규칙에 정의된 동작을 선택적으로 재정의
+    - (예: 하위 도메인 acme.example.com에 대한 DNS 쿼리 전달 안 함)
+- 자동 정의된 시스템 규칙(Auto-defined System Rules)
+    - 선택한 도메인에 대한 DNS 쿼리 해결 방법을 정의한다.
+    - (예: AWS 내부 도메인 이름, Private Hosted Zone)
+- 여러 규칙이 일치하는 경우 Route 53 Resolver는 가장 적합한 일치를 선택한다.
+- AWS RAM을 사용하여 계정 간에 Resolver Rules을 공유할 수 있다.
+    - 하나의 계정에서 중앙 집중식으로 관리
+    - 여러 VPC에서 규칙에 정의된 대상 IP로 DNS 쿼리 전송
+
+[https://pages.awscloud.com/rs/112-TZM-766/images/2020_0819-NET_Slide-Deck.pdf](https://pages.awscloud.com/rs/112-TZM-766/images/2020_0819-NET_Slide-Deck.pdf)
