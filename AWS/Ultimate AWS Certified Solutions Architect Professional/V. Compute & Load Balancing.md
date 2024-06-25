@@ -337,4 +337,19 @@ p 291
         - RDS 알람
         - 사용자가 지정한 metrics 등등
 - Health checks는 CloudWatch metrics와 통합 되어 있다.
-- ![[Health-Checks 1.png]]
+ ![[Health-Checks 1.png]]
+
+## **2. Calculated Health Checks**
+
+p 292
+
+- 여러 개의 Health Checks의 결과를 하나의 Health check로 합치는 역할을 한다.
+- 결과를 합칠 때는 OR/AND/NOT 중 하나를 사용할 수 있다.
+    - 이를 이용해 몇 개 이상의 Health checks가 통과해야 parent가 통과로 여길 지를 결정할 수 있다.
+- Parent Health check는 최대 256개까지의 child Health checks를 가질 수 있다.
+- 사용 예시모든 health checks가 fail이 될 수도 있는데 웹 사이트의 유지 보수를 위해서는 몇 개는 pass AND 몇 개는 fail 등의 기준을 정해서 모든 checks가 fail이 되는 것은 막는 것이 좋을 수 있다.
+![[CalculatedHealthChecks.png]]
+
+
+
+
