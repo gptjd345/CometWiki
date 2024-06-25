@@ -331,4 +331,38 @@ p 295
 # V. **Hybrid DNS**
 p 296
 
-![[Hybrid-DNS.png]]
+- 기본적으로 Route 53 Resolver는 다음에 대한 DNS 쿼리에 자동으로 응답한다.
+    - EC2 instance의 로컬 도메인 이름
+    - Private Hosted Zone의 레코드
+    - Public Name Server의 레코드
+- Hybrid DNS
+    - VPC(Route 53 Resolver)와 네트워크(기타 DNS Resolver) 간의 DNS 쿼리 해결
+- 네트워크
+    - VPC 자체 / Peeered VPC
+    - 사내 네트워크(Direct Connect 또는 AWS VPN을 통해 연결됨)
+    
+	![[Hybrid-DNS.png]]
+
+## 1. Resolver Endpoints
+p 297
+
+[https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
+
+- **Inbound Endpoint**
+    - 네트워크의 DNS Resolver는 DNS 쿼리를 Route 53 Resolver로 전달할 수 있다.
+    - DNS Resolver가 Route 53 Private Hosted Zone에서 AWS 리소스(예: EC2 인스턴스) 및 레코드의 도메인 이름을 확인할 수 있도록 한다.
+    - [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.html)
+	    
+- **Outbound Endpoint**
+    - Route 53 Resolver는 DNS 쿼리를 조건부로 DNS Resolver에 전달한다.
+    - Resolver 규칙을 사용하여 DNS 쿼리를 DNS Resolver로 전달한다.
+    - [https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-forwarding-outbound-queries.html](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-forwarding-outbound-queries.html)\
+	    
+- 동일한 AWS 영역에 있는 하나 이상의 VPC와 연결됨
+- 고가용성을 위해 2개의 AZ로 생성
+- 각 엔드포인트는 IP 주소당 초당 10,000개의 쿼리를 지원하고, 필요하면 IP 주소를 더 생성한다.
+    
+
+## 2. Resolver Inbound Endpoints
+
+p 298
