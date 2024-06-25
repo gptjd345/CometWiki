@@ -79,6 +79,7 @@ p 276
 - 낮은 TTL 값은 레코드 변경 사항을 더 빨리 반영할 수 있다. 클라이언트가 변경을 알아채는 시간이 빨라진다.
 	![[Records-TTL.png]]
 # II. Routing Policies
+https://velog.io/@combi_jihoon/Route53-Policies
 
 ## 1. Simple(단순 라우팅)
 p 277
@@ -310,9 +311,23 @@ p 294
     
 	![[MonitoranCloudWatch.png]]
 
+## 5. **Health Checks Solution Architecture RDS multi-region failover**
 
-
-
-
-
+p 295
 ![[HealthChecksSolutionArchitecture.png]]
+
+### 다중 지역 장애 조치를 위한 솔루션 아키텍처
+- RDS 데이터베이스를 다른 지역에 비동기식으로 복제하여 장애 조치를 구현할 수 있다.
+    - RDS Main us-east-1 — 비동기식 복제 → RDS Read Replica us-west-2
+    - 두 가지 방법
+        1. EC2 인스턴스를 사용하여 데이터베이스 상태를 모니터링하고, HTTP를 호출해 health-db route를 노출하는 방법
+        2. CloudWatch Alarm을 정의하고, Health Check 결과를 이 알람과 연결하는 방법
+            - CloudWatch Alarm이 SNS 토픽이나 CloudWatch Event과 연결되면 이것을 트리거로 Lambda 함수를 호출할 수 있다.
+            - 이 Lambda 함수가 Route 53을 사용하여 애플리케이션의 DNS 레코드를 업데이트하여, 읽기 복제본을 승격시킬 수 있다.
+- 이를 통해 자동 장애 조치를 구현할 수 있다.
+
+이와 같이 Route 53은 DNS 관리, 장애 조치, 부하 분산 등 다양한 기능을 제공하여 애플리케이션의 가용성과 확장성을 높일 수 있다.
+
+# V. **Hybrid DNS**
+p 296
+
