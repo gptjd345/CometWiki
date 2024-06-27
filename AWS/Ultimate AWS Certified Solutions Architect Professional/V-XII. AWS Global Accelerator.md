@@ -187,6 +187,18 @@ p 312
 
 ![[APIGateway-Lambda.png]]
 
+1. API Gateway와 Lambda를 함께 사용하면 더 많은 요청을 처리할 수 있지만, 그에 따른 비용 지불이 필요하다. (요청당 지불)
+2. 서버리스 아키텍처를 통해 매끄러운 확장성을 제공할 수 있다.
+3. API Gateway에는 소프트 제한이 있는데, 초당 1만 요청과 1000개의 동시 실행이 가능하다. 이는 잠재적 제한이며 더 늘릴 수 있다. (Soft limits: 10000/s API Gateway, 1000 concurrent Lambda)
+4. API Gateway를 통해 인증, 속도 제한, 캐싱, API 키 관리 등 다양한 기능을 얻을 수 있다.
+5. Lambda의 (Cold Start)콜드 스타트 시간이 대기 시간을 늘릴 수 있다. 특히 여러 서비스를 연결할 때 이 문제가 발생할 수 있다.
+6. 하지만 X-Ray와의 통합을 통해 인프라 내에서 모든 요청을 추적할 수 있는 장점이 있다.
+
+## 8. API Gateway + AWS Service (as a proxy)
+p 313
+
+![[APIGateway-AWSService(proxy).png]]
+
 1. API Gateway는 AWS 서비스와 함께 프록시로 사용될 수 있다.
 2. 클라이언트 - API Gateway - Lambda - SQS 구조보다는 클라이언트 - API Gateway - SQS (또는 SNS, Step Functions) 구조가 더 나은 아키텍처이다.
     1. 이 경우 Lambda 호출을 피할 수 있어 대기 시간이 짧아지고 비용도 절감된다.
@@ -197,17 +209,16 @@ p 312
 4. 단, API Gateway의 페이로드 크기 제한(10MB)을 유의해야 한다.
     1. S3 프록시로 사용하려 한다면 이 제한이 문제가 될 수 있다.
 
-## 8. API Gateway + AWS Service (as a proxy)
-p 313
-
-![[APIGateway-AWSService(proxy).png]]
-
-
-
 ## 9. API Gateway + HTTP backend (ex: ALB)
 p 314
 
 ![[APIGateway-HTTPbackend.png]]
+
+1. API Gateway를 사용하여 API 게이트웨이 기능을 얻을 때 이 아키텍처를 사용한다.
+2. 사용자 지정 HTTP 백엔드(예: ALB) 위에서 API Gateway를 운영하면, 인증, 속도 제한, API 키 관리, 캐싱 등의 기능을 활용할 수 있다.
+3. 온프레미스 서버, 응용 프로그램 로드 밸런서, 타사 HTTP 서비스 등과 연결 가능하다.
+
+이처럼 API Gateway와 HTTP 백엔드를 조합하면 API Gateway가 제공하는 다양한 기능을 활용하면서도, 기존의 HTTP 인프라를 활용할 수 있다.
 
 # III. AWS Outposts
 p 315 - 316
