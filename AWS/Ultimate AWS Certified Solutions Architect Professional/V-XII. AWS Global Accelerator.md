@@ -223,7 +223,31 @@ p 314
 # III. AWS Outposts
 p 315 - 316
 
+https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3onOutposts.html
+
 ![[AWSOutposts.png]]
+
+- **하이브리드 클라우드**
+    - 기업이 온프레미스 인프라와 클라우드 인프라를 동시에 운영하는 방식
+	    
+- **두 가지 IT 시스템 관리 방식**
+    - AWS 클라우드 관리: AWS 콘솔, CLI 및 AWS API 사용
+    - 온프레미스 인프라를 위한 관리
+	    
+- **AWS Outposts**
+    - AWS가 제공하는 온프레미스 인프라 솔루션
+    - 클라우드와 동일한 온프레미스 인프라 솔루션을 구축하기 위해 AWS 인프라, 서비스, API 및 도구를 제공하는 "server racks"입니다
+    - AWS가 “Outposts Rack”을 온프레미스에 설치 및 관리
+    - 고객은 “Outposts Rack”의 물리적 보안을 책임
+	    
+- **혜택**
+    - 온프레미스 시스템에 대한 낮은 지연 시간 액세스 가능
+    - 온프레미스에서 로컬 데이터 처리 가능
+    - 데이터 보유 - 데이터를 온프레미스에 유지할 수 있어 규제 요구 사항 충족 가능
+    - 온프레미스에서 클라우드로의 마이그레이션 용이성
+    - 완전 관리형 서비스 - AWS가 Outposts Rack의 설치, 운영, 관리를 책임지므로 고객은 이를 직접 관리할 필요 없음
+	    
+- **Outpost에서 작동하는 일부 서비스**
 
 ![[AWSOutposts2.png]]
 
