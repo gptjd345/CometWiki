@@ -293,7 +293,28 @@ https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3onOutposts.html
 # IV. AWS WaveLength
 p 318
 
+[https://aws.amazon.com/ko/wavelength/features/](https://aws.amazon.com/ko/wavelength/features/)
+[https://aws.amazon.com/ko/wavelength/faqs/](https://aws.amazon.com/ko/wavelength/faqs/)
+
+- WaveLength Zones은 5G 네트워크의 엣지에 위치한 통신사 데이터 센터에 구축된 인프라이다.
+- AWS 서비스를 5G 네트워크의 엣지에 제공하여, 초저지연 애플리케이션을 구현할 수 있다.
+- EC2, EBS, VPC 등의 AWS 서비스를 사용할 수 있다.
+- 트래픽이 통신사 CSP(Communication Service Provider)를 벗어나지 않아 보안이 강화된다
+- 부모 AWS 리전과의 고대역폭 및 안전한 연결이 제공된다.
+- 추가 요금이나 별도 서비스 계약 없이 사용할 수 있습다.
+- 스마트 시티, ML 기반 진단, 커넥티드 차량, 실시간 게임, AR/VR 등 다양한 사용 사례에 활용할 수 있다.
+
+이를 통해 기업은 5G 네트워크의 초저지연 특성과 AWS 클라우드 서비스의 장점을 결합하여 혁신적인 애플리케이션을 개발할 수 있다.
+
+### **AWS WaveLength Zones의 활용 사례**
 ![[AWSWaveLength.png]]
+1. 통신 운송업체가 5G 네트워크를 보유하고 있으며, 이 네트워크에 WaveLength Zones이 구축되어 있다.
+2. 통신사는 자사의 캐리어 게이트웨이를 통해 WaveLength Zones에 EC2 인스턴스를 쉽게 배포할 수 있다.
+3. 이 WaveLength Zones은 5G 네트워크의 일부이므로, 5G 모바일 사용자가 이 구역에 접속할 때 초저지연 시간을 경험할 수 있다.
+4. 애플리케이션이 엣지에 배포되어 있기 때문에, 지연 시간이 매우 낮다.
+5. 트래픽은 통신 서비스 공급자(CSP) 네트워크를 벗어나지 않는다.
+6. 필요한 경우 WaveLength Zones은 안전하게 모체 AWS 리전에 연결될 수 있다.
+7. WaveLength Zones에 배포된 EC2 인스턴스는 AWS 리전의 데이터베이스 서비스(RDS, DynamoDB 등)에 안전하게 연결될 수 있다.
 
 # V. AWS Local Zones
 p 319
