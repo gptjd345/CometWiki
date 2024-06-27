@@ -293,4 +293,10 @@ https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3onOutposts.html
 # IV. AWS WaveLength
 p 318
 
+![[AWSWaveLength.png]]
+
+# V. AWS Local Zones
+p 319
+
+![[AWSLocalZones.png]]
 
