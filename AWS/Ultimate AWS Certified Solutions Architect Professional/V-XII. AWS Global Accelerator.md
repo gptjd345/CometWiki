@@ -170,3 +170,43 @@ p 310
 p 311
 
 ![[ALB-Lambda.png]]
+
+1. serverless에서는 AWS Lambda와 같은 서버리스 기술이 중요한 역할을 한다.
+2. ECS(Elastic Container Service)의 애플리케이션을 AWS Lambda와 함께 사용할 수 있다. 이 경우 ALB(Application Load Balancer)의 타깃 그룹으로 Lambda 함수를 사용할 수 있다.
+3. Lambda 함수를 ALB의 타깃으로 사용하면 Lambda 런타임에 제한이 있을 수 있다.
+    1. 클라이언트 런타임과 고객 런타임을 구분해야 한다.
+4. Docker가 없는 경우 ECS를 사용하면 접근성이 높아진다. Lambda 런타임 덕분에 균일한 확장성을 가질 수 있다.
+    1. 1,000개의 Lambda 함수가 있다면 API Gateway를 사용하지 않고도 HTTP/HTTPS로 직접 Lambda 함수를 공개할 수 있다.
+5. ALB와 Lambda 조합은 비용 절감 효과가 크지만, API Gateway의 기능은 제공하지 않는다.
+6. ALB와 WAF(Web Application Firewall)을 결합하면 보안 강화에 도움이 된다.
+7. 작업 유형에 따라 ECS(Elastic Container Service)와 Lambda(AWS Lambda)를 선택적으로 사용하는 하이브리드 마이크로서비스가 좋은 솔루션이 될 수 있다.
+    1. 예: 일부 요청에는 ECS를 사용하고 다른 요청에는 Lambda를 사용
+
+## 7. API Gateway + Lambda
+p 312
+
+![[APIGateway-Lambda.png]]
+
+
+## 8. API Gateway + AWS Service (as a proxy)
+p 313
+
+![[APIGateway-AWSService(proxy).png]]
+
+
+
+## 9. API Gateway + HTTP backend (ex: ALB)
+p 314
+
+![[APIGateway-HTTPbackend.png]]
+
+# III. AWS Outposts
+p 315 - 316
+
+![[AWSOutposts.png]]
+
+![[AWSOutposts2.png]]
+
+
+
+
