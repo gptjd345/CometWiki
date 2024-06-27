@@ -103,14 +103,14 @@ p 306 - 307
 
 ![[Statelesswebapp-scalinghorizontally.png]]
 
-### 종료된 EC2 instance가 존재하지 않는 경우
+#### 종료된 EC2 instance가 존재하지 않는 경우
 
 1. 웹 애플리케이션이 상태 비저장(stateless)이라고 가정한다. 즉, 각 요청은 독립적이며 인스턴스 간에 상태를 공유하지 않는다.
 2. 현재 3개의 EC2 인스턴스가 있으며, 각 인스턴스는 Public EC2 instance이며 Elastic IP가 없는 상태이다. 대신 클라이언트는 Route53의 DNS 쿼리를 통해 A 레코드를 받아 EC2 인스턴스와 통신한다. (TTL 1시간)
 
 - 탄력적 IP를 릴리스하는 경우 탄력적 IP를 가리키는 DNS 레코드도 삭제해야 한다. 그렇지 않으면 DNS 레코드가 손상되어 권한 없는 사용자가 레코드를 조작하게 될 수 있다.
 
-### EC2 instance 중 하나가 종료된 경우
+#### EC2 instance 중 하나가 종료된 경우
 
 클라이언트가 웹 애플리케이션에 정상적으로 접근하기 위해 필요한 것
 
@@ -248,8 +248,7 @@ https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3onOutposts.html
     - 완전 관리형 서비스 - AWS가 Outposts Rack의 설치, 운영, 관리를 책임지므로 고객은 이를 직접 관리할 필요 없음
 	    
 - **Outpost에서 작동하는 일부 서비스**
-
-![[AWSOutposts2.png]]
+	![[AWSOutposts2.png]]
 
 ## 1. S3 on AWS Outposts
 317
@@ -265,7 +264,7 @@ https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3onOutposts.html
 
 [https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3OutpostsWorkingBuckets.html](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3OutpostsWorkingBuckets.html)
 
-![[S3onAWSOutposts.png]]
+	![[S3onAWSOutposts.png]]
 
 - **S3 액세스 포인트 사용**
     1. S3 on Outposts에 데이터를 저장하려면 먼저 버킷을 생성한다.
@@ -307,7 +306,7 @@ p 318
 이를 통해 기업은 5G 네트워크의 초저지연 특성과 AWS 클라우드 서비스의 장점을 결합하여 혁신적인 애플리케이션을 개발할 수 있다.
 
 ### **AWS WaveLength Zones의 활용 사례**
-![[AWSWaveLength.png]]
+	![[AWSWaveLength.png]]
 1. 통신 운송업체가 5G 네트워크를 보유하고 있으며, 이 네트워크에 WaveLength Zones이 구축되어 있다.
 2. 통신사는 자사의 캐리어 게이트웨이를 통해 WaveLength Zones에 EC2 인스턴스를 쉽게 배포할 수 있다.
 3. 이 WaveLength Zones은 5G 네트워크의 일부이므로, 5G 모바일 사용자가 이 구역에 접속할 때 초저지연 시간을 경험할 수 있다.
@@ -319,5 +318,23 @@ p 318
 # V. AWS Local Zones
 p 319
 
-![[AWSLocalZones.png]]
+- AWS 컴퓨팅, 스토리지, 데이터베이스 등 선별된 AWS 서비스를 사용자에게 더 가까운 위치에 배치한다.
+- 지연 시간에 민감한 애플리케이션을 실행하는 데 도움이 된다.
+- VPC(Virtual Private Cloud)를 더 많은 위치로 확장할 수 있어, "AWS 리전의 확장"으로 볼 수 있다.
+- EC2, RDS, ECS, EBS, ElastiCache, Direct Connect 등 다양한 AWS 서비스와 호환된다.
+- 예시
+    - AWS 지역: 버지니아 주 (us-east-1)
+    - AWS Local Zone: Boston, Chicago, Dallas, Houston, Miami, …
 
+이를 통해 기업은 사용자에게 더 가까운 위치에서 AWS 서비스를 활용하여 지연 시간이 낮은 애플리케이션을 구축할 수 있다. 또한 VPC를 확장하여 다양한 지리적 위치에서 일관된 네트워크 경험을 제공할 수 있다.
+
+### **AWS Local Zones의 작동 방식**
+	![[AWSLocalZones.png]]
+1. AWS는 현재 버지니아 북부와 US East-1 리전에서 자동으로 6개의 가용성 영역(AZ)을 제공하고 있다고 가정해보자.
+2. AWS는 이를 더 많은 지역으로 확장할 수 있는데, 예를 들어 보스턴, 시카고, 댈러스, 휴스턴, 마이애미 등의 지역에 Local Zones를 제공할 수 있다.
+3. 사용자는 이미 자신의 리전(예: US-East-1)에 2개의 AZ를 가지고 있다.
+4. 사용자는 보스턴의 Local Zones를 새롭게 정의하고 기존 VPC(Virtual Private Cloud)를 AZ와 Local Zones로 확장할 수 있다.
+5. 이렇게 하면 사용자는 자신의 VPC 내에서 EC2 인스턴스를 Local Zones에 실행할 수 있게 된다.
+6. 이를 통해 사용자는 지연 시간이 매우 낮은 애플리케이션을 제공할 수 있다. 왜냐하면 사용자의 리소스가 사용자 근처의 Local Zones에 위치하기 때문이다.
+
+요약하면, AWS Local Zones를 통해 사용자는 자신의 리전 내에서 추가적인 가용성 영역을 정의하고, 이를 통해 지연 시간이 매우 낮은 애플리케이션을 구축할 수 있다. 이는 게임, 미디어 처리, 증강 현실 등의 사용 사례에 매우 유용하다.
