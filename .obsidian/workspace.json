@@ -174,6 +174,8 @@
   },
   "active": "7d7281f6a20db767",
   "lastOpenFiles": [
+    "ALB-Lambda.png",
+    "ALB+ECSonFargate.png",
     "ALB-ECSonEC2(ASG).png",
     "ALB-ASG.png",
     "Statelesswebapp-scalinghorizontally.png",
@@ -186,8 +188,6 @@
     "ResolverInboundEndpoints.png",
     "Hybrid-DNS.png",
     "Pasted image 20240625114129.png",
-    "HealthChecksSolutionArchitecture.png",
-    "MonitoranCloudWatch.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VIII. Elastic Load Balancers.md",
