@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "79fe046b96550a3a",
+            "id": "7d7281f6a20db767",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -172,8 +172,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "79fe046b96550a3a",
+  "active": "7d7281f6a20db767",
   "lastOpenFiles": [
+    "Statelesswebapp-scalinghorizontally.png",
+    "EC2withElasticIP.png",
+    "Pasted image 20240627113307.png",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-X. AWS AppSync.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XI. Route 53.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
     "ResolverOutboundEndpoints.png",
@@ -185,9 +189,6 @@
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
     "MonitoranEndpoint.png",
     "CalculatedHealthChecks.png",
-    "Health-Checks 1.png",
-    "PrivateHostedZones.png",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-X. AWS AppSync.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VIII. Elastic Load Balancers.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VII. AWS Lambda.md",
@@ -213,7 +214,6 @@
     "단축키/Window 단축키.md",
     "단축키/아이패드 단축키.md",
     "네트워크/소켓의 의미.md",
-    "Java/ThreadPoolTaskExecutor.md",
     "Java/패턴",
     "Java/Clean Code",
     "형상관리",
