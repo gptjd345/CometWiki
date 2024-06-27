@@ -187,6 +187,15 @@ p 312
 
 ![[APIGateway-Lambda.png]]
 
+1. API Gateway는 AWS 서비스와 함께 프록시로 사용될 수 있다.
+2. 클라이언트 - API Gateway - Lambda - SQS 구조보다는 클라이언트 - API Gateway - SQS (또는 SNS, Step Functions) 구조가 더 나은 아키텍처이다.
+    1. 이 경우 Lambda 호출을 피할 수 있어 대기 시간이 짧아지고 비용도 절감된다.
+        1. Lambda의 동시 실행 제한도 피할 수 있다.
+        2. API Gateway만 관리하면 되므로 유지해야 할 사용자 지정 코드가 없다.
+        3. API Gateway를 통해 AWS API 서비스를 안전하게 공개할 수 있다.
+3. SQS 외에도 SNS나 Step Functions 등 다른 AWS 서비스를 활용할 수 있다.
+4. 단, API Gateway의 페이로드 크기 제한(10MB)을 유의해야 한다.
+    1. S3 프록시로 사용하려 한다면 이 제한이 문제가 될 수 있다.
 
 ## 8. API Gateway + AWS Service (as a proxy)
 p 313
