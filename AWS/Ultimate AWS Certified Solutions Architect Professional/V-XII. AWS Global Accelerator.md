@@ -251,6 +251,46 @@ https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3onOutposts.html
 
 ![[AWSOutposts2.png]]
 
+## 1. S3 on AWS Outposts
+317
 
+- S3 API를 사용하여 AWS Outpost에서 로컬로 데이터 저장 및 검색
+- 데이터와 온프래미스 애플리케이션의 근접성 → AWS 지역으로의 데이터 전송 감소
+    - Outposts에 데이터를 저장함으로써, 온프레미스 애플리케이션과 가까운 곳에 데이터를 두어 AWS 클라우드로의 데이터 전송을 줄일 수 있다.
+- S3 Outposts 스토리지 클래스
+    - S3 Outposts에는 특별한 스토리지 클래스가 있으며, 이를 통해 온-프레미스에 데이터를 저장할 수 있다.
+- utposts의 기본 설정은 SSE-S3(Server-Side Encryption with S3-Managed Keys)를 사용하여 데이터를 암호화한다.
+
+### **AWS Outposts에서 데이터를 AWS 클라우드로 접근하는 방법**
+
+[https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3OutpostsWorkingBuckets.html](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3OutpostsWorkingBuckets.html)
+
+![[S3onAWSOutposts.png]]
+
+- **S3 액세스 포인트 사용**
+    1. S3 on Outposts에 데이터를 저장하려면 먼저 버킷을 생성한다.
+    2. 버킷을 생성할 때 버킷 이름과 버킷을 저장할 Outpost를 지정한다.
+    3. S3 on Outposts 버킷에 액세스하여 객체 작업을 수행하려면 다음으로 액세스 포인트를 생성하고 구성한다.
+        1. 액세스 포인트는 모든 AWS 서비스 또는 S3에 데이터를 저장하는 고객 애플리케이션에 대한 데이터 액세스를 간소화한다.
+        2. 액세스 포인트는 `GetObject` 및 `PutObject` 같은 객체 작업을 수행하는 데 사용할 수 있는 버킷에 연결된 네트워크 엔드포인트이다.
+        3. 각 액세스 포인트에는 고유한 권한 및 네트워크 제어가 있다.
+        4. 이를 통해 VPC에서 Outposts의 S3 스토리지에 쉽게 접근하고 보안을 관리할 수 있다.
+    4. 액세스 포인트로 요청을 라우팅하려면 엔드포인트도 생성해야 한다.
+        1. S3 on Outposts 엔드포인트를 사용하면 VPC를 Outposts 버킷에 프라이빗으로 연결할 수 있다.
+        2. S3 on Outposts 엔드포인트는 S3 on Outposts 버킷에 대한 진입점의 가상 통합 자원 식별자(URI)이다. 수평으로 확장된 고가용성 중복 VPC 구성 요소이다.
+        3. Outpost에 있는 각 Virtual Private Cloud(VPC)에는 연결된 엔드포인트가 하나씩 있을 수 있으며, Outpost당 엔드포인트를 최대 100개 보유할 수 있다.
+        4. 이런 엔드포인트를 생성할 때 S3와 S3 on Outposts에서 동일한 작업이 작동하여 API 모델 및 동작을 동일하게 유지할 수 있다.
+    5. 이를 통해 클라우드에서 직접 데이터에 액세스할 수 있다.
+    
+    AWS Management Console, AWS CLI, AWS SDK 또는 REST API를 사용하여 S3 on Outposts 버킷, 액세스 포인트 및 엔드포인트를 생성하고 관리할 수 있다. S3 on Outposts 버킷의 객체를 업로드하고 관리하려면 AWS CLI, AWS SDK 또는 REST API를 사용하면 된다.
+    
+- **데이터 동기화 서비스 사용**
+    AWS 데이터 동기화 서비스를 이용하여 Outposts의 데이터를 AWS 클라우드의 Amazon S3 버킷으로 동기화할 수 있다.
+    
+
+이렇게 두 가지 방법을 통해 Outposts에 저장된 데이터를 AWS 클라우드로 접근할 수 있다. 이는 AWS Outposts 사용 시 고객이 활용할 수 있는 대표적인 예시이다.
+
+# IV. AWS WaveLength
+p 318
 
 
