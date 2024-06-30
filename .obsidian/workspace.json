@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md"
               }
             }
           },
@@ -174,6 +174,8 @@
   },
   "active": "7d7281f6a20db767",
   "lastOpenFiles": [
+    "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
     "AWSLocalZones.png",
     "AWSWaveLength.png",
     "S3onAWSOutposts.png",
@@ -184,10 +186,8 @@
     "APIGateway-Lambda.png",
     "ALB-Lambda.png",
     "ALB+ECSonFargate.png",
-    "ALB-ECSonEC2(ASG).png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-X. AWS AppSync.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XI. Route 53.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VIII. Elastic Load Balancers.md",
@@ -205,7 +205,6 @@
     "문제상황해결/컨트롤러 요청 처리시 현재 처리상태 확인 하고 진행하도록 수정.md",
     "아키텍처/Spring 의 구동원리.md",
     "단축키/인텔리제이 단축키.md",
-    "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
     "Java/패턴/UML 클래스 다이어그램.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional",
     "AWS/AWS Certified Cloud Practitioner",
