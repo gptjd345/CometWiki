@@ -13,12 +13,12 @@ CloudTrail Events
 ##### 1. Management Events
 * AWS 리소스의 생성, 수정, 삭제와 같은 관리작업을 기록한다.
 	ex) Amazon EC2 인스턴스를 시작하거나 중지하는 작업, IAM 사용자를 생성하는 작업 등
-
+     IAM AttachRolePolicy : 하나 이상의 AWS 관리형 정책 또는 고객 관리형 정책을 특정 IAM 역할(Role)에 연결하는 API 작업
 ##### 2. Data Events
 * S3 객체 수준 작업과 AWS Lambda 함수 호출과 같은 데이터 작업을 기록한다.
 	ex) S3 버킷에 객체를 업로드하거나 삭제하는 작업 , Lambda 함수를 호출하는 작업 등
 
-* 기본적으로 비활성화되어있으며, 특정 버킷이나 함수에 대해 
+* 기본적으로 비활성화되어있으며, 특정 버킷이나 함수에 대해 별도로 활성화 해야한다. 
 
 
 ##### 3. CloudTrail Insights Event
