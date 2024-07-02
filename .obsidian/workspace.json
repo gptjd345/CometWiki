@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md"
               }
             }
           },
@@ -174,8 +174,9 @@
   },
   "active": "7d7281f6a20db767",
   "lastOpenFiles": [
-    "문제상황해결/컨트롤러 요청 처리시 현재 처리상태 확인 하고 진행하도록 수정.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+    "문제상황해결/컨트롤러 요청 처리시 현재 처리상태 확인 하고 진행하도록 수정.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
     "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XII. AWS Global Accelerator.md",
@@ -191,7 +192,6 @@
     "ALB+ECSonFargate.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-X. AWS AppSync.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-XI. Route 53.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-IX. API Gateway.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VIII. Elastic Load Balancers.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V-VII. AWS Lambda.md",
