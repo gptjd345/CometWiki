@@ -164,6 +164,156 @@ EventBridge와 CloudTrail의 통합을 활용하여 다양한 AWS 리소스 및 
 
 이렇게 구성하면 사용자가 보안 그룹의 인바운드 규칙을 변경할 때마다 CloudTrail에 기록되고, EventBridge 규칙이 이를 감지하여 SNS 토픽을 통해 알림을 보내게 된다. 이를 통해 보안 그룹 변경 활동을 실시간으로 모니터링할 수 있다.
 
-# III. CloudTrail – SA Pro
+# III. CloudTrail – Solution Architecture(SA) Pro
+
+CloudTrail과 다양한 AWS 서비스를 활용한 솔루션 아키텍처 구현
+
+## 1. Solution Architecture: Delivery to S3
+p 88
+
+![[DeliverytoS3.png]]
+
+1. **CloudTrail에서 S3로 파일 전송**
+    - CloudTrail은 5분 단위로 로그 파일을 S3 버킷에 전송할 수 있다.
+    - 이때 SSE-S3(default) 또는 SSE-KMS 암호화를 활성화할 수 있다.
+    - S3 버킷에 수명주기 정책을 설정하여 오래된 로그 파일을 Glacier 계층으로 이동시킬 수 있다.
+2. **S3 이벤트 기반 알림 구현**
+    - S3에 로그 파일이 저장되면 S3 이벤트를 통해 SQS 큐, SNS 토픽, Lambda 함수 등에 알림을 보낼 수 있다.
+3. **CloudTrail 기반 알림 구현**
+    - CloudTrail이 직접 SNS 토픽으로 알림을 보내도록 구성할 수 있다.
+    - SNS 토픽에서는 SQS 큐나 Lambda 함수를 호출하는 등 다양한 후속 작업을 수행할 수 있다.
+
+### **S3의 주요 보안 및 관리 기능**
+
+- **S3 버전 관리 사용**
+    - S3 버전 관리를 사용하면 버킷에 저장된 모든 버전의 객체를 모두 보존, 검색 및 복원할 수 있다.
+    - 의도치 않은 사용자 작업 및 애플리케이션 장애로부터 더 쉽게 복구할 수 있다.
+    - 버전 관리가 사용 설정된 버킷의 경우 실수로 삭제되거나 덮어쓴 객체를 복구할 수 있다.
+    - [https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/Versioning.html](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/Versioning.html)
+- **MFA(Multi Factor Authentication) 삭제 보호**
+    - Amazon S3 버킷에서 S3 버전 관리를 사용하는 경우 선택적으로 MFA(멀티 팩터 인증) Delete를 사용 설정하도록 버킷을 구성하여 다른 보안 계층을 추가할 수 있다.
+    - MFA Delete 및 MFA 보호 API 액세스는 서로 다른 시나리오에 대한 보호를 제공하기 위해 마련된 기능이다.
+    - [https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html)
+- **S3 라이프사이클 정책(S3 IA, Glacier…)**
+    - 수명 주기 동안 객체가 비용 효율적으로 저장되도록 관리하려면 Amazon S3 수명 주기 구성을 생성한다.
+    - 데이터 수명 주기에 따라 S3, S3 Glacier, S3 Glacier Deep Archive로 자동으로 이동시킬 수 있다.
+    - [https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/object-lifecycle-mgmt.html](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/object-lifecycle-mgmt.html)
+- **S3 객체 잠금 사용**
+    - 고정된 시간 동안 또는 무기한으로 Amazon S3 객체의 삭제 또는 덮어쓰기를 방지하는 데 도움이 된다.
+    - 객체 잠금은 보관 기간 및 법적 보존 등 객체 보관을 관리하는 2가지 방법을 제공한다.
+    - S3 버전 관리가 활성화된 버킷에서만 작동한다. 객체 버전을 잠그면 Amazon S3는 해당 객체 버전의 메타데이터에 잠금 정보를 저장한다.
+    - 객체에 보존 기간 또는 법적 보존을 설정하면 요청에 지정된 버전만 보호된다.
+    - 보존 기간과 법적 보존은 객체의 새로운 버전을 생성하거나 객체에 추가할 마커를 삭제하는 것을 차단하지 않는다.
+    - [https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/object-lock.html](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/object-lock.html)
+- **SSE-S3 or SSE-KMS encryption(서버측 암호화)**
+    - **SSE-S3**
+        - 아마존 S3에서 관리하는 키를 사용하여 암호화하는 방법이다.
+        - S3 managed data key는 S3에 의해 완전히 소유되고 관리 된다.
+        - **암호화 과정**
+            1. 암호화되지 않은 객체를 S3 로 업로드하여 SSE-S3 암호화를 할 것이다.
+            2. S3 로 객체를 전송할 때 HTTP/HTTPS 프로토콜로 헤더에 "x-amz-server-side-encryption":"AES256" 을 설정해 전송한다.
+            3. 그러면 Amazon S3 는 이 헤더를 통해 S3 Managed Data Key 로 전송받은 Object 를 암호화 하고 저장한다.
+    - **SSE-KMS (Key Manager Service)**
+        - 아마존 S3에서 관리하는 키를 사용하여 암호화하는 방법이다.
+        - 위의 SSE-S3보다는 조금 더 사용자 단위의 컨트롤을 할 수 있다.
+        - KMS 에서 키를 관리하는 이유는 어떤 사람이 키에 접근 가능하게 하고 어떤 사람은 키에 접근하지 못하게 하는 것이 가능하고, 추적도 가능하기 때문이다.
+        - **암호화 과정**
+            1. Amazon S3 는 전송받은 객체의 헤더를 확인하고 어떤 방식으로 암호화 할 지 설정한다.
+            2. SSE-KMS 방식이기 때문에 S3 에서 암호화 할 때 사용하는 키는 KMS 에서 미리 세팅해놓은 KMS Customer Master Key 를 사용하여 전송받은 객체를 암호화한다.
+            3. 그리고 암호화 한 객체를 S3 버킷에 저장한다.
+    - [](https://inpa.tistory.com/entry/AWS-%F0%9F%93%9A-S3-%EA%B0%9D%EC%B2%B4-%EC%95%94%ED%98%B8%ED%99%94-%EA%B8%B0%EB%8A%A5-%EC%A2%85%EB%A5%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)[https://inpa.tistory.com/entry/AWS-📚-S3-객체-암호화-기능-종류-및-사용하기](https://inpa.tistory.com/entry/AWS-%F0%9F%93%9A-S3-%EA%B0%9D%EC%B2%B4-%EC%95%94%ED%98%B8%ED%99%94-%EA%B8%B0%EB%8A%A5-%EC%A2%85%EB%A5%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+- **CloudTrail Log File Integrity(무결성) 검증을 수행하는 기능(해싱 및 서명용 SHA-256)**
+    - 로그 파일이 CloudTrail 전송된 후 수정, 삭제 또는 변경되지 않았는지 확인하려면 CloudTrail 로그 파일 무결성 검증을 사용할 수 있다.
+    - 이 기능은 산업 표준 알고리즘(해시의 경우 SHA-256, 디지털 서명의 경우 RSA 포함 SHA-256)으로 구축되었다.
+    - [https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html)
+
+## 2. Solution Architecture: Multi Account, Multi Region Logging
+
+**CloudTrail의 다중 계정 및 다중 지역 기능**
+
+p 89
+
+CloudTrail은 다중 계정에서 로그를 수집할 수 있다. 예를 들어 계정 A와 계정 B에서 발생한 이벤트 로그를 수집할 수 있다.
+
+![[MultiAccount.png]]
+
+1. 계정 A와 B의 CloudTrail은 로그를 보안 계정의 S3 버킷에 저장한다. (이 보안 계정은 다른 두 계정과는 별도의 계정이다.)
+2. S3 버킷 정책을 정의하여 CloudTrail이 해당 S3 버킷에 로그 파일을 전송할 수 있도록 허용해야 한다.
+3. 이렇게 하면 CloudTrail이 다중 계정의 이벤트 로그를 안전하게 중앙 집중화하여 관리할 수 있다.
+
+이렇게 CloudTrail의 다중 계정 및 다중 지역 기능을 활용하여 로그 관리의 효율성과 보안성을 높일 수 있다.
+
+### 로그 관리의 효율성과 보안성을 높일 수 있는 방법
+
+1. **S3 버킷 정책 설정**
+    - 상호 계정 간 로그 전송을 위해 필수적인 요소이다.
+    - 계정 A가 CloudTrail 파일에 액세스하려는 경우:
+        - 옵션 1: 계정 간 역할 생성 및 역할 수행
+        - 옵션 2: 버킷 정책 편집
+2. **보안 계정 활용**
+    - 로그를 안전하게 보관할 수 있는 별도의 보안 계정을 사용한다.
+    - 사용자 관리 및 접근 통제가 더 엄격해져 로그 보안이 강화된다.
+    - 장기적으로 로그 데이터의 안전성을 확보할 수 있다.
+
+## 3. Solution Architecture: Alert for API calls
+p 90
+
+[https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html)
+
+### CloudTrail과 CloudWatch를 활용하여 특정 API 호출에 대한 경고 생성 방법
+
+![[AlertforAPIcalls.png]]
+
+1. CloudTrail을 통해 API 호출 이벤트를 CloudWatch 로그로 스트리밍한다.
+2. CloudWatch 로그에서 관심 있는 API 호출 패턴을 메트릭 필터로 정의한다.
+3. 메트릭 필터가 일치하면 CloudWatch 알람을 트리거하도록 설정한다.
+4. CloudWatch 알람이 트리거되면 SNS 주제로 알림을 보낸다.
+5. SNS 주제에서는 다양한 작업을 수행할 수 있다. 예를 들어 Lambda 함수를 호출하거나 SQS 큐에 메시지를 전송할 수 있다.
+6. 이를 통해 특정 API 호출이 발생할 때마다 경고를 생성하고, 이에 대한 자동화된 대응 프로세스를 구현할 수 있다. 예를 인스턴스 종료 API 호출이 감지되면 즉시 알람을 발생시키고 대응 조치를 취할 수 있다.
+
+이처럼 CloudTrail과 CloudWatch의 조합을 통해 효과적인 모니터링 및 경고 체계를 구축할 수 있습니다. 사용 사례에 따라 다양한 방식으로 활용할 수 있는 유용한 기능들입니다.
+
+- 로그 필터 메트릭을 사용하여 높은 수준의 API 발생을 감지할 수 있다. 특정 API 호출이 아니더라도 전반적인 API 호출 패턴을 분석할 수 있다.
+    - 예: EC2 TerminateInstance API 발생 횟수
+    - 예: 사용자당 API 호출 수
+    - 예: 높은 수준의 거부된 API 호출 탐지
+- 이를 통해 비정상적인 활동이나 보안 침입 시도 등을 감지할 수 있다. 단순한 API 호출 감지를 넘어 전반적인 보안 모니터링이 가능하다.
+- 메트릭 필터는 유연하게 구성할 수 있어, 사용 사례에 맞는 다양한 지표를 정의할 수 있다.
+- CloudWatch 알람은 이러한 지표를 기반으로 경보를 발생시키므로, 이상 징후를 신속하게 감지하고 대응할 수 있다.
+
+## 5. Solution Architecture: Organizational Trail
+p 91
+
+[https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/creating-trail-organization.html](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/creating-trail-organization.html)
+
+CloudTrail의 조직 트레일 기능은 AWS 조직 내에서 발생하는 모든 이벤트를 중앙에서 모니터링할 수 있게 해주는 매우 강력한 기능이라고 할 수 있다.
+
+![[OrganizationalTrail.png]]
+
+### CloudTrail의 조직 트레일 주요 기능
+
+1. AWS 조직에서 관리 계정은 조직 트레일을 설정할 수 있다. 이 트레일은 관리 계정에 생성되며, 모든 자식 계정의 이벤트를 모니터링한다.
+2. 관리 계정에서 생성된 조직 트레일은 자식 계정의 모든 이벤트를 캡처한다. 이를 통해 조직 전체의 활동을 통합적으로 모니터링할 수 있다.
+3. 개발자 OU, 프로덕션 OU 등 조직의 다양한 계정들이 모두 이 트레일에 의해 모니터링된다. (편리하고 효과적인 방식)
+4. 관리 계정의 S3 버킷에 이벤트 로그가 저장되며, S3 버킷 접두사에는 모니터링되는 계정 번호가 포함된다.
+5. 이를 통해 조직 전체의 이벤트를 통합적으로 관리하고 분석할 수 있다.
+
+## 6. 이벤트에 가장 빠르게 반응하는 방법
+
+p 92
+
+전체적으로 CloudTrail은 이벤트를 제공하는 데 최대 15분이 소요될 수 있다.
+
+CloudTrail 이벤트에 가장 빠르게 대응하는 방법은 다음과 같습니다:
+
+- **EventBridge 사용**
+    - CloudTrail의 모든 API 호출에 대해 EventBridge를 트리거할 수 있다.
+    - EventBridge는 CloudTrail 이벤트를 실시간으로 캡처하므로 가장 빠르고 반응이 좋은 방법이다.
+- **CloudWatch Logs의 CloudTrail Delivery 사용**
+    - CloudTrail 이벤트를 CloudWatch Logs로 스트리밍할 수 있다.
+    - CloudWatch Logs에서 메트릭 필터를 수행하여 이상 징후를 신속하게 탐지할 수 있다.
+- **S3에 CloudTrail Delivery 사용**
+    - CloudTrail 이벤트를 5분마다 S3 버킷으로 전달할 수 있다.
+    - S3에 저장된 이벤트는 로그 무결성 분석, 교차 계정 제공, 장기 저장이 가능하다.
 
 
