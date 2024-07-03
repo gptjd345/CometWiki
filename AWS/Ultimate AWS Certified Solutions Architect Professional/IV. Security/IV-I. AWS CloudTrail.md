@@ -97,10 +97,73 @@ p 85
 
 
 
+
+
+
+# II. **Integration**
+
 >[!question] EventBridge Integration?
 EventBridge Integration = AWS CloudTrail + Amazon EventBridge 를 의미한다.
 
+## 1. Amazon EventBridge - Intercept API Calls
+p 86
 
+EventBridge와 CloudTrail을 통합하면 API 호출을 모니터링하고 특정 이벤트에 대한 알림을 받을 수 있다.
 
+![[InterceptAPICalls.png]]
+
+SNS 알림을 받고 싶다면 다음과 같은 과정으로 구현할 수 있다.
+
+1. 사용자는 API Call로 DynamoDB의 테이블을 삭제 요청을 한다.
+2. CloudTrail에서 DynamoDB 테이블 삭제 API 호출이 기록된다.
+3. Amazon EventBridge는 CloudTrail 로그에서 이 API 호출 이벤트를 감지한다.
+4. Amazon EventBridge의 규칙을 통해 특정 조건(예: DynamoDB 테이블 삭제 API 호출)을 감지하면 이를 트리거로 만든다.
+5. 트리거된 규칙은 Amazon SNS로 메시지를 전송한다.
+6. SNS에 가입한 구독자(예: 이메일 주소)에게 알림이 전송된다.
+
+이를 통해 DynamoDB 테이블 삭제와 같은 중요한 API 호출이 발생할 때 신속하게 알림을 받을 수 있다. 이는 보안 모니터링, 감사 및 운영 관리에 유용하다.
+
+## 2. Amazon EventBridge + CloudTrail
+p 87
+
+EventBridge와 CloudTrail의 통합을 활용하여 다양한 AWS 리소스 및 API 호출 이벤트를 모니터링하고 알림을 받을 수 있다.
+
+![[AmazonEventBridge-CloudTrail.png]]
+
+### 사용자가 AWS 계정에서 역할을 수행하는 것을 모니터링하고 알림을 받는 예시
+
+1. **CloudTrail 구성**
+    - CloudTrail을 통해 AWS 계정의 모든 API 호출 내역을 로깅하도록 설정한다.
+    - AssumeRole API 호출이 CloudTrail에 기록된다.
+2. **EventBridge 규칙 생성**
+    - EventBridge에서 새 규칙을 생성한다.
+    - 이벤트 소스를 "CloudTrail Event"로 선택한다.
+    - 이벤트 유형을 "AssumeRole" API 호출로 필터링한다.
+3. **대상 구성**
+    - EventBridge 규칙의 대상으로 SNS 토픽을 선택한다.
+    - SNS 토픽을 생성하고 이메일 또는 SMS 알림을 받도록 구독한다.
+4. **규칙 활성화**
+    1. EventBridge 규칙을 활성화하여 실행 상태로 만든다.
+
+이렇게 구성하면 사용자가 AWS 계정에서 역할을 수행할 때마다 CloudTrail에 기록되고, EventBridge 규칙이 이를 감지하여 SNS 토픽을 통해 알림을 보내게 된다. 이를 통해 권한 상승 활동을 실시간으로 모니터링할 수 있다.
+
+### 보안 그룹 인바운드 규칙 변경과 같은 API 호출로 CloudTrail과 EventBridge를 통해 모니터링하는 예시
+
+1. **CloudTrail 구성**
+    - CloudTrail을 통해 AWS 계정의 모든 API 호출 내역을 로깅하도록 설정한다.
+    - AuthorizeSecurityGroupIngress API 호출이 CloudTrail에 기록된다.
+2. **EventBridge 규칙 생성**
+    - EventBridge에서 새 규칙을 생성한다.
+    - 이벤트 소스를 "CloudTrail Event"로 선택한다.
+    - 이벤트 유형을 "AuthorizeSecurityGroupIngress" API 호출로 필터링한다.
+3. **대상 구성**
+    - EventBridge 규칙의 대상으로 SNS 토픽을 선택한다.
+    - SNS 토픽을 생성하고 이메일 또는 SMS 알림을 받도록 구독한다.
+4. **규칙 활성화**
+    - EventBridge 규칙을 활성화하여 실행 상태로 만든다.
+
+이렇게 구성하면 사용자가 보안 그룹의 인바운드 규칙을 변경할 때마다 CloudTrail에 기록되고, EventBridge 규칙이 이를 감지하여 SNS 토픽을 통해 알림을 보내게 된다. 이를 통해 보안 그룹 변경 활동을 실시간으로 모니터링할 수 있다.
+
+# III. CloudTrail – SA Pro
 
 
