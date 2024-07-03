@@ -23,5 +23,6 @@ VPC 안에는 EC2 와 EBS Volume이 존재하며 EBS Volume은 [HDFS(Hadoop Dist
 >
 
 
+![[Pasted image 20240704002635.png]]
 
-
+* Amazon DynamoDB는 
