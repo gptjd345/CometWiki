@@ -44,4 +44,11 @@ Amazon EMR 클러스터를 생성할 때 Hive를 선택하면, EMR은 클러스�
 # Amazon EMR - Node types & purchasing
 
 1. Master Node
-2. Core Nod
+	* 클러스터의 상태를 모니터링하고 작업을 스케줄링 및 분배한다. - long running
+	* 하둡의 NameNode와 ResourceManager의 역할을 수행한다.
+2. Core Node
+	*  데이터 저장 및 작업 실행을 담당한다. - long running
+	* 하둡의 DataNode와 NodeManager의 역할을 수행한다. HDFS에 데이터를 저장하고, 작업을 실행한다.
+3. Task Node(Optional)
+	* 작업 실행에만 참여하며, 데이터 저장은 하지 않는다.
+	* 추가적인 컴퓨팅 자원을 제공하여 작업을 병렬로 처리한다. HDFS에는 데이터를 저장하지 않고, 맵리듀스 작업 등을 수행한다.
