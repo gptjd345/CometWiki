@@ -22,6 +22,6 @@ VPC 안에는 EC2 와 EBS Volume이 존재하며 EBS Volume은 [HDFS(Hadoop Dist
 >이는 HDFS와 달리 , S3(여기서는 EMRFS)는 클러스터가 종료되더라도 데이터가 유지되므로 장기간 데이터를 저장하는데 사용된다. S3는 기본적으로 다중AZ 라 내구성이 더 강하며 서버측 암호화도 정의할 수 있다.  
 >
 
-![[Pasted image 20240703234713.png]]
+
 
 
