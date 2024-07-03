@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "빅데이터 & 인공지능 개념/Hadoop.md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md"
               }
             }
           },
@@ -174,14 +174,15 @@
   },
   "active": "7d7281f6a20db767",
   "lastOpenFiles": [
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-XII. AWS Global Accelerator.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V. Compute & Load Balancing.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
     "빅데이터 & 인공지능 개념/Hadoop.md",
     "단축키/Window 단축키.md",
     "Java/Blocking Method & Non Blocking Method.md",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
     "Hadoop의 구성요소.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-XII. AWS Global Accelerator.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V. Compute & Load Balancing.md",
     "빅데이터 & 인공지능 개념",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-IX. API Gateway.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-I. Amazon EC2(Elastic Compute Cloud).md",
@@ -202,7 +203,6 @@
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-III. Auto Scaling.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
     "문제상황해결/컨트롤러 요청 처리시 현재 처리상태 확인 하고 진행하도록 수정.md",
     "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-X. AWS AppSync.md",
