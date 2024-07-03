@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md"
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md"
               }
             }
           },
@@ -174,9 +174,11 @@
   },
   "active": "7d7281f6a20db767",
   "lastOpenFiles": [
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+    "빅데이터 & 인공지능 개념/Hadoop.md",
+    "빅데이터 & 인공지능 개념",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-IX. API Gateway.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-I. Amazon EC2(Elastic Compute Cloud).md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering",
     "AWS/실전",
@@ -217,9 +219,7 @@
     "AWS/AWS Certified Cloud Practitioner",
     "AWS",
     "Java/알고리즘",
-    "단축키/Window 단축키.md",
     "Java/패턴",
-    "Java/Clean Code",
     "무제 파일.canvas"
   ]
 }
