@@ -17,10 +17,11 @@ VPC 안에는 EC2 와 EBS Volume이 존재하며 EBS Volume은 [HDFS(Hadoop Dist
 만약 데이터를 장기간 보유하고 싶다면 EMRFS 라는 걸 사용해야한다. <font color="#00b050">(EMR 클러스터가 종료되면 해당 클러스터의 EC2 인스턴스와 이와 연결된 EBS 볼륨도 삭제되기 때문)</font>
 
 >[!question] EMRFS(EMR File System) ?
->Amazon S3와 통합된 파일 시스템(S3를 EMRFS로 구성할수있게끔 이미 최적화되어있다는 뜻)으로 EMR클러스터에서 데이터를 S3에 저장하고 읽을수 있게 한다.
+>Amazon S3와 통합된 파일 시스템(S3를 EMRFS로 구성할 수 있게 끔 이미 최적화되어있다는 뜻)으로 
+>사용자가 원한다면 S3 버킷을 EMRFS로 구성하여 사용할 수 있다. 
 >이는 HDFS와 달리 , S3(여기서는 EMRFS)는 클러스터가 종료되더라도 데이터가 유지되므로 장기간 데이터를 저장하는데 사용된다. S3는 기본적으로 다중AZ 라 내구성이 더 강하며 서버측 암호화도 정의할 수 있다.  
 >
 
-S3(EMRFS) 은 영구적인 스토리지(Permanent Storage) 
+![[Pasted image 20240703234713.png]]
 
 
