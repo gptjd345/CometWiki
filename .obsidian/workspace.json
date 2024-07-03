@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md"
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md"
               }
             }
           },
@@ -174,9 +174,9 @@
   },
   "active": "7d7281f6a20db767",
   "lastOpenFiles": [
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
     "Pasted image 20240704003714.png",
     "빅데이터 & 인공지능 개념/Hadoop.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
     "Pasted image 20240704002635.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md",
@@ -203,7 +203,6 @@
     "MultiAccount.png",
     "DeliverytoS3.png",
     "AmazonEventBridge-CloudTrail.png",
-    "InterceptAPICalls.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-III. Auto Scaling.md",
