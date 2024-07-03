@@ -13,6 +13,5 @@ Apache Hadoop 클러스터를 만들어서 많은 양의 데이터를 분석하�
 
 # EMR - Integrations
 EMR은 VPC 내에 실행되며 단일가용성 영역(Single AZ)에 있음. 
-VPC 안에는 EC2 와 EBS Volume이 존재하며 EBS Volume은 HDFS(Hadoop Distributed File System)
-
+VPC 안에는 EC2 와 EBS Volume이 존재하며 EBS Volume은 [HDFS(Hadoop Distributed File System)](Hadoop)
 
