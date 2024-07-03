@@ -64,3 +64,73 @@ p 95 - 96
 | 내 AWS 계정에만 사용됨    | O                            | O                                              | X             |
 | 자동 로테이션           | 선택 (매년, 약 365일)              | 필수 (매년, 약 365일)                                | 다양            |
 | 요금                | 월 요금(시간당 비례 배분)<br>사용량 기준 요금 | 월 요금 없음<br>사용량 기준 요금<br>(일부 AWS 서비스는 고객 대신 납부) | 요금 없음         |
+
+## 3. KMS Key 자료 출처에 따른 3가지 유형
+p 97
+
+- 키 자료 출처는 키 생성 시 선택하며, 생성 후에는 변경할 수 없다.
+- 각 유형에 따라 키 관리의 책임과 통제 수준이 달라진다.
+
+1. **KMS (AWS_KMS) - 기본값**
+    - AWS KMS가 자체 키 저장소에서 키 자료를 생성하고 관리한다.
+2. **External (EXTERNAL)**
+    - 키 자료를 외부에서 가져온다.
+    - 사용자가 AWS 외부에서 키 자료를 보호하고 관리할 책임이 있다.
+3. **Custom Key Store (AWS_CLOUDHSM)**
+    - AWS KMS가 사용자 지정 키 저장소(CloudHSM Cluster)에 키 자료를 작성한다.
+
+# II. KMS Key Source
+## 1. Custom Key Store(**사용자 지정 키 스토어,** CloudHSM)
+p 98
+
+[https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/keystore-cloudhsm.html](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/keystore-cloudhsm.html)
+
+- KMS와 CloudHSM 클러스터를 통합하여 사용자 지정 키 저장소로 사용한다.
+- 핵심 자료(키 자료)는 고객이 소유하고 관리하는 CloudHSM 클러스터에 저장된다.
+- 암호화 작업은 HSM(Hardware Security Module) 내에서 수행된다.
+- 사용자 지정 키 저장소를 사용하는 주요 사용 사례
+    - HSM을 직접 제어해야 하는 경우
+    - KMS 키를 전용 HSM에 저장해야 하는 경우
+
+사용자 지정 키 저장소를 통해 고객은 키 자료에 대한 더 강력한 통제와 관리를 할 수 있다. 하지만 이를 위해서는 CloudHSM 클러스터의 운영과 관리에 대한 책임이 고객에게 있다.
+
+> **작동 원리**
+> 
+> ![[CloudHSM.png]]
+> 
+> 1. [활성 AWS CloudHSM 클러스터](https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html)를 생성하거나 기존 클러스터를 선택한다. 클러스터는 서로 다른 가용 영역에 최소 2개의 활성 HSM을 가지고 있어야 한다. 그런 다음 해당 클러스터에 AWS KMS에 대한 [전용 암호화 사용자(CU) 계정](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/hsm-key-store-concepts.html#concept-kmsuser)을 만든다.
+> 2. 위에서 AWS KMS선택한 AWS CloudHSM 클러스터와 연결된 [사용자 지정 키 저장소를 생성](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/create-keystore.html)한다. AWS KMS 사용자 지정 키 스토어를 만들고, 보고, 편집하고, 삭제할 수 있는 [완전한 관리 인터페이스를](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/manage-keystore.html) 제공한다.
+> 3. 사용자 지정 키 스토어를 사용할 준비가 되면 [관련 AWS CloudHSM 클러스터에 연결](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/disconnect-keystore.html)한다. AWS KMS 연결을 지원하는 데 필요한 네트워크 인프라를 생성한다. 그런 다음, 클러스터에서 키 구성 요소를 생성 및 관리할 수 있도록 전용 CU(Crypto User) 계정 자격 증명을 사용해 클러스터에 로그인한다.
+> 4. 이제 [사용자 지정 키 스토어에서 대칭 암호화 KMS 키를 생성](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/create-cmk-keystore.html)할 수 있다. KMS 키를 생성할 때 사용자 지정 키 스토어를 지정만 하면 된다.
+
+## 2. External
+p 99
+
+### **외부 키 자료를 KMS 키로 가져오는 BYOK(Bring Your Own Key) 기능**
+
+- 자신의 키 자료를 KMS 키로 가져올 수 있다. BYOK(Bring Your Own Key)
+- AWS 외부에서 키 자료의 보안, 가용성, 내구성에 대한 책임이 사용자에게 있다.
+- 대칭 및 비대칭 KMS 키 모두 BYOK 방식으로 가져올 수 있다.
+- 사용자 지정 키 저장소(CloudHSM)에서는 BYOK를 사용할 수 없다.
+- KMS 키에 대한 수동 키 회전은 지원되지만, 자동 키 회전은 지원되지 않는다.
+
+BYOK를 사용하면 고객이 키 자료에 대한 더 강력한 통제력을 가질 수 있다. 하지만 키 자료 관리에 대한 책임이 고객에게 있다는 점을 유의해야 한다. 또한 사용자 지정 키 저장소와는 호환되지 않는다는 점도 고려해야 한다.
+
+> **작동 원리**
+> 
+> ![[External.png]]
+> 
+> **고객이 외부에서 생성한 키 자료를 KMS로 가져오는 BYOK(Bring Your Own Key) 프로세스**
+> 
+> 1. 고유한 키 구성 요소를 대신 가져오려면, 키 구성 요소 없이 KMS 키를 만든다.(기본적으로, KMS 키를 만들면 AWS KMS가 자동으로 키 구성 요소를 생성)
+>     [# 1단계: 키 구성 요소 없이 AWS KMS key 생성](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/importing-keys-create-cmk.html)
+>     
+> 2. [키 자료가 AWS KMS key 없는 파일을 만든](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/importing-keys-create-cmk.html) 후에는 AWS KMS 콘솔 또는 [GetParametersForImport](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetParametersForImport.html)API를 사용하여 래핑 공개 키와 해당 KMS 키에 대한 가져오기 토큰을 다운로드한다.
+>     [# 2단계: 래핑 퍼블릭 키 및 가져오기 토큰 다운로드](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/importing-keys-get-public-key-and-token.html)
+>     
+> 3. 다운로드한 퍼블릭 키와 지정한 래핑 알고리즘을 사용하여 키 구성 요소를 암호화한다.
+>     [# 3단계: 키 구성 요소 암호화](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/importing-keys-encrypt-key-material.html)
+>     
+> 4. AWS KMS key와 함께 사용할 키 구성 요소를 가져올 수 있다. 키 구성 요소를 가져오려면 3단계에서 암호화한 키 구성 요소와 2단계에서 다운로드한 가져오기 토큰을 업로드한다.
+>     [# 4단계: 키 구성 요소 가져오기](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/importing-keys-import-key-material.html)
+
