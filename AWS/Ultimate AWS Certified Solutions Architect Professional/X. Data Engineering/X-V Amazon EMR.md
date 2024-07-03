@@ -23,6 +23,6 @@ VPC 안에는 EC2 와 EBS Volume이 존재하며 EBS Volume은 [HDFS(Hadoop Dist
 >
 
 
-![[Pasted image 20240704002635.png]]
+![[Pasted image 20240704003714.png]]
 
-* Amazon DynamoDB는 
+Amazon EMR 클러스터를 생성할 때 Hive를 선택하면, EMR은 클러스터를 구성하는 EC2 인스턴스들 중에 적절한 노드에 Hive를 자동으로 설치하고 구성한다. 보통 클러스터의 마스터 노드에 Hive를 자동으로 
