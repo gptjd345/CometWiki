@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-III. SSM Parameter Store & Secrets Manager.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-III. SSM Parameter Store & Secrets Manager.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-III. SSM Parameter Store & Secrets Manager.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-III. SSM Parameter Store & Secrets Manager.md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md"
               }
             }
           },
@@ -174,8 +174,8 @@
   },
   "active": "7d7281f6a20db767",
   "lastOpenFiles": [
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-III. SSM Parameter Store & Secrets Manager.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
     "Rotation.png",
     "SecretsManager–SharingAcrossAccounts.png",
     "AWSCloudFormation.png",
