@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "빅데이터 & 인공지능 개념/Hadoop.md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md"
               }
             }
           },
@@ -174,9 +174,14 @@
   },
   "active": "7d7281f6a20db767",
   "lastOpenFiles": [
+    "AWSCloudFormation.png",
+    "AWSSecretsManager-ECS.png",
+    "Parameter.png",
+    "SSMParameterStore-AWS_KMS.png",
+    "Multi-RegionKeys.png",
+    "빅데이터 & 인공지능 개념/Hadoop.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
     "Pasted image 20240704003714.png",
-    "빅데이터 & 인공지능 개념/Hadoop.md",
     "Pasted image 20240704002635.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md",
@@ -199,10 +204,6 @@
     "CloudHSM.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
     "OrganizationalTrail.png",
-    "AlertforAPIcalls.png",
-    "MultiAccount.png",
-    "DeliverytoS3.png",
-    "AmazonEventBridge-CloudTrail.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-III. Auto Scaling.md",
