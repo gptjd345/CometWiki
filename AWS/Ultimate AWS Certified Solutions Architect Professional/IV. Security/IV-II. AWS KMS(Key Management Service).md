@@ -276,3 +276,5 @@ p 107
 
 ## 3. Secrets Manager – Sharing Across Accounts
 p 108
+
+![[SecretsManager–SharingAcrossAccounts.png]]
