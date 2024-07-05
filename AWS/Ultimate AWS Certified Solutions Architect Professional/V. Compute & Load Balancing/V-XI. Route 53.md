@@ -1,7 +1,5 @@
 # I. Route 53 - Record Types
-p 272
 
- 
  1. **A 레코드 (A Record)**
     - 도메인 이름을 IPv4 주소(예: 192.0.2.1)로 매핑한다.
     - 용도: 특정 도메인 이름을 웹 서버나 기타 인터넷 리소스의 IPv4 주소와 연결할 때 사용한다.
@@ -20,9 +18,7 @@ p 272
     - **용도**: 특정 도메인의 네임 서버를 지정할 때 사용한다. 도메인의 DNS 설정을 다른 네임 서버로 위임할 때 필요하다.
 
 ## 1. Diagram for A record(A 레코드 다이어그램)
-p 273
 
-![[A-record.png]]
 ### 클라이언트가 EC2 인스턴스에 공용 IP를 통해 접근하려는 시나리오
 
 1. 클라이언트는 Amazon Route 53을 통해 공용 IP 주소를 확보한다.
@@ -37,7 +33,6 @@ p 273
 - 모니터링 및 로깅 기능 도입
 
 ## 2. CNAME vs. Alias
-p 274
 
 - AWS 리소스(로드 밸런서, CloudFront...)가 AWS 호스트 이름을 노출시킨다.
     - ex) lb1-1234.us-east-2.elb.amazonaws.com를 myapp.mydomain.com로 노출시키고 싶을 때 사용
@@ -70,19 +65,17 @@ p 275
     - EC2 인스턴스의 DNS이름은 인스턴스 할당시 생기는 동적인 이름으로 인스턴스 상태 변화에 따라 바뀔수있기 때문이다.
 
 ## 4. Records TTL (Time To Live)
-p 276
 
 - Route 53에서 TTL은 DNS 레코드가 캐시될 수 있는 시간(초)을 말한다.
 - Alias record를 제외하고 각 DNS record에 대한 TTL이 필수이다.
 - TTL 값이 높을 수록 DNS 조회 결과가 더 오래 캐시되며, 낮을수록 더 자주 갱신된다.
 - 높은 TTL 값은 클라이언트의 Route53으로의 DNS 조회 빈도를 줄여 이에 대한 네트워크 트래픽을 감소시키고, 결과적으로 조회시간을 줄여 성능을 향상시킨다.
 - 낮은 TTL 값은 레코드 변경 사항을 더 빨리 반영할 수 있다. 클라이언트가 변경을 알아채는 시간이 빨라진다.
-	![[Records-TTL.png]]
+	
 # II. Routing Policies
 https://velog.io/@combi_jihoon/Route53-Policies
 
 ## 1. Simple(단순 라우팅)
-p 277
 
 [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-simple.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-simple.html)
 
@@ -90,18 +83,14 @@ p 277
     
     - 일반적으로 트래픽을 단일 리소스로 라우팅
     - Health Check와는 관련이 없다
-	 ![[Single-Value.png]]
-    
     - 클라이언트가 Route53에게 질의하면 답변(IP)는 하나만 준다.
 - **Multiple Value**
     
     - 동일 레코드에서 여러 값을 지정할 수 있다
-    - 여러 개의 값이 반환되면 클라이언트가 임의의 값이 선택한다  ![[Multiple-Value.png]]
-    
+    - 여러 개의 값이 반환되면 클라이언트가 임의의 값이 선택한다  
     - 클라이언트가 Route53에게 질의하면 답을 여러 개주고 클라이언트는 이중 하나를 선택한다.
 
 ## 2. Weighted (가중치 기반 라우팅)
-p 278
 
 [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-weighted.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-weighted.html)
 
@@ -111,7 +100,6 @@ p 278
 - 사용 사례: 지역 간 로드 밸런싱, 새 애플리케이션 버전 테스트...
 
 ## 3. Latency-based (지연 시간 기반 라우팅)
-p 279
 
 [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-latency.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-latency.html)
 
@@ -124,18 +112,14 @@ p 279
 즉, 클라이언트와 지정된 AWS 영역사이의 트래픽에 대한 지연시간이 클라리언트의 요청에 대한 답변이 된다(어느 인스턴스의 주소를 줄지)
 
 ## 4. Failover (Active-Passive) (장애 조치 라우팅)
-p 280
 
 [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-failover.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-failover.html)
-
-![[Failover.png]]
 
 Health Check를 통해 장애가 있는 경우 보조 리소스로 트래픽을 전환한다.
 Primary 레코드를 생성하고 failover에 사용할 Secondary 레코드를 생성해야 한다. 그런데 이 때 pirmary와 secondary 모두에 health checks를 달아줄 수도 있지만 secondary에는 꼭 health checks를 추가하지 않아도 된다.
 primary, secondary 레코드를 모두 생성하고 나면 primary에 장애가 발생했을 때 secondary로 failover를 하게 되며 만약 primary가 복구 되면 다시 primary로 failover back을 할 수 있다.
 
 ## 5. Geolocation (지리적 위치 라우팅)
-p 281
 
 [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geo.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geo.html)
 
@@ -146,10 +130,8 @@ p 281
 - 사용 사례: 웹 사이트 현지화, 콘텐츠 배포 제한, 로드 밸런싱 등...
 - Health Check와 연결할 수 있습니다
 - 설정 복잡도가 상대적으로 낮다
-	![[Pasted image 20240625114129.png]]
-
+	
 ## 6. Geoproximity(지리 근접 라우팅)
-p 282
 
 [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html)
 
@@ -167,7 +149,6 @@ p 282
 - 이 기능을 사용하려면 Route 53 Traffic Flow를 사용해야 한다
 
 ### Traffic flow(트래픽 흐름)
-p 285
 
 [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html)
 
@@ -188,7 +169,6 @@ p 285
         - 여러 퍼블릭 호스팅 영역에 레코드를 자동으로 생성 가능
 
 ## 7. Multi-Value (다중값 응답 라우팅)
-p 286
 
 [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-multivalue.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-multivalue.html)
 
@@ -201,7 +181,6 @@ p 286
 - Multi-Value는 ELB를 대체할 수는 없다
 
 ## 8. **IP-based Routing (**IP 기반 라우팅)
-p 287
 
 [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-ipbased.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-ipbased.html)
 
@@ -211,7 +190,6 @@ p 287
 - 예: 특정 ISP에서 특정 엔드포인트로 최종 사용자 라우팅
 
 # III. Hosted Zones
-p 288
 
 [https://ssunw.tistory.com/entry/Route-53-Route-53-개요](https://ssunw.tistory.com/entry/Route-53-Route-53-%EA%B0%9C%EC%9A%94)
 
@@ -224,16 +202,11 @@ p 288
     - application1.company.internal
 
 ## **1. Public vs. Private Hosted Zones**
-p 289
-
-![[PublicHostedZones.png]]
 
 **Public Hosted Zone**
 - 인터넷에서 공용 도메인을 해결할 수 있다
 - 공개적으로 접근 가능하며, EC2 인스턴스의 공용 IP, 애플리케이션 로드밸런서, CloudFront 배포, S3 웹사이트의 공용 IP 등을 대상으로 한다
 - [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/AboutHZWorkingWith.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/AboutHZWorkingWith.html)
-
-![[PrivateHostedZones.png]]
 
 **Private Hosted Zone**
 - VPC 내에서만 해결할 수 있으며, 폐쇄 URL도 정의할 수 있다
@@ -242,7 +215,6 @@ p 289
 - [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html)
 
 ## **2. Good to Know**
-p 290
 
 - 내부 프라이빗 DNS(Private Hosted Zone)의 경우 VPC 설정에서 enableDnsHostnames와enableDnsSupport를 사용 하도록 설정해야 한다
 - DNS 보안 확장(DNSSEC, Domain Name System Security Extensions)
@@ -257,7 +229,6 @@ p 290
 # **IV. Health Checks**
 
 ## 1. **Health Checks**
-p 291
 
 - HTTP Health Checks는 퍼블릭 리소스에 대해서만 사용 가능하다.
 - Health checks를 이용해 자동화된 DNS 장애 복구(failover)가 가능하다.
@@ -272,7 +243,7 @@ p 291
         - RDS 알람
         - 사용자가 지정한 metrics 등등
 - Health checks는 CloudWatch metrics와 통합 되어 있다.
-	 ![[Health-Checks 1.png]]
+	
 
 ## **2. Calculated Health Checks**
 p 292
@@ -282,7 +253,7 @@ p 292
     - 이를 이용해 몇 개 이상의 Health checks가 통과해야 parent가 통과로 여길 지를 결정할 수 있다.
 - Parent Health check는 최대 256개까지의 child Health checks를 가질 수 있다.
 - 사용 예시모든 health checks가 fail이 될 수도 있는데 웹 사이트의 유지 보수를 위해서는 몇 개는 pass AND 몇 개는 fail 등의 기준을 정해서 모든 checks가 fail이 되는 것은 막는 것이 좋을 수 있다.
-	![[CalculatedHealthChecks.png]]
+	
 
 ## 3. **Monitor an Endpoint (Endpoint 모니터링)**
 p 293
@@ -298,7 +269,7 @@ p 293
 - Health checks는 해당 엔드 포인트가 반환하는 응답이 text인 경우 받은 첫 5120bytes의 텍스트가 맞는 지를 확인하는 방법을 이용해 pass / fail을 결정할 수 있다.
 - 이 기능을 이용하기 위해서는 사용하는 리소스가 Health checkers로부터 요청을 받아야 하므로 Health checkers에 대한 방화벽을 열어 두어야 한다.
 
-	![[MonitoranEndpoint.png]]
+	
 
 ## 4. **Monitor an CloudWatch / Private Hosted Zones**
 p 294
@@ -308,13 +279,8 @@ p 294
     - 또는 on-premise 리소스의 경우에도 Health checker가 접근할 수 없다.
 - 이럴 때는 CloudWatch Metric을 이용해 알람을 생성해서 Health Checkers가 해당 알람을 확인하도록 하면 된다.
     - 만약 경보 상태가 되면 Health checks가 통과하지 못하도록 하면 된다.
-    
-	![[MonitoranCloudWatch.png]]
 
 ## 5. **Health Checks Solution Architecture RDS multi-region failover**
-
-p 295
-![[HealthChecksSolutionArchitecture.png]]
 
 ### 다중 지역 장애 조치를 위한 솔루션 아키텍처
 - RDS 데이터베이스를 다른 지역에 비동기식으로 복제하여 장애 조치를 구현할 수 있다.
@@ -329,7 +295,6 @@ p 295
 이와 같이 Route 53은 DNS 관리, 장애 조치, 부하 분산 등 다양한 기능을 제공하여 애플리케이션의 가용성과 확장성을 높일 수 있다.
 
 # V. **Hybrid DNS**
-p 296
 
 - 기본적으로 Route 53 Resolver는 다음에 대한 DNS 쿼리에 자동으로 응답한다.
     - EC2 instance의 로컬 도메인 이름
@@ -341,10 +306,7 @@ p 296
     - VPC 자체 / Peeered VPC
     - 사내 네트워크(Direct Connect 또는 AWS VPN을 통해 연결됨)
     
-	![[Hybrid-DNS.png]]
-
 ## 1. Resolver Endpoints
-p 297
 
 [https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
 
@@ -364,7 +326,6 @@ p 297
     
 
 ## 2. Resolver Inbound Endpoints
-p 298
 
 [https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.html#resolver-overview-forward-network-to-vpc](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.html#resolver-overview-forward-network-to-vpc)
 
@@ -383,14 +344,11 @@ Route 53에 의해 Private Hosted Zone으로 설정된 VPC의 인스턴스는 pu
 
 ## 3. Resolver Outbound Endpoints
 
-p 299
-
 [https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.html#resolver-overview-forward-vpc-to-network](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.html#resolver-overview-forward-vpc-to-network)
 
 ![[ResolverOutboundEndpoints.png]]
 
 ## 4. Resolver Rules
-p 300
 
 [https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-rules-managing.html](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver-rules-managing.html)
 [https://assu10.github.io/dev/2023/01/07/network-4/](https://assu10.github.io/dev/2023/01/07/network-4/)

@@ -1,5 +1,4 @@
 # I. **Lambda 함수를 호출할 수 있는 서비스**
-p 225
 
 [https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html](https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html)
 
@@ -13,7 +12,7 @@ p 225
 - AWS Cognito Amazon SQS
 
 # II. 일반적인 Lambda 애플리케이션 유형 및 사용 사례
-p 226 - 227
+
 
 아래의 링크에서 사용 사례 읽어보기
 [https://docs.aws.amazon.com/lambda/latest/dg/applications-usecases.html](https://docs.aws.amazon.com/lambda/latest/dg/applications-usecases.html)

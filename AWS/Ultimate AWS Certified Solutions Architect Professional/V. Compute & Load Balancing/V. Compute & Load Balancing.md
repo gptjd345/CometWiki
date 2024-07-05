@@ -1,5 +1,3 @@
-p 175
-![[Solution-Architecture-on-AWS.png]]
 
 # Solution Architecture on AWS
 사용자가 응용 프로그램에 엑세스할 때 접속하는 순서

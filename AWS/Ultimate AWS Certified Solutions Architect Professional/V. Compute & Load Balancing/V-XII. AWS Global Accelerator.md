@@ -11,7 +11,7 @@ p 301 - 302
 >AWS Global Accelerator는 여러 AWS 리전에서 실행되는 애플리케이션의 가용성과 성능을 향상시키도록 설계된 서비스이다. Global Accelerator를 생성하면 애플리케이션 트래픽의 진입점(entry point)으로 사용할 수 있는 두 개의 Anycast IP 주소가 제공된다. 이러한 Anycast IP 주소는 BGP(Border Gateway Protocol)를 통해 인터넷을 통해 공지된다. 즉, 여러 AWS Edge Location에서 공지된다.
 >
 >트래픽의 흐름은 다음과 같다.
->![[Pasted image 20240627113307.png]]
+>
 >1. 클라이언트는 애플리케이션에 액세스하기 위한 요청을 시작한다. 요청은 애플리케이션 트래픽의 진입점(entry point)으로 구성한 Anycast IP 주소로 전송된다.
 >2. Anycast IP 주소는 BGP를 통해 인터넷에 알려진다. 클라이언트가 Anycast IP 주소로 요청을 보내면 BGP는 Anycast IP 주소를 알리는 가장 가까운 AWS Edge Location으로 트래픽을 라우팅한다.
 >3. 트래픽은 클라이언트에 가장 가까운 AWS Edge Location에 도달한다. 이는 클라이언트와 AWS 네트워크 간의 첫 번째 접촉 지점이다.
@@ -80,9 +80,7 @@ p 304
 9. API Gateway + HTTP backend (ex: ALB)
 
 ## 1. EC2 with Elastic IP
-p 305
 
-![[EC2withElasticIP.png]]
 1. 클라이언트는 Public IP(Elastic IP)로 EC2 instance에 접근한다.
 2. Public EC2 instance는 failover를 위해 대기 인스턴스를 가지고 있다.
 3. 재해 복구(Disaster Recovery, DR)를 원하는 경우 첫 번째 EC2 instance의 Elastic IP Address를 두 번째 EC2 instance로 움직이게 한다.
@@ -99,9 +97,6 @@ p 305
 ## 2. EC2 with Route53
 
 ### Stateless web app - scaling horizontally(scaling out)
-p 306 - 307
-
-![[Statelesswebapp-scalinghorizontally.png]]
 
 #### 종료된 EC2 instance가 존재하지 않는 경우
 
@@ -121,9 +116,6 @@ p 306 - 307
 5. 새로운 인스턴스가 추가되더라도 DNS TTL로 인해 즉시 전체 트래픽을 받지 못할 수 있다. 새 클라이언트가 DNS를 재해결하고 새 인스턴스로 트래픽을 받을 때까지 기다려야 한다.
 
 ## 3. ALB + ASG
-p 308
-
-![[ALB-ASG.png]]
 
 1. Route53의 DNS 쿼리가 가명 레코드(alias record)를 통해 ALB의 DNS 이름을 확인하고 트래픽을 ALB로 라우팅할 수 있다.
 2. ALB는 Health Check와 다중 AZ에서 활성화를 활용해, 3개의 가용성 영역으로 트래픽을 라우팅한다. 확장성이 뛰어난 고전적인 아키텍처이다.
@@ -138,9 +130,6 @@ p 308
 9. ALB의 목표 활용률은 일반적으로 40%에서 70% 사이가 적절하다. 이 범위를 유지하면 과도한 용량 낭비를 방지하면서도 적절한 여유 용량을 확보할 수 있다. 활용률이 너무 낮으면 비용 효율성이 낮아지고, 너무 높으면 오버로드 위험이 증가한다.
 
 ## 4. ALB + ECS on EC2 (backed by ASG)
-p 309
-
-![[ALB-ECSonEC2(ASG).png]]
 
 1. ALB와 Auto Scaling Group(ASG)만 사용할 때와 위에서 말한 것과 동일한 자동 스케일링 속성을 가진다. (ALB + ASG와 동일한 속성)
 2. 하지만 여기에 ECS(Elastic Container Service)가 추가되면서 상황이 달라진다.
@@ -155,9 +144,6 @@ p 309
 이와 같이 ECS 환경에서는 ALB와 ASG 외에도 ECS 서비스 스케일링을 고려해야 하므로, 자동 스케일링 설정이 더 복잡해질 수 있다. 이를 효과적으로 관리하기 위해서는 두 가지 스케일링 규칙을 적절히 조합하는 것이 중요하다.
 
 ## 5. ALB + ECS on Fargate
-p 310
-
-![[ALB+ECSonFargate.png]]
 
 1. Fargate를 사용하면 EC2 인스턴스 관리가 필요 없다. Fargate가 AWS 네트워크 내에서 자동으로 작업을 시작하고 관리한다.
 2. 응용 프로그램은 여전히 Docker 컨테이너에서 실행된다.
@@ -167,9 +153,6 @@ p 310
 6. 전반적으로 Fargate를 사용하면 EC2 인스턴스 관리 부담이 없어지고, 서비스 자동 스케일링이 매우 쉬워진다. 이는 매우 안전하고 확장 가능한 아키텍처라고 할 수 있다.
 
 ## 6. ALB + Lambda
-p 311
-
-![[ALB-Lambda.png]]
 
 1. serverless에서는 AWS Lambda와 같은 서버리스 기술이 중요한 역할을 한다.
 2. ECS(Elastic Container Service)의 애플리케이션을 AWS Lambda와 함께 사용할 수 있다. 이 경우 ALB(Application Load Balancer)의 타깃 그룹으로 Lambda 함수를 사용할 수 있다.
@@ -183,9 +166,6 @@ p 311
     1. 예: 일부 요청에는 ECS를 사용하고 다른 요청에는 Lambda를 사용
 
 ## 7. API Gateway + Lambda
-p 312
-
-![[APIGateway-Lambda.png]]
 
 1. API Gateway와 Lambda를 함께 사용하면 더 많은 요청을 처리할 수 있지만, 그에 따른 비용 지불이 필요하다. (요청당 지불)
 2. 서버리스 아키텍처를 통해 매끄러운 확장성을 제공할 수 있다.
@@ -195,9 +175,6 @@ p 312
 6. 하지만 X-Ray와의 통합을 통해 인프라 내에서 모든 요청을 추적할 수 있는 장점이 있다.
 
 ## 8. API Gateway + AWS Service (as a proxy)
-p 313
-
-![[APIGateway-AWSService(proxy).png]]
 
 1. API Gateway는 AWS 서비스와 함께 프록시로 사용될 수 있다.
 2. 클라이언트 - API Gateway - Lambda - SQS 구조보다는 클라이언트 - API Gateway - SQS (또는 SNS, Step Functions) 구조가 더 나은 아키텍처이다.
@@ -210,9 +187,6 @@ p 313
     1. S3 프록시로 사용하려 한다면 이 제한이 문제가 될 수 있다.
 
 ## 9. API Gateway + HTTP backend (ex: ALB)
-p 314
-
-![[APIGateway-HTTPbackend.png]]
 
 1. API Gateway를 사용하여 API 게이트웨이 기능을 얻을 때 이 아키텍처를 사용한다.
 2. 사용자 지정 HTTP 백엔드(예: ALB) 위에서 API Gateway를 운영하면, 인증, 속도 제한, API 키 관리, 캐싱 등의 기능을 활용할 수 있다.
@@ -221,7 +195,7 @@ p 314
 이처럼 API Gateway와 HTTP 백엔드를 조합하면 API Gateway가 제공하는 다양한 기능을 활용하면서도, 기존의 HTTP 인프라를 활용할 수 있다.
 
 # III. AWS Outposts
-p 315 - 316
+
 
 https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3onOutposts.html
 
@@ -248,7 +222,7 @@ https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/S3onOutposts.html
     - 완전 관리형 서비스 - AWS가 Outposts Rack의 설치, 운영, 관리를 책임지므로 고객은 이를 직접 관리할 필요 없음
 	    
 - **Outpost에서 작동하는 일부 서비스**
-	![[AWSOutposts2.png]]
+	
 
 ## 1. S3 on AWS Outposts
 317
@@ -306,7 +280,7 @@ p 318
 이를 통해 기업은 5G 네트워크의 초저지연 특성과 AWS 클라우드 서비스의 장점을 결합하여 혁신적인 애플리케이션을 개발할 수 있다.
 
 ### **AWS WaveLength Zones의 활용 사례**
-	![[AWSWaveLength.png]]
+	
 1. 통신 운송업체가 5G 네트워크를 보유하고 있으며, 이 네트워크에 WaveLength Zones이 구축되어 있다.
 2. 통신사는 자사의 캐리어 게이트웨이를 통해 WaveLength Zones에 EC2 인스턴스를 쉽게 배포할 수 있다.
 3. 이 WaveLength Zones은 5G 네트워크의 일부이므로, 5G 모바일 사용자가 이 구역에 접속할 때 초저지연 시간을 경험할 수 있다.
@@ -316,7 +290,6 @@ p 318
 7. WaveLength Zones에 배포된 EC2 인스턴스는 AWS 리전의 데이터베이스 서비스(RDS, DynamoDB 등)에 안전하게 연결될 수 있다.
 
 # V. AWS Local Zones
-p 319
 
 - AWS 컴퓨팅, 스토리지, 데이터베이스 등 선별된 AWS 서비스를 사용자에게 더 가까운 위치에 배치한다.
 - 지연 시간에 민감한 애플리케이션을 실행하는 데 도움이 된다.
@@ -329,7 +302,7 @@ p 319
 이를 통해 기업은 사용자에게 더 가까운 위치에서 AWS 서비스를 활용하여 지연 시간이 낮은 애플리케이션을 구축할 수 있다. 또한 VPC를 확장하여 다양한 지리적 위치에서 일관된 네트워크 경험을 제공할 수 있다.
 
 ### **AWS Local Zones의 작동 방식**
-	![[AWSLocalZones.png]]
+	
 1. AWS는 현재 버지니아 북부와 US East-1 리전에서 자동으로 6개의 가용성 영역(AZ)을 제공하고 있다고 가정해보자.
 2. AWS는 이를 더 많은 지역으로 확장할 수 있는데, 예를 들어 보스턴, 시카고, 댈러스, 휴스턴, 마이애미 등의 지역에 Local Zones를 제공할 수 있다.
 3. 사용자는 이미 자신의 리전(예: US-East-1)에 2개의 AZ를 가지고 있다.

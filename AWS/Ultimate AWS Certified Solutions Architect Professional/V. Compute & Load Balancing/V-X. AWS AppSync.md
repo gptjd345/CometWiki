@@ -1,5 +1,4 @@
 # **I. AWS AppSync - Overview**
-p 269
 
 https://docs.aws.amazon.com/ko_kr/appsync/latest/devguide/what-is-appsync.html
 
@@ -30,10 +29,8 @@ https://docs.aws.amazon.com/ko_kr/appsync/latest/devguide/what-is-appsync.html
 
 ## **1. AWS AppSync Diagram**
 
-p 270
-
 ### AppSync의 작동 방식
-![[AppSync-Diagram.png]]
+
 1. 클라이언트(모바일 앱, 웹 앱, 실시간 대시보드 등)가 AppSync에 액세스한다.
 2. AppSync 내부에는 GraphQL 스키마와 Resolver가 존재한다.
 3. Resolver는 다양한 데이터 소스(DynamoDB, Aurora, Elasticsearch Service, Lambda 등)에서 데이터를 가져오는 방법을 알고 있다.
@@ -60,12 +57,8 @@ p 270
 
 ## 2. Cognito Integration
 
-p 271
-
 - Cognito 사용자가 속한 그룹을 기준으로 권한 부여를 수행한다
 - GraphQL 스키마에서 Cognito 그룹에 대한 보안을 지정할 수 있다
-
-![[Pasted image 20240623195220.png]]
 
 ### **솔루션 아키텍처 관점에서 AppSync와 클라이언트 간의 인증 및 권한 부여 프로세스**
 

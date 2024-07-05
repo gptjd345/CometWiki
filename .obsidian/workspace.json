@@ -11,15 +11,46 @@
             "id": "7d7281f6a20db767",
             "type": "leaf",
             "state": {
+              "type": "image",
+              "state": {
+                "file": "Zonal-DNS-Name.png"
+              }
+            }
+          },
+          {
+            "id": "e080df17fd8fd929",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "WebSocket-API.png"
+              }
+            }
+          },
+          {
+            "id": "28c0ef65b50846fc",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Target-group.png"
+              }
+            }
+          },
+          {
+            "id": "d06416d539ffe73f",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -85,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md"
+                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md"
               }
             }
           },
@@ -172,30 +203,33 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "7d7281f6a20db767",
+  "active": "d06416d539ffe73f",
   "lastOpenFiles": [
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VIII. Elastic Load Balancers.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-X. AWS AppSync.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-XI. Route 53.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-XII. AWS Global Accelerator.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V. Compute & Load Balancing.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
+    "AWSSecretsManager-ECS.png",
+    "Java/ThreadPoolTaskExecutor.md",
+    "Java/Enum 에 대한 이해.md",
+    "Java/Blocking Method & Non Blocking Method.md",
+    "Pasted image 20240704003714.png",
+    "Pasted image 20240614004752.png",
+    "Pasted image 20240704002635.png",
+    "Zonal-DNS-Name.png",
+    "storage.png",
+    "Target-group.png",
+    "WebSocket-API.png",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-III. SSM Parameter Store & Secrets Manager.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
     "Rotation.png",
     "SecretsManager–SharingAcrossAccounts.png",
-    "AWSCloudFormation.png",
-    "AWSSecretsManager-ECS.png",
-    "Parameter.png",
-    "SSMParameterStore-AWS_KMS.png",
-    "Multi-RegionKeys.png",
     "빅데이터 & 인공지능 개념/Hadoop.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
-    "Pasted image 20240704003714.png",
-    "Pasted image 20240704002635.png",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-XI. Route 53.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-X. AWS AppSync.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-XII. AWS Global Accelerator.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V. Compute & Load Balancing.md",
-    "Pasted image 20240703234713.png",
     "단축키/Window 단축키.md",
-    "Java/Blocking Method & Non Blocking Method.md",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
     "Hadoop의 구성요소.md",
     "빅데이터 & 인공지능 개념",
@@ -209,12 +243,8 @@
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-III. Auto Scaling.md",
     "문제상황해결/컨트롤러 요청 처리시 현재 처리상태 확인 하고 진행하도록 수정.md",
     "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VIII. Elastic Load Balancers.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VI. Amazon ECR & EKS.md",
     "Java/알고리즘/알고리즘.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-V. Amazon ECS(Elastic Contatiner Service).md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-IV. Spot Instances & Spot Fleet.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-II. High Performance Computing(HPC).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional",
     "AWS/AWS Certified Cloud Practitioner",
     "AWS",
