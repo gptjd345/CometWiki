@@ -73,7 +73,6 @@ CloudTrail 세 가지 유형의 이벤트를 기록한다.
     > 4. 자동화 연계: CloudWatch를 통해 인사이트 이벤트를 감지하고, 이에 대한 자동화 작업(예: 이메일 전송)을 수행할 수 있다.
 
 ## 3. CloudTrail Events Retention(이벤트 보존)
-p 85
 
 - CloudTrail 이벤트는 기본적으로 90일 동안 CloudTrail에 저장된다.
 - 이 기간 이후에 이벤트를 유지하려면 이벤트를 S3에 기록하고 Athena를 사용한다.
@@ -81,7 +80,7 @@ p 85
         - Athena를 사용하면 SQL 쿼리를 통해 S3에 저장된 CloudTrail 이벤트 데이터를 쉽게 분석할 수 있다.
 
 > **작동원리**
-> ![[CloudTrailEventsRetention.png]]
+> 
 > 1. **CloudTrail 로그 저장**
 >     - 관리 이벤트, 데이터 이벤트, 인사이트 이벤트 등 모든 이벤트 데이터가 CloudTrail에 기록된다.
 >     - 기본적으로 90일 동안 CloudTrail 로그가 유지된다.
@@ -103,11 +102,8 @@ p 85
 EventBridge Integration = AWS CloudTrail + Amazon EventBridge 를 의미한다.
 
 ## 1. Amazon EventBridge - Intercept API Calls
-p 86
 
 EventBridge와 CloudTrail을 통합하면 API 호출을 모니터링하고 특정 이벤트에 대한 알림을 받을 수 있다.
-
-![[InterceptAPICalls.png]]
 
 SNS 알림을 받고 싶다면 다음과 같은 과정으로 구현할 수 있다.
 
@@ -121,7 +117,6 @@ SNS 알림을 받고 싶다면 다음과 같은 과정으로 구현할 수 있�
 이를 통해 DynamoDB 테이블 삭제와 같은 중요한 API 호출이 발생할 때 신속하게 알림을 받을 수 있다. 이는 보안 모니터링, 감사 및 운영 관리에 유용하다.
 
 ## 2. Amazon EventBridge + CloudTrail
-p 87
 
 EventBridge와 CloudTrail의 통합을 활용하여 다양한 AWS 리소스 및 API 호출 이벤트를 모니터링하고 알림을 받을 수 있다.
 
@@ -166,9 +161,6 @@ EventBridge와 CloudTrail의 통합을 활용하여 다양한 AWS 리소스 및 
 CloudTrail과 다양한 AWS 서비스를 활용한 솔루션 아키텍처 구현
 
 ## 1. Solution Architecture: Delivery to S3
-p 88
-
-![[DeliverytoS3.png]]
 
 1. **CloudTrail에서 S3로 파일 전송**
     - CloudTrail은 5분 단위로 로그 파일을 S3 버킷에 전송할 수 있다.
@@ -228,11 +220,7 @@ p 88
 
 **CloudTrail의 다중 계정 및 다중 지역 기능**
 
-p 89
-
 CloudTrail은 다중 계정에서 로그를 수집할 수 있다. 예를 들어 계정 A와 계정 B에서 발생한 이벤트 로그를 수집할 수 있다.
-
-![[MultiAccount.png]]
 
 1. 계정 A와 B의 CloudTrail은 로그를 보안 계정의 S3 버킷에 저장한다. (이 보안 계정은 다른 두 계정과는 별도의 계정이다.)
 2. S3 버킷 정책을 정의하여 CloudTrail이 해당 S3 버킷에 로그 파일을 전송할 수 있도록 허용해야 한다.
@@ -253,13 +241,10 @@ CloudTrail은 다중 계정에서 로그를 수집할 수 있다. 예를 들어 
     - 장기적으로 로그 데이터의 안전성을 확보할 수 있다.
 
 ## 3. Solution Architecture: Alert for API calls
-p 90
 
 [https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html)
 
 ### CloudTrail과 CloudWatch를 활용하여 특정 API 호출에 대한 경고 생성 방법
-
-![[AlertforAPIcalls.png]]
 
 1. CloudTrail을 통해 API 호출 이벤트를 CloudWatch 로그로 스트리밍한다.
 2. CloudWatch 로그에서 관심 있는 API 호출 패턴을 메트릭 필터로 정의한다.
@@ -279,14 +264,10 @@ p 90
 - CloudWatch 알람은 이러한 지표를 기반으로 경보를 발생시키므로, 이상 징후를 신속하게 감지하고 대응할 수 있다.
 
 ## 5. Solution Architecture: Organizational Trail
-p 91
 
 [https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/creating-trail-organization.html](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/creating-trail-organization.html)
 
 CloudTrail의 조직 트레일 기능은 AWS 조직 내에서 발생하는 모든 이벤트를 중앙에서 모니터링할 수 있게 해주는 매우 강력한 기능이라고 할 수 있다.
-
-![[OrganizationalTrail.png]]
-
 ### CloudTrail의 조직 트레일 주요 기능
 
 1. AWS 조직에서 관리 계정은 조직 트레일을 설정할 수 있다. 이 트레일은 관리 계정에 생성되며, 모든 자식 계정의 이벤트를 모니터링한다.
@@ -296,7 +277,6 @@ CloudTrail의 조직 트레일 기능은 AWS 조직 내에서 발생하는 모�
 5. 이를 통해 조직 전체의 이벤트를 통합적으로 관리하고 분석할 수 있다.
 
 ## 6. 이벤트에 가장 빠르게 반응하는 방법
-p 92
 
 전체적으로 CloudTrail은 이벤트를 제공하는 데 최대 15분이 소요될 수 있다.
 

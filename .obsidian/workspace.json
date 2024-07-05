@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
+                "file": "네트워크/소켓의 의미.md",
                 "mode": "source",
                 "source": false
               }
@@ -116,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
+                "file": "네트워크/소켓의 의미.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
+                "file": "네트워크/소켓의 의미.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md"
+                "file": "네트워크/소켓의 의미.md"
               }
             }
           },
@@ -205,6 +205,8 @@
   },
   "active": "d06416d539ffe73f",
   "lastOpenFiles": [
+    "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-III. SSM Parameter Store & Secrets Manager.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-I. Amazon EC2(Elastic Compute Cloud).md",
@@ -242,10 +244,8 @@
     "빅데이터 & 인공지능 개념",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering",
     "AWS/실전",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing",
-    "문제상황해결/컨트롤러 요청 처리시 현재 처리상태 확인 하고 진행하도록 수정.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional",
     "AWS/AWS Certified Cloud Practitioner",
     "AWS",
