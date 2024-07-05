@@ -1,5 +1,4 @@
 # I. **Overview**
-p 255
 
 [https://aws.amazon.com/ko/api-gateway/](https://aws.amazon.com/ko/api-gateway/)
 
@@ -20,7 +19,6 @@ p 255
 ![[API-Gateway .png]]
 
 # II. **Deployment Stages**
-p 256
 
 - API 변경사항을 "Stages 스테이지"에 배치(원하는 개수만큼)
 - 스테이지(dev, test, prod)에 대해 원하는 이름 사용
@@ -29,7 +27,6 @@ p 256
 ![[Deployment-Stages.png]]
 
 # III. **Integrations**
-p 257
 
 [https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-api-integration-types.html](https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-api-integration-types.html)
 
@@ -48,12 +45,10 @@ p 257
     - Why? 인증 추가, 공개 배포, 요금 제어...
 
 ## **Solution Architecture** 토론: S3 앞 API 게이트웨이
-p 258
 
-아래와 같은 설계는 파일 업로드 시 10MB 페이로드 크기 제한의 영향을 받는다
-![[Solution-Architecture1.png]]
+ 파일 업로드 시 10MB 페이로드 크기 제한의 영향을 받는다
+
 ### **클라이언트 애플리케이션과 API 게이트웨이 간의 통신 구조 개선**
-![[Solution-Architecture2.png]]
 
 1. 클라이언트 애플리케이션은 API 게이트웨이와 통신한다.
 2. API 게이트웨이는 Lambda 함수와 연동되어 있다.
@@ -66,7 +61,7 @@ p 258
 이렇게 API 게이트웨이와 Lambda 함수, 미리 서명된 URL 등을 활용하여 파일 업로드 프로세스를 최적화하는 것이 매우 유용한 접근법이다.
 
 # **IV. API Endpoint Types**
-p 259
+
 
 [https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-api-endpoint-types.html](https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-api-endpoint-types.html)
 
@@ -82,7 +77,7 @@ p 259
     - 리소스 정책을 사용하여 액세스 정의
 
 ## **Caching API responses**
-p 260
+
 
 [https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-caching.html](https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-caching.html)
 
@@ -95,10 +90,9 @@ p 260
 - 캐시 암호화는 옵션
 - 0.5GB에서 237GB 사이의 캐시 용량
 
-![[Caching-API-responses.png]]
+
 
 # **V. Errors**
-p 261
 
 - 4xx는 클라이언트 오류를 의미한다
     - 400: 잘못된 요청
@@ -117,7 +111,6 @@ p 261
         - Endpoint Request Time-out Exception API Gateway 요청이 최대 29초 후에 시간 초과됨
 
 # **VI. Security**
-p 262
 
 - SSL 인증서를 로드한 다음 Route53을 사용하여 CNAME 정의
 - **리소스 정책(~S3 버킷 정책)**
@@ -130,7 +123,6 @@ p 262
     - API를 호출할 수 있는 도메인 제어
 
 # **VII. Authentication**
-p 263
 
 - **IAM 기반 액세스(AWS_IAM)**
     - 인프라 내에서 액세스를 제공하는 데 적합하다
@@ -142,10 +134,7 @@ p 263
     - 클라이언트가 인증 코드 토큰을 API 게이트웨이로 전달한다
     - API Gateway는 토큰을 확인하는 방법을 알고 있다
 
-![[Authentication.png]]
-
 # **VIII. Logging, Monitoring,Tracing**
-p 264
 
 - **CloudWatch Logs**
     - 스테이지 레벨에서 CloudWatch 로깅 사용(로그 레벨 – ERROR, INFO 포함)
@@ -160,7 +149,6 @@ p 264
     - X-Ray API Gateway + AWS Lambda가 아키텍처의 작동 원리에 대한 전체 그림 제공
 
 # **IX. Usage Plans & API Keys**
-p 265
 
 [https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html)
 
@@ -181,7 +169,6 @@ p 265
     - 클라이언트는 재시도 메커니즘을 구현해야 한다
 
 # **X. WebSocket API – Overview**
-p 266
 
 [https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html)
 
@@ -192,14 +179,10 @@ p 266
 - 웹소켓 API는 채팅 애플리케이션, 협업 플랫폼, 멀티플레이어 게임 및 금융 거래 플랫폼과 같은 실시간 애플리케이션에서 자주 사용된다
 - AWS Services(Lambda, DynamoDB) 또는 HTTP 엔드포인트와 함께 작동한다
 
-![[WebSocket-API.png]]
 
 [https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/websocket-api-step-functions-tutorial.html](https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/websocket-api-step-functions-tutorial.html)
 
 ## 서버 대 클라이언트 메시징 @connections를 클라이언트에 대한 회신에 사용
-p 267
-
-![[connections.png]]
 
 1. WebSocket URL을 사용하여 클라이언트와 연결을 맺는다
 2. 연결 ID를 DynamoDB 테이블에 저장하여 각 연결을 관리한다.
@@ -210,8 +193,6 @@ WebSocket을 사용하면 양방향 통신이 가능하므로, 클라이언트�
 
 # **XI. Private APIs**
 
-p 268
-
 [https://docs.aws.amazon.com/ko_kr/vpc/latest/privatelink/privatelink-access-aws-services.html](https://docs.aws.amazon.com/ko_kr/vpc/latest/privatelink/privatelink-access-aws-services.html)
 
 - VPC interface endpoint를 사용하여 VPC에서만 액세스할 수 있다
@@ -220,4 +201,4 @@ p 268
     - AWS 계정 전반을 포함하여 선택한 VPC 및 VPC 엔드포인트에서 API에 대한 액세스 허용 또는 거부
     - 이를 통해 2단계의 보안 접근 제어가 가능하다. 특히 aws:SourceVpc조건을 이용하여 크로스 AWS 계정으로부터의 API 액세스를 제어할 수 있다
     
-    ![[Private-APIs 1.png]]
+    

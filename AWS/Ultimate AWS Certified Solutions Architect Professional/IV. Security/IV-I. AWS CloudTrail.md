@@ -1,5 +1,4 @@
 # I. AWS CloudTrail
-p 81 - 82
 
 [https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-user-guide.html](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
 
@@ -15,14 +14,12 @@ p 81 - 82
 - 리소스 삭제 조사: AWS에서 리소스가 삭제된 경우 먼저 CloudTrail을 조사하여 삭제 이벤트를 확인할 수 있다.
 
 > **CloudTrail Diagram**
-	![[CloudTrailDiagram.png]]
 > - 중앙 집중화된 로깅: CloudTrail은 AWS 계정 내에서 발생하는 모든 API 호출 이벤트를 기록하고 중앙에서 관리한다. 이를 통해 보안 및 규정 준수 감사에 활용할 수 있다.
 > - 다양한 이벤트 기록: SDK, CLI, Console, IAM Users & IAM Roles, 다른 서비스 등 AWS 내에서 발생하는 다양한 이벤트를 기록한다.
 > - 장기 보관: 기본적으로 90일 동안의 이벤트 기록을 제공하지만, CloudWatch 로그 또는 S3 버킷으로 전송하여 장기간 보관할 수 있다.
 > - 감사 및 조사: CloudTrail 콘솔에서 발생한 이벤트를 확인하고 분석할 수 있어, 보안 및 규정 준수 감사에 활용할 수 있다.
 
 ## 1. CloudTrail Events
-p 83 - 84
 
 [https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-concepts.html](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-concepts.html)
 
@@ -69,7 +66,7 @@ CloudTrail 세 가지 유형의 이벤트를 기록한다.
         - EventBridge 이벤트를 생성하여, (자동화 요구에 따라) 자동화된 대응을 트리거로 사용
     
     > **작동원리**
-    > ![[CloudTrailInsights.png]]
+    > 
     > 1. 관리 이벤트 분석: CloudTrail은 AWS 리소스에 대한 관리 이벤트를 기록하고, CloudTrail Insight가 이를 지속적으로 분석한다.
     > 2. 이상 현상 감지: CloudTrail Insight는 이벤트 패턴을 분석하여 비정상적인 활동을 감지하고, 이를 인사이트 이벤트로 생성한다.
     > 3. 인사이트 이벤트 생성: 감지된 이상 현상은 CloudTrail 콘솔에 표시되며, 아마존 인더스트리 및 EventBridge 이벤트로도 전송된다.

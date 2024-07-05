@@ -1,7 +1,6 @@
 Docker는 컨테이너 기술의 핵심을 제공하고, ECS는 이러한 Docker 컨테이너를 대규모로 관리하고 오케스트레이션하는 데 사용되는 서비스이다.
 
 # I. Docker
-p 204
 
 - **소프트웨어 개발 플랫폼**: 앱을 배포하고 관리하는 소프트웨어 개발 플랫폼
 - **컨테이너 기반**: 애플리케이션을 모든 OS에서 실행할 수 있는 컨테이너에 포장하여 배포
@@ -39,7 +38,6 @@ p 204
 - **자동화**: CI/CD 파이프라인에 쉽게 통합하여 자동화된 배포와 테스트가 가능
 
 # II. AWS의 Docker Containers 관리
-p 205
 
 AWS는 다양한 요구에 맞춰 여러 컨테이너 관리 옵션을 제공하여, 사용자가 필요에 따라 적합한 서비스를 선택할 수 있게 한다.
 
@@ -77,7 +75,6 @@ AWS는 다양한 요구에 맞춰 여러 컨테이너 관리 옵션을 제공하
 - **ECS 및 EKS 작업**: 각각의 환경에서 작업을 정의하고 실행하는 방식
 
 # III. Amazon ECS – 사용 사례
-p 206
 
 ## 1. 마이크로서비스 실행
 [https://aws.amazon.com/ko/microservices/](https://aws.amazon.com/ko/microservices/)
@@ -163,7 +160,6 @@ p 206
     - 확장성과 가용성 증가
 
 # IV. Amazon ECS 주요 개념
-p 207 - 208
 
 ![[Amazon-ECS_Concepts.png]]
 
@@ -203,10 +199,8 @@ p 207 - 208
 
 
 # V. Application Load Balancer(ALB) Integration
-p 209
 
 ## 1. Amazon ECS와 ALB 통합의 주요 포인트
-![[ALB-Integration.png]]
 
 ### **Dynamic Port Mapping(동적 포트 매핑)**
 
@@ -240,11 +234,8 @@ p 209
 이와 같은 Amazon ECS와 ALB의 통합은 애플리케이션의 복원력, 자원 활용도, 그리고 무중단 배포를 가능하게 하여 운영 효율성을 크게 향상시킨다.
 
 # VI. AWS Fargate
-p 210
 
 인프라 프로비저닝 없이 Docker 컨테이너를 AWS에서 실행할 수 있는 서버리스 컴퓨팅 엔진
-![[AWS-Fargate.png]]
-
 ## 1. AWS Fargate의 주요 특징
 
 - **Docker 컨테이너 실행**
@@ -290,7 +281,6 @@ AWS Fargate는 서버 관리의 부담을 덜어주고, 유연한 리소스 관�
 
 
 # VII. Amazon ECS – Security & Networking (Amazon ECS 보안 및 네트워킹)
-p 211
 
 Amazon ECS(Elastic Container Service)는 보안 및 네트워킹 측면에서 다양한 기능을 제공한다.
 
@@ -340,7 +330,6 @@ Amazon ECS는 이러한 보안 및 네트워킹 기능을 통해 컨테이너화
 
 
 # VIII. Amazon ECS – Service Auto Scaling
-p 212
 
 Amazon ECS(Elastic Container Service)의 서비스 자동 확장은 애플리케이션의 수요 변화에 따라 작업 수를 자동으로 조정하여 효율적이고 유연한 리소스 관리를 제공한다.
 
@@ -387,7 +376,6 @@ Amazon ECS(Elastic Container Service)의 서비스 자동 확장은 애플리케
 Amazon ECS의 자동 확장 기능을 통해 애플리케이션의 리소스 사용량을 효율적으로 관리하고, 변화하는 수요에 유연하게 대응할 수 있다. 이를 통해 비용을 절감하고 애플리케이션 성능을 최적화할 수 있다.
 
 # IX. Amazon ECS – Spot Instances
-p213
 
 ## 1. ECS Classic(EC2 Launch Type)
 

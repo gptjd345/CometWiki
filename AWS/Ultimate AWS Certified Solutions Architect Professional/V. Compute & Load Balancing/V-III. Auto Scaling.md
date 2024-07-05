@@ -2,10 +2,7 @@
 
 예를 들어 다음 Auto Scaling 그룹의 최소 크기는 인스턴스 4개, 원하는 용량은 인스턴스 6개, 최대 크기는 인스턴스 12개인 경우는 다음과 같이 나타낼 수 있다.
 
-![[auto-scaling-group.png]]
-
 # I. Auto Scaling Groups(ASG)
-p 191
 
 [https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
 
@@ -75,7 +72,6 @@ Amazon EC2 Auto Scaling을 사용하면 EC2 인스턴스가 Auto Scaling 그룹�
             2. 부하 감소가 예상 시: 용량을 줄일 수 있을 정도로 규모를 축소하지는 않음 → 더 이상 필요하지 않은 용량을 제거하려면 동적 조정 정책을 생성해야 함
 
 # II. **스케일링의 기반이 되는 좋은 지표(metrics)**
-p 193
 
 [https://choiblog.tistory.com/175](https://choiblog.tistory.com/175)
 [https://velog.io/@combi_jihoon/Auto-Scaling-Group-Scaling-Policies](https://velog.io/@combi_jihoon/Auto-Scaling-Group-Scaling-Policies)
@@ -90,8 +86,6 @@ p 193
     - EC2 인스턴스당 요청 수가 안정적인지 확인
     - 인스턴스가 안정적으로 작동하는 경우 유용
     - ex) 특정 인스턴스당 요청 수가 일정 임계값을 초과하면 인스턴스를 추가하여 요청 처리
-    - 아래의 경우 인스턴스 당 RequestCountPerTarget는 3
-	    ![[RequestCountPerTarget 1.png]]
     
 - **Average Network In / Out(평균 네트워크 입력/출력)**
     - 네트워크 바인딩된 응용 프로그램의 경우 네트워크 트래픽 모니터링
@@ -123,7 +117,6 @@ p 193
 # IV. Auto Scaling 주요 기능
 
 ## 1. Instance Refresh(**인스턴스 새로고침)**
-p 195
 
 [https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/asg-instance-refresh.html](https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/asg-instance-refresh.html)
 
@@ -143,7 +136,7 @@ p 195
     3. **워밍업 시간(Warm-up Time) 지정**
         - 새 인스턴스가 시작되고 실제로 사용 가능해질 때까지(InService)의 시간 설정
         - ex) 워밍업 시간을 300초(5분)로 설정하면, 새 인스턴스가 시작된 후 5분 동안은 트래픽을 받지 않고 준비 상태에 있게 됨
-	 ![[Instance-Refresh.png]]
+	 
     
 - **설정 예시**
     AWS Management Console 또는 AWS CLI를 통해 Instance Refresh를 설정할 수 있습니다.
@@ -165,7 +158,6 @@ p 195
             `aws autoscaling start-instance-refresh --auto-scaling-group-name MyAutoScalingGroup --preferences '{"MinHealthyPercentage":80,"InstanceWarmup":300}'`
 
 ## 2. Scaling Processes
-p 196
 
 - **주요 스케일링 프로세스**
     1. **Launch**: 새로운 EC2 인스턴스를 그룹에 추가하여 용량 증가
@@ -204,7 +196,6 @@ p 196
             - `Terminate` 프로세스를 다시 활성화하여 정상 작동하도록 함
 
 ## 3. Health Checks
-p 197
 
 - **헬스 체크 옵션**
     1. **EC2 Status Checks**:
@@ -222,8 +213,7 @@ p 197
 - **헬스 체크 동작 방식**
     - Auto Scaling 그룹은 불량한 상태로 판정된 인스턴스를 종료, 새로운 인스턴스를 시작하여 교체
     - 이를 통해 건강하지 않은 인스턴스가 지속적으로 운영되는 것을 방지, 시스템의 가용성을 유지
-	 ![[Health-Checks.png]]
-    
+	 
 - **헬스 체크 설정 시 주의사항**
     - 단순하고 정확한 헬스 체크를 구성하는 것이 중요하다.
     - 너무 복잡하거나 지나치게 엄격하면, 정상적인 인스턴스가 불량으로 판정될 수 있다.
@@ -250,7 +240,6 @@ p 197
 
 
 # V. Auto Scaling Update Strategies
-p 198 - 200
 
 Auto Scaling 그룹에서 응용 프로그램을 업데이트하는 방법의 예시는 다음과 같다.
 
@@ -263,7 +252,7 @@ Auto Scaling 그룹에서 응용 프로그램을 업데이트하는 방법의 �
     3. 애플리케이션 부하 분산기를 통해 두 가지 버전의 애플리케이션에 트래픽을 분산한다.
     4. 새 버전이 안정적이라면 기존 인스턴스를 종료한다.
     
-	 ![[Same-target-group.png]]
+	 
     
 - **Target group 1,2, ... ,N**
     - ASG 그룹을 여러개 만들고 ELB는 하나로 구성.
@@ -279,8 +268,7 @@ Auto Scaling 그룹에서 응용 프로그램을 업데이트하는 방법의 �
         1. 새로운 자동 배율 그룹을 생성하고, 새 타깃 그룹도 만든다.
         2. 두 번째 타깃 그룹에 소량의 트래픽을 보내 새 애플리케이션을 테스트한다.
         3. 테스트가 성공적이라면 트래픽을 점진적으로 새 그룹으로 전환하고, 기존 그룹을 제거한다.
-	      ![[Target-group.png]]
-        
+	      
 - **Route 53 구성방식**
     - ALB단 부터 새롭게 만듦.
     - 3-1. Client 가 요청한 DNS Query를 Route 53 에 의해서 처리할때 어떤 ALB에 대한 주소를 클라이언트에게 알려줄지를 정한다 = Client Based LB 새롭게 만든 ALB2에 네트워크 트래픽을 점차 늘려나가는 방식으로 테스트 가능함 3-2. 53 레벨에서 서비스하기 전에 <font color="#de7802">독립적으로 부하 테스트를 할 수 있음. </font>
@@ -299,4 +287,4 @@ Auto Scaling 그룹에서 응용 프로그램을 업데이트하는 방법의 �
         1. 기존 ALB와 새로운 ALB를 각각 다른 자동 배율 그룹과 연결한다.
         2. Route 53을 사용해 클라이언트 트래픽을 두 ALB로 분산한다.
         3. 새로운 ALB를 독립적으로 테스트하고 점진적으로 트래픽을 전환한다.
-		  ![[Route53.png]]
+		

@@ -1,4 +1,3 @@
-p 201 - 203
 
 # I. EC2 Spot Instances
 

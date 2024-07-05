@@ -1,4 +1,3 @@
-p 186
 
 https://aws.amazon.com/ko/getting-started/hands-on/deploy-elastic-hpc-cluster/faq/
 https://aws.amazon.com/ko/blogs/tech/introduction-of-hpc-on-aws/
@@ -48,8 +47,6 @@ https://aws.amazon.com/ko/blogs/tech/introduction-of-hpc-on-aws/
 
 ## 2. Compute and Networking(컴퓨팅 및 네트워킹)
 
-p 188 `구분 중요`
-
 
 ```
 💡 EC2 인스턴스
@@ -73,12 +70,7 @@ p 188 `구분 중요`
     - [https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/efa.html](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/efa.html)
 
 ## 3. Storage(스토리지)
-p 189
-
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html
-
-
-![[storage.png]]
 
 - **Instance-attached storage(인스턴스 연결 스토리지)**
     - **Amazon EBS**
@@ -110,7 +102,6 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html
         - [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/storage_fsx.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/storage_fsx.html)
 
 ## 4. Automation and Orchestration(자동화 및 오케스트레이션)
-p 190
 
 - **AWS Batch**
     

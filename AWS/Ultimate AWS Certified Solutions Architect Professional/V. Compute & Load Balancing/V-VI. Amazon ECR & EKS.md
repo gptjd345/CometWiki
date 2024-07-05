@@ -1,8 +1,5 @@
 
 # I. Amazon ECR - Elastic Container Registry
-p 214
-
-![[Amazon-ECR.png]]
 
 ## 1. 도커 이미지 저장 및 관리
 
@@ -40,7 +37,6 @@ p 214
 
 
 # II. Amazon ECR – Cross Region Replication(교차 리전 및 교차 계정 복제)
-p 215
 
 [https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/Repositories.html](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/Repositories.html)
 
@@ -48,21 +44,16 @@ ECR private 레지스트리는 지역 간 및 계정 간 복제를 모두 지원
 
 예를 들어, CodeBuild를 사용해 이미지를 빌드하고 이를 ECR에 푸시하면, 교차 지역 복제 설정 덕분에 이미지는 자동으로 다른 지역의 ECR로 복제된다. 이를 통해 다른 지역의 ECS (Elastic Container Service)에서 즉시 작업을 시작할 수 있어, 글로벌 서비스 제공이 원활해진다.
 
-![[ECR_Cross-Region-Replication.png]]
-
 - **장점**
     - 자동 복제: 이미지를 다른 지역으로 자동으로 복제할 수 있어, 별도의 수작업 없이 여러 지역에 이미지 배포 가능
     - 시간 절약: 다른 지역에서 이미지를 다시 빌드할 필요가 없어 시간과 리소스를 절약
     - 글로벌 배포: 여러 지역에 걸쳐 글로벌 응용 프로그램을 쉽게 제공
 
 # III. Amazon ECR – Image Scanning
-p 216
 
 [https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/image-scanning.html](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/image-scanning.html)
 
 ECR에서는 컨테이너 이미지를 스캔하여 취약점을 식별할 수 있으며, 이는 자동화된 프로세스를 통해 이루어질 수 있다.
-
-![[ECR–Image_Scanning.png]]
 
 - **기본 스캐닝**
     - CVE(Common Vulnerability and Exposures) 데이터베이스를 사용하는 두 가지 버전의 기본 스캐닝을 제공
@@ -81,7 +72,6 @@ ECR에서는 컨테이너 이미지를 스캔하여 취약점을 식별할 수 �
         - 두 가지 스캐닝 주파수: 푸시 시 스캔 및 연속 스캔
 
 # IV. Amazon EKS - Elastic Kubernetes Service
-p 217
 
 • Amazon EKS = Amazon Elastic Kubernetes 서비스  
 • AWS에서 관리형 Kubernetes 클러스터를 시작하는 방법
@@ -92,8 +82,6 @@ p 217
 • Kubernetes는 클라우드에 구애받지 않음(Azure, GCP 등 모든 클라우드에서 사용 가능)  
 • 여러 지역의 경우 지역당 1개의 EKS 클러스터 구축  
 • CloudWatch Container Insights를 사용하여 로그 및 메트릭 수집
-
-![[EKS_Diagram.png]]
 
 이 아키텍처는 3개의 가용성 영역(Availability Zone)으로 구성되어 있으며, 각 영역에는 VPC(Virtual Private Cloud)가 포함되어 있다.
 
@@ -115,7 +103,7 @@ p 217
     - **부하 분산기** → 단일 지점 장애를 방지하고 가용성 높임
         - 공용 부하 분산기(ELB)와 사설 부하 분산기를 통해 트래픽을 분산
 
-![[Pasted image 20240617213658.png]][출처]https://www.devopsschool.com/blog/wp-content/uploads/2021/03/Amazon-Elastic-Kubernetes-Service-EKS-Explained-Diagram-1.png
+[출처]https://www.devopsschool.com/blog/wp-content/uploads/2021/03/Amazon-Elastic-Kubernetes-Service-EKS-Explained-Diagram-1.png
 
 ## 1. AWS EKS - Node(EC2 instance) Types
 p 219
@@ -135,7 +123,6 @@ p 219
 * 아무것도 관리하기 싫을 때 편하게 사용가능
 
 ## 2. Amazon EKS - Data Volumes
-p 220
 
 * **장점**
 	* EKS 클러스터에서 StorageClass 매니페스트를 지정 -> 애플리케이션 요구사항에 맞는 스토리지 클래스 선택 가능
@@ -153,7 +140,6 @@ p 220
 
 
 ## 3. AWS App Runner VS AWS Fargate
-p 221
 
 1. **비용 측면**
     - App Runner는 일반적으로 작은 워크로드와 긴 유휴 기간에 더 비용 효율적입니다.
@@ -163,8 +149,6 @@ p 221
     - App Runner는 더 간단한 인터페이스를 제공하지만, Fargate만큼 많은 기능을 제공하지 않습니다. ex) Fargate는 여러 CloudWatch metric (CPU, network I/O, requests ...) 에 대한 스케일링 정책 설정가능 . 
 
 App Runner Multi-Region Architecture
-![[Pasted image 20240618194149.png]]
-
 1. DynamoDB를 사용하는 App Runner Service를 만든다 
 2. App Runner Service에서 만든 image를 ECR Registry 에 등록한다. 
 3. DynamoDB는 Global Table Replication 을 통해 리전간 복제가 가능하다. 
@@ -173,14 +157,11 @@ App Runner Multi-Region Architecture
 6. Route 53를 이용해 각 리전의 App Runner Service에 요청을 분배하도록 한다. 
 
 ## 4. Amazon ECS Anywhere
-p 222
 
 [https://aws.amazon.com/ko/blogs/aws/getting-started-with-amazon-ecs-anywhere-now-generally-available/](https://aws.amazon.com/ko/blogs/aws/getting-started-with-amazon-ecs-anywhere-now-generally-available/)
 
 - 고객 관리 인프라(사내, VM 등)에서 컨테이너를 쉽게 실행 가능
 - 고객이 모든 환경에서 기본 Amazon ECS 태스크를 배포할 수 있도록 허용
-    ![[ECS-Anywhere.png]]
-
 - **시작하기**
 	1. 온프레미스 서버나 VM(외부 인스턴스)을 ECS 클러스터에 등록
 	2. 외부 인스턴스에 AWS Systems Manager Agent(SSM), Amazon ECS Container Agent 및 Docker 설치 필요
@@ -195,15 +176,12 @@ p 222
     - 온-프레미스 ML, 비디오 처리, 데이터 처리, …
 
 ## 5. Amazon EKS Anywhere
-p 223
 
 [https://aws.amazon.com/ko/eks/eks-anywhere/faqs/](https://aws.amazon.com/ko/eks/eks-anywhere/faqs/)
 
 - AWS가 구축한 컨테이너 관리 소프트웨어
 - 온프레미스와 엣지의 Kubernetes 클러스터를 더 쉽게 실행, 관리 가능
 - 지원 비용 절감 및 중복된 타사 툴 유지 보수, 손상 방지
-	![[EKS-Anywhere.png]]
-
 - **시작하기**
 	1. AWS 외부에서 생성된 Kubernetes 클러스터 생성 및 운영하기 위해 온프레미스 환경에 EKS 클러스터 설치
 	    - Amazon EKS Distro 활용(AWS의 Kubernetes 번들 출시)

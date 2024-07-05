@@ -1,7 +1,6 @@
 # I. SSM(AWS Systems Manager) Parameter Store
 
 ## 1. SSM Parameter Store의 주요 특징
-p 102
 
 [https://docs.aws.amazon.com/ko_kr/systems-manager/latest/userguide/systems-manager-parameter-store.html](https://docs.aws.amazon.com/ko_kr/systems-manager/latest/userguide/systems-manager-parameter-store.html)
 
@@ -20,8 +19,6 @@ p 102
 ### SSM Parameter Store과 AWS KMS의 연계 방식
 [https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/services-parameter-store.html](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/services-parameter-store.html)
 
-![[SSMParameterStore-AWS_KMS.png]]
-
 1. 응용 프로그램은 SSM Parameter Store를 사용하여 일반 텍스트 형태의 구성 데이터를 저장할 수 있다.
 2. 응용 프로그램의 IAM 권한이 중요합니다. EC2 인스턴스 역할 등을 통해 SSM Parameter Store에 대한 적절한 액세스 권한을 가져야 한다.
 3. 구성 데이터가 암호화되어 있는 경우, SSM Parameter Store는 KMS(Key Management Service)를 사용하여 데이터를 암호화/복호화한다.
@@ -31,7 +28,6 @@ p 102
 이와 같은 방식으로 응용 프로그램은 SSM Parameter Store와 KMS를 활용하여 구성 데이터의 보안과 관리를 강화할 수 있다.
 
 ## 2. SSM Parameter Store Hierarchy
-p 103
 
 ### SSM Parameter Store의 계층 구조와 활용 방법
 
@@ -43,7 +39,6 @@ p 103
 6. 결과적으로 SSM Parameter Store의 계층 구조와 IAM 정책 관리를 통해 응용 프로그램의 구성 데이터를 안전하고 효과적으로 관리할 수 있다.
 
 ## 3. Standard and advanced parameter tiers
-p 104
 
 [https://docs.aws.amazon.com/ko_kr/systems-manager/latest/userguide/parameter-store-advanced-parameters.html](https://docs.aws.amazon.com/ko_kr/systems-manager/latest/userguide/parameter-store-advanced-parameters.html)
 
@@ -62,8 +57,6 @@ p 104
 
 ### 파라미터 스토어의 만료 정책을 설정하고 EventBridge를 통해 알림을 받는 방법
 
-![[Parameter.png]]
-
 1. 파라미터 스토어에 저장된 파라미터가 만료되기 15일 전에 EventBridge를 통해 알림을 받도록 설정한다.
 2. 이를 통해 파라미터를 업데이트할 충분한 시간을 확보할 수 있다.
 3. 파라미터가 TTL(Time-to-Live) 기간 내에 업데이트되지 않으면 자동으로 삭제된다.
@@ -74,7 +67,6 @@ p 104
 # II. AWS Secrets Manager
 
 ## 1. AWS Secrets Manager의 주요 기능
-p 106
 
 [https://docs.aws.amazon.com/ko_kr/secretsmanager/latest/userguide/intro.html](https://docs.aws.amazon.com/ko_kr/secretsmanager/latest/userguide/intro.html)
 
@@ -91,8 +83,6 @@ p 106
 
 ### AWS Secrets Manager와 ECS 통합
 
-![[AWSSecretsManager-ECS.png]]
-
 1. 시크릿 매니저를 통해 데이터베이스 암호와 같은 중요한 비밀 정보가 관리되고 있다.
 2. RDS 데이터베이스와 시크릿 매니저가 연결되어 있어, 데이터베이스 암호가 시크릿 매니저에 저장되고 있다.
 3. 자원 기반 정책을 사용하여 비밀 정보에 대한 접근을 통제할 수 있다.
@@ -102,8 +92,6 @@ p 106
 이와 같이 시크릿 매니저를 사용하여 중요한 비밀 정보를 안전하게 관리하고, 다른 서비스와 통합하여 활용할 수 있다.
 
 ## 2. Secrets Manager – with CloudFormation
-
-p 107
 
 [https://docs.aws.amazon.com/ko_kr/secretsmanager/latest/userguide/cloudformation.html](https://docs.aws.amazon.com/ko_kr/secretsmanager/latest/userguide/cloudformation.html)
 
@@ -116,9 +104,7 @@ p 107
 3. 세 번째 부분에서는 'RDS DB 인스턴스에 비밀을 연결하는 비밀 첨부 파일'을 만든다. 비밀 회전 시, RDS 데이터베이스의 비밀번호를 변경해야 한다는 것을 시크릿 매니저에게 알려준다.
 
 ## 3. Secrets Manager – Sharing Across Accounts
-p 108
 
-![[SecretsManager–SharingAcrossAccounts.png]]
 1. 시크릿 매니저에 저장된 비밀은 KMS Key로 암호화되어 있다. 따라서 개발자 계정의 사용자가 해당 비밀에 접근하려면 KMS Key에 대한 권한이 필요하다.
 2. 먼저 KMS Key에 KMS 정책을 연결해 개발자 계정의 사용자가 KMS Decrypt 작업을 수행할 수 있도록 허용한다. 이를 통해 개발자 계정의 사용자가 KMS Key를 사용하여 비밀을 복호화할 수 있다. (Resource Access Manager로는 해결 불가능)
 3. 그 다음 시크릿 매니저의 시크릿에 리소스 기반 정책을 적용한다. 이를 통해 개발자 계정 사용자에게 해당 비밀의 GetSecretValue 권한을 부여할 수 있다.
@@ -127,8 +113,6 @@ p 108
 이와 같은 방식으로 시크릿 매니저의 비밀을 개발자 계정에 안전하게 공유할 수 있다. 리소스 기반 정책과 KMS 키 사용 권한을 통해 보안을 유지하면서도 필요한 사용자에게 비밀 정보를 제공할 수 있다.
 
 ## 4. SSM Parameter Store vs Secrets Manager
-p 108
-
 ### Secrets Manager
 
 - Secrets 저장 및 자동 회전에 대한 비용이 발생
@@ -147,9 +131,6 @@ p 108
 - SSM Parameter Store API를 사용하여 Secrets Manager의 시크릿을 풀 수 있음
 
 ## 5. SSM Parameter Store vs. Secrets Manager Rotation
-p 109
-
-![[Rotation.png]]
 
 Secrets Manager의 경우 30일 마다 Lambda 함수를 호출해, Amazon RDS의 암호를 변경할 수 있다.
 [https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/rds-secrets-manager.html](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/rds-secrets-manager.html)

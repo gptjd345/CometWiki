@@ -13,7 +13,6 @@
 
 # II. 일반적인 Lambda 애플리케이션 유형 및 사용 사례
 
-
 아래의 링크에서 사용 사례 읽어보기
 [https://docs.aws.amazon.com/lambda/latest/dg/applications-usecases.html](https://docs.aws.amazon.com/lambda/latest/dg/applications-usecases.html)
 
@@ -21,7 +20,6 @@
 - 트리거: 함수를 호출하는 AWS 서비스 또는 애플리케이션
 
 # III. AWS Lambda 언어 지원(런타임)
-p 228
 
 - Node.js (JavaScript)
 - Python
@@ -56,7 +54,6 @@ p 228
  >	
 
 # V. Lambda Concurrency and Throttling
-p 230
 
 https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html
 https://aws.amazon.com/ko/blogs/compute/understanding-aws-lambdas-invoke-throttle-limits/
@@ -77,7 +74,6 @@ https://aws.amazon.com/ko/blogs/compute/understanding-aws-lambdas-invoke-throttl
 
 
 # VI. Lambda & CodeDeploy
-p 232
 
 [https://docs.aws.amazon.com/ko_kr/codestar/latest/userguide/how-to-modify-serverless-project.html](https://docs.aws.amazon.com/ko_kr/codestar/latest/userguide/how-to-modify-serverless-project.html)
 
@@ -95,7 +91,6 @@ CodeDeploy를 사용하면 자동적으로 Lambda 함수들에 대한 트래픽 
 - 사전 및 사후 트래픽 후크를 만들어 람다 기능의 상태를 점검할 수 있다.
 
 # VII. AWS Lambda Logging, Monitoring and Tracing
-p 233
 
 ## **1. CloudWatch**
 
@@ -111,28 +106,25 @@ p 233
 - 람다 기능에 올바른 IAM 실행 역할이 있는지 확인한다.
 
 # VIII. Lambda in a VPC
-p 234
 
 다음은 AWS Lambda를 VPC에 배포할 때의 작동 방식과 네트워크 접근에 대한 설명이다.
 
 ## 1. 기본적인 람다 배포 시 작동 방식(Public Subnet)
-![[Lambda-In-a-VPC 1.png]]
+
 
 AWS Lambda 함수는 기본적으로 AWS 클라우드에 배포된다. 공용 인터넷에 접속할 수 있어 DynamoDB와 같은 공용 API에 접근할 수 있다. 그러나 사설 RDS 데이터베이스나 사설 VPC, 사설 서브넷에 접근하려면 추가적인 설정이 필요하다.
 
 ## 2. VPC & Private Subnet 에 람다 배포 시 작동 방식
-![[Pasted image 20240618203140.png]]
+
 Lambda가 private subnet의 RDS 에 접근하려면 같은 Private Subnet 에 존재해야하며 보안그룹을 설정해야한다. Lambda가 인터넷과 통신해야 한다면 NAT를 통해 IGW(Internet Gateway)를 거쳐야 한다.
 DynamoDB가 public 한 공간에 존재하지만 모든 트레픽을 private 하게 관리하고 싶다면 Lambda가 접근하려는 대상에 EndPoint를 두면 된다.
 
 # IX. Fixed Public IP for external comms(**외부 통신용 고정 공용 IP)**
 
-p 235
-
 VPC 설정없이 AWS의 Public Cloud에 람다함수를 배포하면 람다함수는 Random Public IP를 받게 된다.
-![[lambda-Public-Cloud.png]]
+
 그러나 아래처럼 람다함수를 private subnet에 둬야 한다면(예를 들어, private RDS에 연결하려고), NAT gateway를 사용하고 NAT gateway를 사용할때 고정 IP를 부착한다.
-![[lambda-fixed-Public-Cloud.png]]
+
 
 >[!question] AWS Lambda 함수에 고정 IP 주소를 할당 방법
  >1. **1단계: Lambda 함수를 Amazon Virtual Private Cloud(VPC)에 연결하기**
@@ -152,8 +144,6 @@ VPC 설정없이 AWS의 Public Cloud에 람다함수를 배포하면 람다함�
 
 # X. Synchronous Invocations
 
-p 236
-
 [https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/invocation-sync.html](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/invocation-sync.html)
 
 CLI, SDK, API Gateway 를 통해 람다 함수에 대해 동기호출이 이루어진다.
@@ -163,11 +153,8 @@ CLI, SDK, API Gateway 를 통해 람다 함수에 대해 동기호출이 이루�
 - SDK의 경우 비동기와 동기방식 모두 호출 가능
     - (invoke()함수는 동기식, invokeAsync()함수는 비동기식으로 동작)
 
-![[Pasted image 20240618230809.png]]
 
 # XI. Lambda - Asynchronous Invocations
-
-p 237
 
 [https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/invocation-async.html](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/invocation-async.html)
 ![[Lambda-Asynchronous-Invocations.png]]
@@ -185,12 +172,10 @@ S3, SNS, Amazon EventBridge 등에 의해 비동기 호출이 이루어진다.
 
 # XII. Lambda - Architecture Discussion
 
-p 238
-
 ## **1. S3 - SNS - Lambda 아키텍처**
 
 병렬 실행 즉시 시작
-![[Pasted image 20240618233640.png]]
+
 - S3 버킷에서 이벤트가 발생하면 SNS 로 알림이 전송된다.
 - SNS는 Lambda 함수를 트리거하여 이벤트를 처리한다.
 - 이 아키텍처는 간단하고 직접적인 방식으로, 이벤트 처리 지연이 최소화된다.
@@ -200,7 +185,7 @@ p 238
 ## **2. S3 - SNS - SQS - Lambda 아키텍처**
 
 일괄 실행 지연
-![[Pasted image 20240618233654.png]]
+
 - S3 버킷에서 이벤트가 발생하면 SNS 에 의해 알림이 전송된다.
 - SNS에 의해 전송된 알림은 SQS 대기열에 버퍼링 된 후 전달된다.
 - SQS 대기열은 Lambda 함수를 트리거하여 이벤트를 처리합니다.

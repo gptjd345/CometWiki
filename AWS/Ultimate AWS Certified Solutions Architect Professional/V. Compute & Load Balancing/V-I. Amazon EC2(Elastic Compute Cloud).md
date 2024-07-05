@@ -1,5 +1,4 @@
 # I. EC2 Instance Types (EC2 인스턴스 유형)
-p 176
 
 - **R(RAM)**
     - RAM 성능이 많이 필요한 애플리케이션(메모리 집약적인 작업에 최적화)
@@ -22,7 +21,6 @@ p 176
 
 
 # II. EC2 Placement Groups (EC2 배치 그룹)
-p 177
 
 [https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/placement-groups.html](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/placement-groups.html)
 
@@ -45,7 +43,6 @@ p 177
 
 
 # III. EC2 Placement Strategies (EC2 배치 전략)
-p 178 - 180
 
 [https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/placement-strategies.html](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/placement-strategies.html)
 [https://merrily-code.tistory.com/233](https://merrily-code.tistory.com/233)
@@ -55,8 +52,6 @@ p 178 - 180
 
 동일한 AZ, 동일한 랙(rack) 안에 인스턴스를 배치하는 전략
 <font color="#92d050">* 랙(rack): 데이터 센터 내에서 서버와 네트워크 장비를 물리적으로 배치하는 구조</font>
-
-![[EC2-Placement-Strategies_cluster 1.png]]
 
 - **장점**
     - **우수한 네트워크 성능**: Enhanced Networking을 활성화한 인스턴스 간의 대역폭이 최대 10Gbps에 달한다.
@@ -80,8 +75,6 @@ p 178 - 180
 ## **2. Spread (분산)**
 
 랙 당 하나의 인스턴스를 배치하고, 여러 AZ에 분산하는 배치 전략
-
-![[EC2-Placement-Strategies_spread.png]]
 
 - **장점**
     - **높은 가용성**: 여러 가용성 영역(AZ) 전반에 걸쳐 인스턴스를 배치할 수 있어, 특정 가용성 영역의 장애로부터 보호할 수 있다.
@@ -111,8 +104,6 @@ p 178 - 180
 
 여러 AZ 안에 파티션을 두고, 파티션 안에서 여러 인스턴스를 클러스터 전략처럼 배치할 수 있는 전략
 
-![[EC2-Placement-Strategies_partition.png]]
-
 - **특징**
     - **AZ당 최대 7개의 파티션**: 하나의 가용 영역(AZ) 내에서 최대 7개의 파티션을 생성할 수 있다.
     - **최대 100개의 EC2 인스턴스**: 한 파티션 배치 그룹 내에서 최대 100개의 EC2 인스턴스를 배포할 수 있다.
@@ -133,8 +124,6 @@ p 178 - 180
 
 
 # IV. EC2 Instance Launch Types (EC2 인스턴스 시작 유형)
-
-p 181
 
 ## 1. On-Demand Instances (온 디맨드 인스턴스)
 - **특징**: 필요할 때 인스턴스를 시작하고 사용한 만큼만 비용을 지불하는 방식.
@@ -181,8 +170,6 @@ p 181
 
 # V. EC2 Graviton
 
-p 182
-
 AWS Graviton 프로세서는 AWS에서 자체 설계한 ARM 기반 프로세서로, 뛰어난 가격 대비 성능을 제공하는 것이 특징이다. Graviton, Graviton2, Graviton3 세대가 있으며, 각 세대는 이전 세대보다 성능과 효율성이 크게 향상되었다.
 
 ## 1. AWS Graviton 특징
@@ -214,7 +201,6 @@ Graviton 프로세서는 앱 서버, 마이크로서비스, 고성능 컴퓨팅,
 
 
 # VI. EC2 included metrics
-p 183
 
 [https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/US_SingleMetricPerInstance.html](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/US_SingleMetricPerInstance.html)
 
@@ -281,7 +267,6 @@ AWS EC2 인스턴스는 CPU 사용률, 네트워크 입력/출력, 상태 확인
 
 
 # VII. EC2 Instance Recovery
-p 184
 
 https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/ec2-instance-recover.html
 
