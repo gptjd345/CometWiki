@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "네트워크/소켓의 의미.md",
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
                 "mode": "source",
                 "source": false
               }
@@ -116,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "네트워크/소켓의 의미.md",
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "네트워크/소켓의 의미.md",
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "네트워크/소켓의 의미.md"
+                "file": "빅데이터 & 인공지능 개념/Hadoop.md"
               }
             }
           },
@@ -205,6 +205,7 @@
   },
   "active": "d06416d539ffe73f",
   "lastOpenFiles": [
+    "네트워크/소켓의 의미.md",
     "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
@@ -240,7 +241,6 @@
     "빅데이터 & 인공지능 개념/Hadoop.md",
     "단축키/Window 단축키.md",
     "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
-    "Hadoop의 구성요소.md",
     "빅데이터 & 인공지능 개념",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering",
     "AWS/실전",
