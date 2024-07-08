@@ -8,36 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7d7281f6a20db767",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "Zonal-DNS-Name.png"
-              }
-            }
-          },
-          {
-            "id": "e080df17fd8fd929",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "WebSocket-API.png"
-              }
-            }
-          },
-          {
-            "id": "28c0ef65b50846fc",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "Target-group.png"
-              }
-            }
-          },
-          {
             "id": "d06416d539ffe73f",
             "type": "leaf",
             "state": {
@@ -49,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
