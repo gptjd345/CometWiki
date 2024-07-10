@@ -174,6 +174,7 @@ module.exports = {
         test: /\.s?css$/,
         use: [
           // 순서 중요!
+          'vue-style-loader',  // style 태그 내의 css 를 해석해서 동작하게 해줌 맨위가 가장 마지막에 실 
           'style-loader',
           'css-loader',
           'postcss-loader',
@@ -194,3 +195,31 @@ test 속성은 정규 표현식을 사용하여 로더가 적용될 파일 유�
 #### use : 
 use 속성은 해당 파일 유형에 사용할 로더를 지정한다. 
 use : 'vue-loader'는 .vue 파일을 처리하기 위해 vue-loader를 사용하겠다는 의미이다. 
+
+```js
+// webpack.config.js
+// path: NodeJS에서 파일 및 디렉토리 경로 작업을 위한 전역 모듈
+
+const path = require('path')
+const HtmlPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader') // vue-loader에서 가져옴 
+
+  // 번들링 후 결과물의 처리 방식 등 다양한 플러그인들을 설정
+
+  plugins: [
+    new HtmlPlugin({
+      template: './index.html',
+    }),
+
+    new CopyPlugin({
+      patterns: [
+        { from: 'static' }
+      ]
+    }),
+
+    new VueLoaderPlugin()  // 추가
+
+  ],
+
+```
