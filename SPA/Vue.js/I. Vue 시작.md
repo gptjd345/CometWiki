@@ -206,20 +206,70 @@ const CopyPlugin = require('copy-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader') // vue-loader에서 가져옴 
 
   // 번들링 후 결과물의 처리 방식 등 다양한 플러그인들을 설정
-
   plugins: [
     new HtmlPlugin({
       template: './index.html',
     }),
-
     new CopyPlugin({
       patterns: [
         { from: 'static' }
       ]
     }),
-
     new VueLoaderPlugin()  // 추가
 
   ],
+
+```
+
+
+```js
+// APP.vue
+<template>
+
+    <h1>{{ message }}</h1>
+
+</template>
+
+  
+
+<script>
+
+import { defineComponent } from '@vue/composition-api'
+
+  
+
+export default {
+
+    data() {
+
+        return {
+
+            message: 'Hello Vue!!!'
+
+        }
+
+    }
+
+}
+
+</script>
+
+// main.js
+
+import Vue from 'vue'        // 1. vue를 가져와서
+import App from './APP.vue'  // 2. App.vue 에서 정의한 
+
+Vue.createApp(App).mount('#app') // 3. export 데이터를 가져와서 app 태그에 마운트한다. 
+
+
+```
+
+```js
+//main.js
+
+import Vue from 'vue'        // 1. vue를 가져와서
+import App from './APP.vue'  // 2. App.vue 에서 정의한 
+
+Vue.createApp(App).mount('#app') // 3. export 데이터를 가져와서 app 태그에 마운트한다. 
 
 ```
