@@ -34,6 +34,44 @@ npm run serve
     "lint": "vue-cli-service lint"   // lint 코드 린팅 
 
   },
+  "eslintConfig": { // lint 에 대한 규칙 명세 
+
+    "root": true,
+
+    "env": {
+
+      "node": true
+
+    },
+
+    "extends": [
+
+      "plugin:vue/vue3-essential",
+
+      "eslint:recommended"
+
+    ],
+
+    "parserOptions": {
+
+      "parser": "@babel/eslint-parser"
+
+    },
+
+    "rules": {}
+
+  },  "browserslist": [  // 프로젝트가 지원할 브라우저의 종류들 
+
+    "> 1%",
+
+    "last 2 versions",
+
+    "not dead",
+
+    "not ie 11"
+
+  ]
+
 
 ```
 
@@ -42,3 +80,14 @@ npm run serve
 >즉, 코드에서 lint는 작은 결함이나 불순물을 뜻하며 이를 제거하여 코드의 품질을 높이는 과정을 의미한다. 
 
 
+```js
+// main.js
+import { createApp } from 'vue'
+
+import App from './App.vue'
+
+  
+
+createApp(App).mount('#app')
+
+```
