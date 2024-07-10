@@ -147,3 +147,9 @@ main.js, App.vue 파일 생성
 >2. 개발 의존성(devDependencies) : 애플리케이션을 개발하는 동안에만 필요한 패키지들을 말함. ex) 테스트 라이브러리나 빌드도구 등
 >
 
+#### 개발의존성 패키지 설치
+vue-loader
+vue-style-loader
+@vue/compiler-sfc : vue 파일을 변환에서 브라우저에서 동작할수있는 형태로 바꿔준다.
+
+`npm i -D vue-loader@next vue-style-loader @vue/compiler-sfc`
