@@ -23,5 +23,17 @@ vue3 로 설치
 cd 생성한 프로젝트
 npm run serve
 
+```js
+// package.json 에서 
+  "scripts": {
 
+    "serve": "vue-cli-service serve", // serve 개발서버
+
+    "build": "vue-cli-service build", // 배포가능한 상태로 빌드
+
+    "lint": "vue-cli-service lint"   // lint  
+
+  },
+
+```
 
