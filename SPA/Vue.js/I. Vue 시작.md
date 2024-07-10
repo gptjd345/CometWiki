@@ -153,3 +153,39 @@ vue-style-loader
 @vue/compiler-sfc : vue 파일을 변환에서 브라우저에서 동작할수있는 형태로 바꿔준다.
 
 `npm i -D vue-loader@next vue-style-loader @vue/compiler-sfc`
+
+```js
+// webpack.config.js
+
+module.exports = {
+
+  // 파일을 읽어들이기 시작하는 진입점 설정
+
+  entry: './src/main.js',  // src 폴더 만들었으므로 경로 수
+
+// 모듈 처리 방식을 설정
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,    // .vue 로 시작하는경우 
+        use: 'vue-loader'  // vue-loader에 의해 처리
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          // 순서 중요!
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
+      },
+```
+
+#### module :
+웹팩 설정에서 module 속성은 로더(Loader)와 관련된 규칙을 정의한다. 로더는 웹팩이 프로젝트 파일을 처리하는 방법을 지정하는데 사용된다. 
+
+#### rules : 
+rules 속성은 각 파일 유형에 따라 사용할 로더의 배열을 정의한다. 각 규칙은 파일 확장자 또는 파일 경로에 따라 특정 로더를 적용한다. 
+
+####test
