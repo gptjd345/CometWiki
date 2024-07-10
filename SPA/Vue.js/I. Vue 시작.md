@@ -133,5 +133,8 @@ export default { // 2. 객체 데이터를 내보낸다.
 3. `<style>`       : CSS
 
 #### Webpack 사용하여 vue 프로젝트 생성
+`npx degit gptjd345/webpack-template-basic vue3-webpack-template` : `npx degit` 명령어는 특정 GitHub 리포지토리의 특정 브랜치나 커밋을 로컬 디렉토리로 복사하는 데 사용된다. `npx degit`가 `git clone`  과 다른점은 `.git` 디렉토리를 포함하지 않는다는 것이다. 이전 이력없이 새로운 프로젝트를 시작할 때 유용합니다.
+
+`code . -r`  현재 위치에서 프로젝트 열기 
 
 
