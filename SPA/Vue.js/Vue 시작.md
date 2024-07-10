@@ -94,55 +94,36 @@ vue 확장자 파일의 코드 하이라이팅을 위한 확장 프로그램
 
 ```vue
 <template>
-
   <img alt="Vue logo" src="./assets/logo.png">
-
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-
+  <HelloWorld msg="Welcome to Your Vue.js App"/> // 3. tag를 사용한다. 
 </template>
 
-  
-
 <script>
+import HelloWorld from './components/HelloWorld.vue'   // 1. vue 파일을 가져온다
 
-import HelloWorld from './components/HelloWorld.vue'
-
-  
-
-export default {
-
+export default { // 2. 객체 데이터를 내보낸다.  
   name: 'App',
-
-  components: {
-
+  components: {  
     HelloWorld
-
   }
-
 }
-
 </script>
 
-  
-
 <style>
-
 #app {
-
   font-family: Avenir, Helvetica, Arial, sans-serif;
-
   -webkit-font-smoothing: antialiased;
-
   -moz-osx-font-smoothing: grayscale;
-
   text-align: center;
-
   color: #2c3e50;
-
   margin-top: 60px;
-
 }
 
 </style>
-
 ```
+
+#### vue 파일 구조
+1. `<template>`  : HTML
+2. `<script>`     : JS
+3. `<style>`       : CSS
+
