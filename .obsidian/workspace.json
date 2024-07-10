@@ -4,16 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "a1cfe7d0f2a4fbb6",
+        "id": "d718f6729de03105",
         "type": "tabs",
         "children": [
           {
-            "id": "d06416d539ffe73f",
+            "id": "4a1ecf89d6fb46df",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "SPA/Vue.js/I. Vue 시작.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "2feeb255dab354cb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "47351ee0c52f1256",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CS/JS/비동기와 이벤트 루프.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +66,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "JS",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -173,15 +191,21 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "d06416d539ffe73f",
+  "active": "4a1ecf89d6fb46df",
   "lastOpenFiles": [
+    "CS/OS/Linux.md",
+    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-I. Amazon EC2(Elastic Compute Cloud).md",
+    "CS/JS/비동기와 이벤트 루프.md",
+    "CS/JS.md",
+    "CS/JS",
+    "무제 폴더",
+    "SPA/Vue.js/I. Vue 시작.md",
     "엑셀/엑셀에서 필터링된 셀 복사해서 필터링된 영역으로 복사하고 싶을 때.md",
     "아키텍처/키움페이 구조.md",
     "아키텍처/Spring 의 구동원리.md",
     "빅데이터 & 인공지능 개념/Hadoop.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-XII. AWS Global Accelerator.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V. Compute & Load Balancing.md",
-    "SPA/Vue.js/I. Vue 시작.md",
     "SPA/Vue.js",
     "SPA",
     "무제 파일.md",
@@ -190,7 +214,6 @@
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-III. SSM Parameter Store & Secrets Manager.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-I. Amazon EC2(Elastic Compute Cloud).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-II. High Performance Computing(HPC).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-III. Auto Scaling.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-IV. Spot Instances & Spot Fleet.md",
@@ -200,9 +223,6 @@
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VIII. Elastic Load Balancers.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-X. AWS AppSync.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-XI. Route 53.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/1. IAM(Identity and Access ManageMent).md",
     "AWSSecretsManager-ECS.png",
     "Pasted image 20240704003714.png",
     "Pasted image 20240614004752.png",
@@ -219,8 +239,6 @@
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing",
     "AWS/Ultimate AWS Certified Solutions Architect Professional",
-    "AWS/AWS Certified Cloud Practitioner",
-    "AWS",
     "무제 파일.canvas"
   ]
 }
