@@ -31,9 +31,14 @@ npm run serve
 
     "build": "vue-cli-service build", // 배포가능한 상태로 빌드
 
-    "lint": "vue-cli-service lint"   // lint  
+    "lint": "vue-cli-service lint"   // lint 코드 린팅 
 
   },
 
 ```
+
+>[!question] linting?
+>lint 의복이나 섬유에서 나오는 잔털이나 먼지를 의미한다. 
+>즉, 코드에서 lint는 작은 결함이나 불순물을 뜻하며 이를 제거하여 코드의 품질을 높이는 과정을 의미한다. 
+
 
