@@ -13,8 +13,13 @@ npm i -g @vue/cli // -g 전체 영역에서 설치
 >[!question] scaffolding?
 >비계 : 건축공사에서 높은곳에서 일할 수 있도록 설치하는 임시 가설물을 말하며,  프로젝트를 시작할 때 기본적인 파일 구조와 설정을 자동으로 생성해주는 과정을 말합니다. 이를 통해 개발자는 초기 설정 작업을 줄이고, 바로 코딩에 집중할 수 있습니다.
   Vue CLI (Command Line Interface)를 사용하면 스캐폴딩을 쉽게 할 수 있다
+  
 
-# Vue 프로젝트 생성 
+# I-I. Vue 프로젝트 생성 
+
+CDN, vue CLI, 미리 만들어놓은 webpack 을 사용하여 만들 수 있다.
+
+#### vue cli 사용시 
 vscode 터미널에서 
 vue cli 설치 후  
 vue create 프로젝트명(폴더명)
@@ -126,4 +131,7 @@ export default { // 2. 객체 데이터를 내보낸다.
 1. `<template>`  : HTML
 2. `<script>`     : JS
 3. `<style>`       : CSS
+
+#### Webpack 사용하여 vue 프로젝트 생성
+
 
