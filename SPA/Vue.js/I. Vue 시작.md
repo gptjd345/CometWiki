@@ -139,7 +139,7 @@ export default { // 2. 객체 데이터를 내보낸다.
 
 기존 js 폴더 삭제, src 폴더 생성 후 
 main.js, App.vue 파일 생성 
-터미널에서 `npm create vue@latest` (vue3버전으로 설치)
+터미널에서 `npm install vue@3` (vue3버전으로 설치)
 -> -D : (dev)개발 의존성으로 설치한다는 뜻 : vue.js 는 일반의존성으로 설치해야한다. 개발뿐만아니라 브라우저에서도 사용하기 때문.
 
 >[!question] 의존성 종류
