@@ -264,12 +264,18 @@ Vue.createApp(App).mount('#app') // 3. export 데이터를 가져와서 app 태�
 
 ```
 
+#### 객체 구조 분해 할당(Object Destructuring)
 ```js
 //main.js
 
-import Vue from 'vue'        // 1. vue를 가져와서
-import App from './APP.vue'  // 2. App.vue 에서 정의한 
+import { createApp } from 'vue' // 1. vue를 가져와서
+import App from './APP.vue'     // 2. App.vue 에서 정의한 
 
-Vue.createApp(App).mount('#app') // 3. export 데이터를 가져와서 app 태그에 마운트한다. 
+createApp(App).mount('#app')    // 3. export 데이터를 가져와서 app 태그에 마운트한다. 
 
 ```
+
+객체의 속성을 추출하여 변수에 할당하여 'vue' 전체를 가져오지 않고 vue 모듈에서 createApp 함수만을 직접 추출한다. 코드가 더 간결해지고 효율적이다. 
+
+#### 결과 확인 
+`npm run dev`
