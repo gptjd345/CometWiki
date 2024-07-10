@@ -82,12 +82,67 @@ npm run serve
 
 ```js
 // main.js
-import { createApp } from 'vue'
+import { createApp } from 'vue'  // vue 라는 패키지에서 createApp 이라는 메소드를 가져옴
 
-import App from './App.vue'
+import App from './App.vue'      // .vue 라는 확장자를 가진 파일을 뷰로 사용 
+createApp(App).mount('#app')     // Vue.createApp() 에서 Vue 가 생략됨. 
+
+```
+
+# Vetur(베터)
+vue 확장자 파일의 코드 하이라이팅을 위한 확장 프로그램
+
+```vue
+<template>
+
+  <img alt="Vue logo" src="./assets/logo.png">
+
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+</template>
 
   
 
-createApp(App).mount('#app')
+<script>
+
+import HelloWorld from './components/HelloWorld.vue'
+
+  
+
+export default {
+
+  name: 'App',
+
+  components: {
+
+    HelloWorld
+
+  }
+
+}
+
+</script>
+
+  
+
+<style>
+
+#app {
+
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+
+  text-align: center;
+
+  color: #2c3e50;
+
+  margin-top: 60px;
+
+}
+
+</style>
 
 ```
