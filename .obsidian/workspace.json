@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SPA/Vue.js/I. Vue 시작.md",
+                "file": "단위테스트/Untitled.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SPA/Vue.js/I. Vue 시작.md",
+                "file": "단위테스트/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SPA/Vue.js/I. Vue 시작.md",
+                "file": "단위테스트/Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SPA/Vue.js/I. Vue 시작.md"
+                "file": "단위테스트/Untitled.md"
               }
             }
           },
@@ -175,9 +175,12 @@
   },
   "active": "4a1ecf89d6fb46df",
   "lastOpenFiles": [
+    "네트워크/소켓의 의미.md",
+    "Java/Blocking Method & Non Blocking Method.md",
+    "CS/OS/Linux.md",
+    "CS/OS/UNIX.md",
     "CS/JS/비동기와 이벤트 루프.md",
     "SPA/Vue.js/I. Vue 시작.md",
-    "CS/OS/Linux.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-I. Amazon EC2(Elastic Compute Cloud).md",
     "CS/JS.md",
     "CS/JS",
@@ -191,7 +194,6 @@
     "SPA/Vue.js",
     "SPA",
     "무제 파일.md",
-    "네트워크/소켓의 의미.md",
     "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
@@ -203,8 +205,6 @@
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-V. Amazon ECS(Elastic Contatiner Service).md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VI. Amazon ECR & EKS.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VIII. Elastic Load Balancers.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-X. AWS AppSync.md",
     "AWSSecretsManager-ECS.png",
     "Pasted image 20240704003714.png",
     "Pasted image 20240614004752.png",

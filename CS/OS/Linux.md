@@ -2,16 +2,13 @@
 
 이 말은 리눅스에서 사실상 모든 시스템 리소스를 비롯한 하드웨어 장치, 프로세스, 스트림 등도 파일 처럼 취급된다는 의미이다. 
 
-표준 입출력(Standard Input/Output)고 
-
-  
+표준 입출력(Standard Input/Output)
 
 표준입력(Standard Input , stdin)
 
 표준입력(Standard Input , stdin) 은 일반적으로 키보드에서 입력받는 데이터 스트림을 의미하며, 이는 파일 번호 0으로 열려있다.
 
   
-
 표준출력(Standard Output, stdout)
 
 표준출력(Standard Output, stdout) 은 일반적으로 화면에 출력된느 데이터 스트림을 의미하며, 이는 파일 번호 1로 열려있다.  
