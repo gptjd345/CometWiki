@@ -22,7 +22,7 @@ CDN, vue CLI, 미리 만들어놓은 webpack 을 사용하여 만들 수 있다.
 #### vue cli 사용시 
 vscode 터미널에서 
 vue cli 설치 후  
-vue create 프로젝트명(폴더명)
+vue create 프로젝트명(폴더명) 
 vue3 로 설치 
 
 cd 생성한 프로젝트
