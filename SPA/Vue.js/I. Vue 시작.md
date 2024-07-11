@@ -225,31 +225,19 @@ const { VueLoaderPlugin } = require('vue-loader') // vue-loader에서 가져옴
 ```js
 // APP.vue
 <template>
-
     <h1>{{ message }}</h1>
-
 </template>
-
-  
 
 <script>
 
 import { defineComponent } from '@vue/composition-api'
 
-  
-
 export default {
-
     data() {
-
         return {
-
             message: 'Hello Vue!!!'
-
         }
-
     }
-
 }
 
 </script>
@@ -279,3 +267,26 @@ createApp(App).mount('#app')    // 3. export 데이터를 가져와서 app 태�
 
 #### 결과 확인 
 `npm run dev`
+
+방법 2: 환경 변수 설정
+
+Node.js 버전 17 이상에서 OpenSSL 3.0이 기본으로 사용되면서 발생하는 문제입니다. OpenSSL 3.0은 일부 해시 알고리즘을 기본적으로 지원하지 않기 때문에, Webpack이나 기타 도구들에서 `crypto` 모듈을 사용할 때 문제가 발생할 수 있습니다.
+
+`openssl-legacy-provider`는 OpenSSL 3.0에서 지원되지 않는 일부 알고리즘을 사용할 수 있도록 하는 레거시 지원 옵션입니다. Node.js 17 이상 버전에서는 OpenSSL 3.0이 기본적으로 사용되며, 이는 이전 버전의 OpenSSL에서 사용 가능했던 일부 해시 알고리즘 등을 기본적으로 지원하지 않습니다. 이로 인해 기존 프로젝트에서 `crypto` 모듈을 사용할 때 문제가 발생할 수 있습니다.
+
+### OpenSSL 3.0과 레거시 지원
+
+OpenSSL 3.0은 보안 및 성능 개선을 위해 많은 변경사항을 포함하고 있습니다. 그러나 이로 인해 일부 알고리즘이 기본적으로 비활성화되었거나 지원되지 않게 되었습니다. `openssl-legacy-provider` 옵션은 이러한 변경사항을 우회하여 이전 버전의 OpenSSL에서 사용하던 알고리즘을 계속 사용할 수 있도록 해줍니다.
+
+
+cmd
+set NODE_OPTIONS=--openssl-legacy-provider 
+
+powershell
+$env:NODE_OPTIONS="--openssl-legacy-provider"
+
+해당 오류는 Node.js 버전 17 이상에서 OpenSSL 3.0이 기본으로 사용되면서 발생하는 문제입니다. OpenSSL 3.0은 일부 해시 알고리즘을 기본적으로 지원하지 않기 때문에, Webpack이나 기타 도구들에서 crypto 모듈을 사용할 때 문제가 발생할 수 있습니다.
+
+
+vue3에서는 필요없어서 삭제 
+npm uninstall @vue/composition-api
