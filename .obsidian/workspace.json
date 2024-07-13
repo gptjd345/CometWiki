@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "네트워크/I. 웹 브라우저부터 서버까지.md",
+                "file": "네트워크/SSL,TLS.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "네트워크/I. 웹 브라우저부터 서버까지.md",
+                "file": "네트워크/SSL,TLS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "네트워크/I. 웹 브라우저부터 서버까지.md",
+                "file": "네트워크/SSL,TLS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "네트워크/I. 웹 브라우저부터 서버까지.md"
+                "file": "네트워크/SSL,TLS.md"
               }
             }
           },
@@ -175,9 +175,10 @@
   },
   "active": "4a1ecf89d6fb46df",
   "lastOpenFiles": [
-    "Pasted image 20240713232343.png",
-    "네트워크/소켓의 의미.md",
     "네트워크/I. 웹 브라우저부터 서버까지.md",
+    "네트워크/SSL,TLS.md",
+    "네트워크/소켓의 의미.md",
+    "Pasted image 20240713232343.png",
     "SPA/Vue.js/I. Vue 시작.md",
     "옵시디언 플러그인/git.md",
     "단위테스트/Untitled.md",
@@ -214,7 +215,6 @@
     "Target-group.png",
     "WebSocket-API.png",
     "Rotation.png",
-    "SecretsManager–SharingAcrossAccounts.png",
     "빅데이터 & 인공지능 개념",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering",
     "AWS/실전",
