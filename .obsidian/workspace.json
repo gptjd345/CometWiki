@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "단위테스트/Untitled.md",
+                "file": "SPA/Vue.js/I. Vue 시작.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "단위테스트/Untitled.md",
+                "file": "SPA/Vue.js/I. Vue 시작.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "단위테스트/Untitled.md",
+                "file": "SPA/Vue.js/I. Vue 시작.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "단위테스트/Untitled.md"
+                "file": "SPA/Vue.js/I. Vue 시작.md"
               }
             }
           },
@@ -175,6 +175,8 @@
   },
   "active": "4a1ecf89d6fb46df",
   "lastOpenFiles": [
+    "옵시디언 플러그인/git.md",
+    "단위테스트/Untitled.md",
     "네트워크/소켓의 의미.md",
     "Java/Blocking Method & Non Blocking Method.md",
     "CS/OS/Linux.md",
@@ -203,8 +205,6 @@
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-IV. Spot Instances & Spot Fleet.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-IX. API Gateway.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-V. Amazon ECS(Elastic Contatiner Service).md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VI. Amazon ECR & EKS.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-VII. AWS Lambda.md",
     "AWSSecretsManager-ECS.png",
     "Pasted image 20240704003714.png",
     "Pasted image 20240614004752.png",
