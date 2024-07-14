@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "네트워크/SSL,TLS.md",
+                "file": "DB/Oracle/Outer join.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "네트워크/SSL,TLS.md",
+                "file": "DB/Oracle/Outer join.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "네트워크/SSL,TLS.md",
+                "file": "DB/Oracle/Outer join.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "네트워크/SSL,TLS.md"
+                "file": "DB/Oracle/Outer join.md"
               }
             }
           },
@@ -175,17 +175,21 @@
   },
   "active": "4a1ecf89d6fb46df",
   "lastOpenFiles": [
-    "네트워크/소켓의 의미.md",
+    "DB/Oracle/Query/LAG() 함수.md",
+    "DB/Oracle/Outer join.md",
+    "CS/JS/$변수선언 가이드.md",
+    "CS/JS/비동기와 이벤트 루프.md",
+    "CS/JS/Js 구동원리와 실행 컨텍스트.md",
+    "CS/OS/Linux.md",
+    "CS/OS/UNIX.md",
     "네트워크/SSL,TLS.md",
+    "네트워크/소켓의 의미.md",
     "네트워크/I. 웹 브라우저부터 서버까지.md",
     "Pasted image 20240713232343.png",
     "SPA/Vue.js/I. Vue 시작.md",
     "옵시디언 플러그인/git.md",
     "단위테스트/Untitled.md",
     "Java/Blocking Method & Non Blocking Method.md",
-    "CS/OS/Linux.md",
-    "CS/OS/UNIX.md",
-    "CS/JS/비동기와 이벤트 루프.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-I. Amazon EC2(Elastic Compute Cloud).md",
     "CS/JS.md",
     "CS/JS",
@@ -202,10 +206,6 @@
     "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-III. SSM Parameter Store & Secrets Manager.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-II. High Performance Computing(HPC).md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-III. Auto Scaling.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing/V-IV. Spot Instances & Spot Fleet.md",
     "AWSSecretsManager-ECS.png",
     "Pasted image 20240704003714.png",
     "Pasted image 20240614004752.png",
