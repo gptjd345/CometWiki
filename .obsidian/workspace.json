@@ -144,14 +144,6 @@
               "type": "advanced-tables-toolbar",
               "state": {}
             }
-          },
-          {
-            "id": "8a6e5e11f084bc15",
-            "type": "leaf",
-            "state": {
-              "type": "mermaid-toolbar-view",
-              "state": {}
-            }
           }
         ],
         "currentTab": 5
