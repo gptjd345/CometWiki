@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Node.js/II. NVM 사용법.md",
+                "file": "네트워크/소켓의 의미.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Node.js/II. NVM 사용법.md",
+                "file": "네트워크/소켓의 의미.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Node.js/II. NVM 사용법.md",
+                "file": "네트워크/소켓의 의미.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Node.js/II. NVM 사용법.md"
+                "file": "네트워크/소켓의 의미.md"
               }
             }
           },
@@ -163,29 +163,28 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:퀵 스위처 열기": false,
-      "graph:그래프 뷰 열기": false,
-      "canvas:새 캔버스 만들기": false,
-      "daily-notes:오늘의 데일리 노트 열기": false,
-      "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
   "active": "4a1ecf89d6fb46df",
   "lastOpenFiles": [
-    "Node.js/I. Node.js 란.md",
     "Node.js/II. NVM 사용법.md",
-    "SPA/Vue.js/I. Vue 시작.md",
+    "Node.js/I. Node.js 란.md",
+    "Node.js/Node.js.md",
     "Node.js",
-    "SPA/Bundler/Bundler.md",
     "SPA/Bundler/Parcel.md",
+    "SPA/Bundler/Bundler.md",
     "SPA/Bundler",
-    "SPA/무제 파일.md",
-    "네트워크/SSL,TLS.md",
-    "네트워크/소켓의 의미.md",
     "네트워크/I. 웹 브라우저부터 서버까지.md",
+    "네트워크/소켓의 의미.md",
+    "네트워크/SSL,TLS.md",
     "DB/Oracle/Outer join.md",
     "DB/Oracle/Query/LAG() 함수.md",
     "CS/JS/$변수선언 가이드.md",
@@ -194,6 +193,7 @@
     "CS/OS/Linux.md",
     "CS/OS/UNIX.md",
     "Pasted image 20240713232343.png",
+    "SPA/Vue.js/I. Vue 시작.md",
     "옵시디언 플러그인/git.md",
     "단위테스트/Untitled.md",
     "Java/Blocking Method & Non Blocking Method.md",
