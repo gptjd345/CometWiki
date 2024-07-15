@@ -196,6 +196,12 @@ test 속성은 정규 표현식을 사용하여 로더가 적용될 파일 유�
 use 속성은 해당 파일 유형에 사용할 로더를 지정한다. 
 use : 'vue-loader'는 .vue 파일을 처리하기 위해 vue-loader를 사용하겠다는 의미이다. 
 
+
+>[!question] vue-style-loader 
+>vue 파일 내부에 있는 style 태그 부분을 해석해서 동작시켜주는 webpack의 loader 이다. 
+
+
+
 ```js
 // webpack.config.js
 // path: NodeJS에서 파일 및 디렉토리 경로 작업을 위한 전역 모듈

@@ -175,6 +175,11 @@
   },
   "active": "4a1ecf89d6fb46df",
   "lastOpenFiles": [
+    "SPA/Bundler/Bundler.md",
+    "SPA/Bundler/Parcel.md",
+    "SPA/Vue.js/I. Vue 시작.md",
+    "SPA/Bundler",
+    "SPA/무제 파일.md",
     "네트워크/SSL,TLS.md",
     "네트워크/소켓의 의미.md",
     "네트워크/I. 웹 브라우저부터 서버까지.md",
@@ -186,7 +191,6 @@
     "CS/OS/Linux.md",
     "CS/OS/UNIX.md",
     "Pasted image 20240713232343.png",
-    "SPA/Vue.js/I. Vue 시작.md",
     "옵시디언 플러그인/git.md",
     "단위테스트/Untitled.md",
     "Java/Blocking Method & Non Blocking Method.md",
@@ -203,9 +207,6 @@
     "SPA/Vue.js",
     "SPA",
     "무제 파일.md",
-    "AWS/AWS Certified Cloud Practitioner/무제 파일.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-I. AWS CloudTrail.md",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security/IV-II. AWS KMS(Key Management Service).md",
     "AWSSecretsManager-ECS.png",
     "Pasted image 20240704003714.png",
     "Pasted image 20240614004752.png",
@@ -220,7 +221,6 @@
     "AWS/실전",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/IV. Security",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/V. Compute & Load Balancing",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional",
     "무제 파일.canvas"
   ]
 }
