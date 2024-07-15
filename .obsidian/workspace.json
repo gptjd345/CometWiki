@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "네트워크/소켓의 의미.md",
+                "file": "SPA/Vue.js/I. Vue 시작.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "네트워크/소켓의 의미.md",
+                "file": "SPA/Vue.js/I. Vue 시작.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "네트워크/소켓의 의미.md",
+                "file": "SPA/Vue.js/I. Vue 시작.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "네트워크/소켓의 의미.md"
+                "file": "SPA/Vue.js/I. Vue 시작.md"
               }
             }
           },
@@ -176,8 +176,8 @@
   "active": "4a1ecf89d6fb46df",
   "lastOpenFiles": [
     "네트워크/SSL,TLS.md",
-    "네트워크/I. 웹 브라우저부터 서버까지.md",
     "네트워크/소켓의 의미.md",
+    "네트워크/I. 웹 브라우저부터 서버까지.md",
     "DB/Oracle/Outer join.md",
     "DB/Oracle/Query/LAG() 함수.md",
     "CS/JS/$변수선언 가이드.md",
