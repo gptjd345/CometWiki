@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "네트워크/SSL,TLS.md",
+                "file": "Java/알고리즘/알고리즘.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "네트워크/SSL,TLS.md",
+                "file": "Java/알고리즘/알고리즘.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "네트워크/SSL,TLS.md",
+                "file": "Java/알고리즘/알고리즘.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "네트워크/SSL,TLS.md"
+                "file": "Java/알고리즘/알고리즘.md"
               }
             }
           },
@@ -167,9 +167,11 @@
   },
   "active": "4a1ecf89d6fb46df",
   "lastOpenFiles": [
+    "DB/Oracle/Outer join.md",
+    "DB/Oracle/Query/LAG() 함수.md",
+    "네트워크/SSL,TLS.md",
     "네트워크/I. 웹 브라우저부터 서버까지.md",
     "네트워크/소켓의 의미.md",
-    "네트워크/SSL,TLS.md",
     "Node.js/III. NPM.md",
     "Node.js/II. NVM.md",
     "Node.js/I. Node.js 란.md",
@@ -179,8 +181,6 @@
     "SPA/Bundler/Parcel.md",
     "SPA/Bundler",
     "SPA/무제 파일.md",
-    "DB/Oracle/Outer join.md",
-    "DB/Oracle/Query/LAG() 함수.md",
     "CS/JS/$변수선언 가이드.md",
     "CS/JS/비동기와 이벤트 루프.md",
     "CS/JS/Js 구동원리와 실행 컨텍스트.md",
