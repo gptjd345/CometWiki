@@ -283,3 +283,26 @@ Node.js 17 이상 버전에서는 OpenSSL 3.0이 기본으로 사용되며, 이�
 vue3에서는 필요없어서 삭제 
 npm uninstall @vue/composition-api
 
+> [!Note]
+> cmd , powershell 에서 환경변수 지정해도
+> 아래 에러가 발생하여 build , run 시 프로젝트 내에서 환경 변수를 지정할 수 있도록 함 
+> 
+>   opensslErrorStack: [
+>   error:03000086:digital envelope routines::initialization error
+error:0308010C:digital envelope routines::unsupported
+]
+> 
+
+cross env 설치 후 `package.json` 에서 설정 수행 
+
+```javascript
+// package.json
+  "scripts": {
+
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server --mode development",
+
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --mode production"
+
+  },
+
+```
