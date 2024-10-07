@@ -8,46 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "cd20dcb5b769de3d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SPA/Vue.js/II. Vue file-loader.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ccf3a21a12ad9381",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "14be48c29b6d04ae",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.6.7"
-              }
-            }
-          },
-          {
             "id": "8f248367bf9590a2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "네트워크/SSL,TLS.md",
+                "file": "서울 우먼잇츠X우아한스터디/VOL1(SELF)/1장 사용자 수에 따른 규모 확장성.md",
                 "mode": "source",
                 "source": false
               }
@@ -65,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -95,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "하",
+                "query": "java",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -116,7 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 216.5
+    "width": 343.51103591918945
   },
   "right": {
     "id": "a84b64acc4327393",
@@ -132,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
+                "file": "서울 우먼잇츠X우아한스터디/VOL1(SELF)/1장 사용자 수에 따른 규모 확장성.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
+                "file": "서울 우먼잇츠X우아한스터디/VOL1(SELF)/1장 사용자 수에 따른 규모 확장성.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -172,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "conflict-files-obsidian-git.md"
+                "file": "서울 우먼잇츠X우아한스터디/VOL1(SELF)/1장 사용자 수에 따른 규모 확장성.md"
               }
             }
           },
@@ -219,43 +184,46 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "ccf3a21a12ad9381",
+  "active": "8f248367bf9590a2",
   "lastOpenFiles": [
+    "서울 우먼잇츠X우아한스터디/VOL2/오리엔테이션 & 1장 근접성 서비스(20240903).md",
+    "서울 우먼잇츠X우아한스터디/VOL1(SELF)/1장 사용자 수에 따른 규모 확장성.md",
+    "서울 우먼잇츠X우아한스터디/VOL2",
+    "서울 우먼잇츠X우아한스터디/VOL1(SELF)",
+    "네트워크/소켓의 의미.md",
+    "서울 우먼잇츠X우아한스터디",
+    "실용주의프로그래밍/VO vs DTO vs DAO.md",
+    "실용주의프로그래밍/객체지향이란.md",
+    "실용주의프로그래밍/테스트란.md",
+    "Java/테스트용모듈/사전정보 데드링크 확인 관련 테스트.md",
+    "실용주의프로그래밍",
+    "Java/객체지향/절차지향과 비교하기.md",
+    "Java/무제 폴더",
+    "Java/객체지향",
+    "Project/스프링 부트와 AWS로 혼자 구현하는 웹서비스.md",
+    "Java/알고리즘/알고리즘.md",
+    "아키텍처/대용량 테이블의 처리 기법.md",
+    "아키텍처/Spring 의 구동원리.md",
+    "아키텍처/키움페이 구조.md",
+    "문제상황해결/실명인증 처리 시 쓰레드를 과도하게 오래 잡고있는 문제 확인.md",
+    "Java/ThreadPoolTaskExecutor.md",
+    "네트워크/SSL,TLS.md",
+    "Node.js/III. NPM.md",
+    "SPA/Vue.js/I. Vue 시작.md",
     "SPA/Vue.js/II. Vue file-loader.md",
     "conflict-files-obsidian-git.md",
     "빅데이터 & 인공지능 개념/Hadoop.md",
     "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering/X-V Amazon EMR.md",
-    "네트워크/SSL,TLS.md",
-    "Java/테스트용모듈/사전정보 데드링크 확인 관련 테스트.md",
-    "SPA/Vue.js/I. Vue 시작.md",
     "Pasted image 20240722235238.png",
     "Node.js/IV. 개발 서버 실행과 빌드.md",
-    "Node.js/III. NPM.md",
     "Node.js/II. NVM.md",
     "Node.js/I. Node.js 란.md",
     "단축키/옵시디언 단축키.md",
-    "단축키/아이패드 단축키.md",
-    "단위테스트/Untitled.md",
-    "DB/Oracle/Outer join.md",
-    "Java/입출력스트림.md",
     "Java/테스트용모듈",
-    "Java/무제 파일.md",
-    "네트워크/I. 웹 브라우저부터 서버까지.md",
-    "Java/알고리즘/알고리즘.md",
-    "DB/Oracle/Query/LAG() 함수.md",
-    "네트워크/소켓의 의미.md",
     "Node.js",
-    "SPA/Bundler/Bundler.md",
-    "SPA/Bundler/Parcel.md",
     "SPA/Bundler",
-    "SPA/무제 파일.md",
-    "CS/JS/$변수선언 가이드.md",
-    "CS/JS/비동기와 이벤트 루프.md",
     "Pasted image 20240713232343.png",
     "CS/JS",
-    "무제 폴더",
-    "SPA/Vue.js",
-    "SPA",
     "AWSSecretsManager-ECS.png",
     "Pasted image 20240704003714.png",
     "Pasted image 20240614004752.png",
@@ -264,9 +232,6 @@
     "storage.png",
     "Target-group.png",
     "WebSocket-API.png",
-    "빅데이터 & 인공지능 개념",
-    "AWS/Ultimate AWS Certified Solutions Architect Professional/X. Data Engineering",
-    "AWS/실전",
     "무제 파일.canvas"
   ]
 }
