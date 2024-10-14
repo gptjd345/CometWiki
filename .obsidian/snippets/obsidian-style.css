@@ -1,0 +1,38 @@
+/* 텍스트 볼드 (굵은 글씨) */
+.markdown-source-view.mod-cm6 .cm-strong, 
+.markdown-preview-view strong {
+	color: #dd8d31 !important;
+  font-family: 'Courier New', Courier, monospace;
+  vertical-align: bottom;
+  position: relative;
+  top: 2px;
+	}
+
+ /* 텍스트 이탤릭 */
+.markdown-preview-view em,
+.markdown-source-view.mod-cm6 .cm-em {
+  color: #4BACC6 !important;
+  margin-right: 3px;
+}
+
+/* 텍스트 볼드 & 이탤릭 (굵고 기울인 글씨) */
+.markdown-source-view.mod-cm6 .cm-strong.cm-em, 
+.markdown-preview-view strong em {
+color: #7ce13d !important;
+font-family: 'Courier New', Courier, monospace !important;
+margin-right: 3px;
+}
+
+/* 텍스트 하이라이트 */
+.markdown-preview-view mark,
+.markdown-source-view.mod-cm6 .cm-highlight {
+background-color: #b35e09 !important;
+color: #dddddd !important;
+padding: 2px 2px !important; /* 상하, 좌우 너비 */
+}
+
+/* 밑줄 */
+u {
+  text-underline-offset: 4px; /* 밑줄의 위치 조정 */
+  color: #dd578c
+  }
